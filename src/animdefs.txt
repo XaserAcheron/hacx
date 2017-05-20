@@ -1,0 +1,104 @@
+/* ANIMDEFS for HACX */
+
+flat	FAGOO1  	range	FAGOO8  	tics 4
+flat	FALAVA1 	range	FALAVA4 	tics 4
+flat	FASHOCK1	range	FASHOCK3	tics 4
+flat	FASLUDG1	range	FASLUDG8	tics 4
+flat	FATELE1 	range	FATELE3 	tics 4
+flat	FAVENT1 	range	FAVENT4 	tics 2
+flat	FAWATER1	range	FAWATER4	tics 4
+flat	FAWTRFH1	range	FAWTRFH4	tics 4
+flat	FAWTRFV1	range	FAWTRFV4	tics 4
+texture	DATASTR1	range	DATASTR3	tics 4
+texture	FALLS1  	range	FALLS4  	tics 4
+texture	GLOWEYE1	range	GLOWEYE4	tics 4
+texture	LAVA00		range	LAVA07		tics 4
+texture	LAVFALL1	range	LAVFALL8	tics 4
+texture	SHARKS1 	range	SHARKS5 	tics 4
+texture	SKUDRIP1	range	SKUDRIP4	tics 4
+texture	VENTFAN1	range	VENTFAN4	tics 2
+texture	VENTFAN5	range	VENTFAN8	tics 2
+texture	WATFALL1	range	WATFALL4	tics 4
+texture	WATFALB1	range	WATFALB8	tics 4
+texture	WATWALL1	range	WATWALL4	tics 4
+texture WATER00     range   WATER07     tics 4
+
+texture ADSS1_00    range   ADSS1_01    tics 4
+texture ADSS2_00    range   ADSS2_05    tics 4
+
+texture	SCR01_00	pic 1 tics 12 pic 2 tics 4
+texture SCR02_00    range   SCR02_04    tics 4
+texture SCR03_00    range   SCR03_03    tics 4
+texture SCR04_00    range   SCR04_05    tics 4
+
+texture C_SW10_1    range   C_SW10_4    tics 4
+texture CAN1A_00    range   CAN1A_07    tics 4
+texture CAN1B_00    range   CAN1B_07    tics 4
+texture CAN1C_00    range   CAN1C_07    tics 4
+texture CAN1D_00    range   CAN1D_07    tics 4
+texture CAN1E_00    range   CAN1E_07    tics 4
+texture CAN1F_00    range   CAN1F_07    tics 4
+texture CAN2A_00    range   CAN2A_01    tics 8
+texture CAROADA1    range   CAROADA2    tics 4
+texture CAROADB1    range   CAROADB2    tics 4
+texture CAROADC1    range   CAROADC2    tics 8
+texture CAROADD1    range   CAROADD2    tics 8
+texture CASTRPA1    range   CASTRPA2    tics 4
+
+switch SW1BREAK on pic SW2BREAK tics 0 // needs special 'smash' sound
+switch SW1BUTNS on pic SW2BUTNS tics 0 off sound switches/exitbutn pic SW1BUTNS tics 0
+switch SW1COMPA on pic SW2COMPA tics 0 // needs computer-y sound
+switch SW1COMPB on pic SW2COMPB tics 0 // needs computer-y sound
+switch SW1KEYS  on pic SW2KEYS  tics 0 off sound switches/exitbutn pic SW1KEYS  tics 0
+switch SW1LEVER on pic SW2LEVER tics 0 off sound switches/exitbutn pic SW1LEVER tics 0
+switch SW1SKULL on pic SW2SKULL tics 0 off sound switches/exitbutn pic SW1SKULL tics 0
+switch SW1STONE on pic SW2STONE tics 0 off sound switches/exitbutn pic SW1STONE tics 0
+switch SW1VENT  on pic SW2VENT  tics 0 // needs special 'smash' sound
+
+switch C_FILE1A on pic C_FILE2A tics 0
+switch C_FILE1B on pic C_FILE2B tics 0
+switch C_FILE1C on pic C_FILE2C tics 0
+switch C_FILE1D on pic C_FILE2D tics 0
+switch C_FILE1E on pic C_FILE2E tics 0
+switch C_FILE1F on pic C_FILE2F tics 0
+
+switch C_DOOR1A on pic C_DOOR2A tics 0
+switch C_DOOR1B on pic C_DOOR2B tics 0
+switch C_DOOR1C on pic C_DOOR2C tics 0
+switch C_DOOR1D on pic C_DOOR2D tics 0
+switch C_DOOR1E on pic C_DOOR2E tics 0
+switch C_DOOR1F on pic C_DOOR2F tics 0
+
+switch C_DOOR3A on pic C_DOOR4A tics 0
+switch C_DOOR3B on pic C_DOOR4B tics 0
+switch C_DOOR3C on pic C_DOOR4C tics 0
+switch C_DOOR3D on pic C_DOOR4D tics 0
+switch C_DOOR3E on pic C_DOOR4E tics 0
+switch C_DOOR3F on pic C_DOOR4F tics 0
+
+switch C_DOOR5A on pic C_DOOR6A tics 0
+switch C_DOOR5B on pic C_DOOR6B tics 0
+switch C_DOOR5C on pic C_DOOR6C tics 0
+switch C_DOOR5D on pic C_DOOR6D tics 0
+switch C_DOOR5E on pic C_DOOR6E tics 0
+switch C_DOOR5F on pic C_DOOR6F tics 0
+
+switch C_PAGE1A on pic C_PAGE2A tics 0
+switch C_PAGE1B on pic C_PAGE2B tics 0
+switch C_PAGE1C on pic C_PAGE2C tics 0
+switch C_PAGE1D on pic C_PAGE2D tics 0
+switch C_PAGE1E on pic C_PAGE2E tics 0
+switch C_PAGE1F on pic C_PAGE2F tics 0
+
+switch C_SW1A on pic C_SW2A tics 0
+switch C_SW1B on pic C_SW2B tics 0
+switch C_SW1C on pic C_SW2C tics 0
+switch C_SW1D on pic C_SW2D tics 0
+switch C_SW1E on pic C_SW2E tics 0
+switch C_SW1F on pic C_SW2F tics 0
+switch C_SW3A on pic C_SW4A tics 0
+switch C_SW5A on pic C_SW6A tics 0
+switch C_SW7A on pic C_SW8A tics 0
+switch C_SW9A on pic C_SW10_1 tics 0
+switch C_SW11A on pic C_SW12A tics 0
+switch C_SWKEY1 on pic C_SWKEY2 tics 0

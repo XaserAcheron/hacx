@@ -1,0 +1,262 @@
+/* ---- Weapons ---- */
+
+weapons/grunt				dsgrunt
+weapons/kick				dskick
+
+weapons/rezup				dsrezup
+weapons/rezdown				dsrezdwn
+weapons/rezidle				dsrezidl
+weapons/rezfull				dsrezful
+weapons/rezhit				dsrezhit
+
+weapons/pistol				dspistol
+weapons/pistolup			dspiscok
+
+weapons/tazer				dstazgun
+weapons/tazerfire			dstazerf
+weapons/tazerhit			dstazerh
+weapons/tazerzap			dstazerz
+weapons/tazercharge			dstazerc
+weapons/tazerup				dstazrup
+
+weapons/cryofire			dscryfir
+weapons/cryohit				dscryhit
+weapons/cryocool			dscrycol
+weapons/cryoup				dscryoup
+
+weapons/uzireload			dsuzirel
+weapons/uziup				dsuzicok
+
+weapons/zookafire			dszooka
+weapons/zookafly			dszoofly
+weapons/zookahit			dsexplod
+weapons/zookaup				dscharge
+
+weapons/antigun				dsantign
+weapons/antigunhit			dsanthit
+weapons/antigunup			dsantiup
+
+weapons/nuker				dsnuker
+weapons/nukehit				dsnuboom
+weapons/nukerup				dsnukrup
+
+$limit weapons/antigun 0
+$limit weapons/pistol 0
+$limit weapons/zookafire 0
+$limit weapons/zookahit 0
+
+/* ---- Enemies ---- */
+
+
+$random thug/sight 		{ thug/sight1  thug/sight2  thug/sight3 }
+$random thug/death		{ thug/death1  thug/death2  thug/death3 }
+thug/sight1			dsthgsi1
+thug/sight2			dsthgsi2
+thug/sight3			dsthgsi3
+thug/active			dsthgact
+thug/pain			dsthgpai
+thug/death1			dsthgdt1
+thug/death2			dsthgdt2
+thug/death3			dsthgdt3
+thug/attack			dspistol
+
+$random android/death		{ android/death1  android/death2 }
+android/sight			dsandsit
+android/active			dsandact
+android/attack			dstazer
+android/pain			dsandpai
+android/death1			dsanddt1
+android/death2			dsanddt2
+android/gib				dsandgib
+
+phage/sight			dsphgsit
+phage/active			dsphgact
+phage/attack			dsphgatk
+phage/melee				dsphgmel
+phage/pain			dsphgpai
+phage/death			dsphgdth
+
+buzzer/sight			dsbuzsit
+buzzer/active			dsbuzact
+buzzer/attack			dsbuzatk
+buzzer/pain			dsbuzpai
+buzzer/death			dsexplod
+buzzer/disable			dsanthit
+
+monstruct/sight			dsmonsit
+monstruct/active		dsmonact
+monstruct/pain			dsmonpai
+monstruct/death			dsmondth
+
+replicant/sight			dsrepsit
+replicant/active		dsrepact
+replicant/attack		dsrepatk
+replicant/pain			dsthgpai
+replicant/death			dspldeth
+
+$random replicant/sight 	{ replicant/sight1  replicant/sight2  replicant/sight3 }
+$random replicant/death		{ replicant/death1  replicant/death2  replicant/death3 }
+replicant/sight1			dsrepsi1
+replicant/sight2			dsrepsi2
+replicant/sight3			dsrepsi3
+replicant/active			dsrepact
+replicant/pain				dsreppai
+replicant/death1			dsrepdt1
+replicant/death2			dsrepdt2
+replicant/death3			dsrepdt3
+replicant/attack			dsrepact
+
+terminatrix/sight		dstersit
+terminatrix/active		dsteract
+terminatrix/attack		dsteratk
+terminatrix/pain		dsterpai
+terminatrix/death		dsterdth
+
+mecha/sight			dsmeksit
+mecha/active		dsmekact
+mecha/walk			dsmekwlk
+mecha/pain			dsmekpai
+mecha/death			dsmekdth
+//$limit mecha/walk 8
+
+thorn/sight			dsthnsit
+thorn/walk			dsthnwlk
+thorn/attack		dsthnatk
+thorn/fly			dsthnfly
+thorn/pain			dsthnsit
+thorn/death			dsthndth
+
+ice/sight			dsthgsi3
+ice/active			dsiceact
+ice/attack			dsthgdt2
+ice/pain			dsicepai
+ice/death			dsgibbed
+
+spawn/active		dsiceact
+spawn/attack		dsgspatk
+spawn/pain			dsbuzpai
+spawn/death			dsgibbed
+
+majong7/sight			dsmj7sit
+majong7/active			dsmj7act
+majong7/walk			dsmj7wlk
+majong7/attack			dsmj7atk
+majong7/pain			dsmj7pai
+majong7/death			dsmj7dth
+
+genie/sight			dsgensit
+genie/active		dsgenact
+genie/engine		dsgeneng
+genie/attack		dsgenatk
+genie/claw			dsgenclw
+genie/pain			dsgenpai
+genie/death			dsgendth
+
+$rolloff genie/engine  300 1800
+$rolloff genie/pain    300 1800
+
+mine/active			dsminact
+mine/death			dsexplod
+
+glass/break			dsglass
+
+/* ---- Misc ---- */
+
+misc/gibbed			dsgibbed
+
+misc/projectilefire		dsprjfir
+misc/projectilehit		dsprjhit
+
+misc/explode			dsexplod
+misc/explode2			dsexplo2
+misc/nuke			dsnuboom
+
+misc/pulse				dspulse
+misc/fireball			dsanthit
+misc/smash				dssmash
+misc/shatter			dshatter
+
+misc/torch				dstorch
+$rolloff misc/torch 64 512
+
+cyber/explode1		dscyexp1
+cyber/explode2		dscyexp2
+cyber/explode3		dscyexp3
+cyber/explode4		dscyexp4
+$random cyber/explode { cyber/explode1 cyber/explode2 cyber/explode3 cyber/explode4 }
+cyber/hit1			dscyhit1
+cyber/hit2			dscyhit2
+cyber/hit3			dscyhit3
+cyber/hit4			dscyhit4
+$random cyber/hit { cyber/hit1 cyber/hit2 cyber/hit3 cyber/hit4 }
+
+misc/chat			dscomm
+misc/chat2			dscomm
+
+$random menu/quit1 { player/male/death1  thug/death1  misc/gibbed  android/death1 }
+$random menu/quit2 { thorn/death  monstruct/death  terminatrix/death  phage/death }
+
+
+menu/activate			dsswtchn	// Activate a new menu
+menu/backup				dsswtchn	// Backup to previous menu
+menu/prompt				dsswtchn	// Activate a prompt "menu"
+menu/cursor				dspstop		// Move cursor up/down
+menu/change				dsstnmov	// Select new value for option
+menu/invalid			dscrycol	// Menu not available
+menu/dismiss			dsswtchx	// Dismiss a prompt message
+menu/choose				dsswtchn	// Choose a menu item
+menu/clear				dsswtchx	// Close top menu
+
+intermission/tick			dspistol
+intermission/cooptotal		dspldeth
+intermission/nextstage		dsexplod
+intermission/paststats		dscharge
+intermission/pastcoopstats	dscharge
+intermission/pastdmstats	dspdiehi
+
+doors/door1_open			dsdr1opn
+doors/door1_close			dsdr1cls
+doors/door2_open			dsdr2opn
+doors/door2_close			dsdr2cls
+doors/door3_open			dsdr3opn
+doors/door3_close			dsdr3cls
+doors/doorhuge_open			dshdropn
+doors/doorhuge_close		dshdrcls
+
+plats/plat2_start			dsp2strt
+plats/plat2_stop			dsp2stop
+
+ambience/bubbles1			dsabubl1
+ambience/bubbles2			dsabubl2
+ambience/bubbles3			dsabubl3
+ambience/bubbles4			dsabubl4
+ambience/darkcircuit		dsadarkc
+ambience/firesmall			dsafire1
+ambience/lightbuzz			dsalitbz
+ambience/motor				dsamotor
+ambience/pulse				dsapulse
+ambience/stream				dsastrm1
+ambience/wave1				dsawave1
+ambience/wave2				dsawave2
+ambience/waterfall			dsawfall
+ambience/windhigh			dsawindh
+ambience/windlow			dsawindl
+ambience/windsand			dsawinds
+ambience/beep1				dsabeep1
+ambience/fanlarge			dsafanlg
+ambience/static1			dsastat1
+ambience/cave1				dsacave1
+ambience/cave2				dsacave2
+ambience/fire1				dsafire1
+ambience/fire2				dsafire2
+ambience/fire3				dsafire3
+ambience/fire4				dsafire4
+ambience/lava1				dsalava1
+ambience/lava2				dsalava2
+ambience/lava3				dsalava3
+
+point/drip1					dspdrip1
+$random point/drip { point/drip1 }
+point/powerdown				dsppowdn
+point/powerup				dsppowup
+point/ditty					dspditty

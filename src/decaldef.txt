@@ -1,0 +1,98 @@
+/* ZDoom Decals for HACX */
+
+decal TazerScorch1
+{
+	pic CBALSCR1
+	shade "77 ff 6F"
+	fullbright
+	x-scale 0.2
+	y-scale 0.2
+	animator GoAway
+	lowerdecal RailScorchLower
+}
+
+decal TazerScorch2
+{
+	pic CBALSCR2
+	shade "77 ff 6F"
+	fullbright
+	x-scale 0.2
+	y-scale 0.2
+	animator GoAway
+	lowerdecal RailScorchLower
+}
+
+decalgroup TazerScorch
+{
+	TazerScorch1 1
+	TazerScorch2 1
+}
+
+
+decal CryoScorchLower1
+{
+	pic CBALSCR1
+	shade "00 00 00"
+	x-scale 0.15
+	y-scale 0.10
+	randomflipx
+	randomflipy
+}
+
+decal CryoScorchLower2
+{
+	pic CBALSCR2
+	shade "00 00 00"
+	x-scale 0.15
+	y-scale 0.10
+	randomflipx
+	randomflipy
+}
+
+decalgroup CryoScorchLower
+{
+	CryoScorchLower1 1
+	CryoScorchLower2 1
+}
+
+decal CryoScorch1
+{
+	pic CBALSCR1
+	shade "88 88 ff"
+	fullbright
+	x-scale 0.1
+	y-scale 0.1
+	animator GoAway
+	lowerdecal CryoScorchLower
+}
+
+decal CryoScorch2
+{
+	pic CBALSCR2
+	shade "88 88 ff"
+	fullbright
+	x-scale 0.1
+	y-scale 0.1
+	animator GoAway
+	lowerdecal CryoScorchLower
+}
+
+decalgroup CryoScorch
+{
+	CryoScorch1 1
+	CryoScorch2 1
+}
+
+generator HacxPuff		BulletChip
+generator TazerShot		TazerScorch
+generator TazerFrag		TazerScorch
+generator CryoShot		CryoScorch
+generator HacxPhoton	Scorch
+generator HacxMolecule	PlasmaScorchLower
+
+generator HacxThug				BulletChip
+generator HacxAndroid			TazerScorch
+generator HacxPhageBall			PlasmaScorchLower
+generator HacxMonstructShot		Scorch
+generator HacxTerminatrixBall	PlasmaScorchLower
+generator HacxThornThingBall	PlasmaScorchLower

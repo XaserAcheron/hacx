@@ -1,0 +1,81 @@
+// Hacx Doors ---------------------------------
+
+:DoorOpenSlow
+	play		doors/door1_open
+	nostopcutoff
+end
+
+:DoorCloseSlow
+	play		doors/door1_close
+	nostopcutoff
+end
+
+:DoorOpenWoodSlow
+	play		doors/door2_open
+	nostopcutoff
+end
+
+:DoorCloseWoodSlow
+	play		doors/door2_close
+	nostopcutoff
+end
+
+:DoorOpenWoodFast
+	play		doors/door3_open
+	nostopcutoff
+end
+
+:DoorCloseWoodFast
+	play		doors/door3_close
+	nostopcutoff
+end
+
+:DoorOpenHuge
+	play		doors/doorhuge_open
+	nostopcutoff
+end
+
+:DoorCloseHuge
+	play		doors/doorhuge_close
+	nostopcutoff
+end
+
+[DoorSlow
+ Door 0
+ 0		DoorOpenSlow
+ 1		DoorCloseSlow
+ 2		DoorOpenSlow
+ 3		DoorCloseSlow
+]
+
+[DoorFast
+ Door 1
+ 0		DoorOpenBlazing
+ 1		DoorCloseBlazing
+ 2		DoorOpenBlazing
+ 3		DoorCloseBlazing
+]
+
+[DoorWoodSlow
+ Door 2
+ 0		DoorOpenWoodSlow
+ 1		DoorCloseWoodSlow
+ 2		DoorOpenWoodSlow
+ 3		DoorCloseWoodSlow
+]
+
+[DoorWoodFast
+ Door 3
+ 0		DoorOpenWoodFast
+ 1		DoorCloseWoodFast
+ 2		DoorOpenWoodFast
+ 3		DoorCloseWoodFast
+]
+
+[DoorHuge
+ Door 8
+ 0		DoorOpenHuge
+ 1		DoorCloseHuge
+ 2		DoorOpenHuge
+ 3		DoorCloseHuge
+]

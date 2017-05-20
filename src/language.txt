@@ -1,0 +1,195 @@
+/* ZDoom LANGUAGE.enu for HACX */
+
+[enu default]
+
+// Quit strings
+QUITMSG = "are you sure you want to\njack out of the action?";
+
+QUITMSG1 = "These bugs too tough for ya?";
+QUITMSG2 = "Trying to quit? And you call yourself a hacker?";
+QUITMSG3 = "Get back here before I send a virus up your tailpipe!";
+QUITMSG4 = "Real hackers never jack out of the action.";
+QUITMSG5 = "C'mon! You haven't seen the best part yet!";
+QUITMSG6 = "Give up now, and cyberspace is toast!";
+QUITMSG7 = "GENIE sends its best regards, scumbag!";
+QUITMSG8 = "Hmm. So much for being a hero, Hacker.";
+QUITMSG9 = "What? You'd rather go back to the pen?";
+QUITMSG10 = "Shoulda taken the blue pill.";
+QUITMSG11 = "The name of the game ain't Twitch n' Run!";
+QUITMSG12 = "No worries. Saving the world can wait, right?";
+QUITMSG13 = "Guess it's time to make like the 'net and split!";
+QUITMSG14 = "Don't go off and forget about Hacx, now!";
+
+// Obituary strings
+OB_SUICIDE    = "%o deleted %hself from the universe.";
+OB_FALLING    = "%o formed a crater the size of Kansas.";
+OB_CRUSH      = "%o became a human pancake.";
+OB_EXIT       = "%o tried to jack out.";
+OB_WATER      = "%o swam like a brick.";
+OB_SLIME      = "%o went nuclear.";
+OB_LAVA       = "%o took a hot bath.";
+OB_BARREL     = "%o overdosed on nitro glycerine.";
+OB_CACTUS     = "%o kissed a cactus.";
+OB_SPLASH     = "%o was flayed into tiny little pieces.";
+OB_R_SPLASH   = "%o wanted to see what %g looked like inside-out.";
+OB_ROCKET     = "%o wanted to see what %g looked like inside-out.";
+OB_KILLEDSELF = "%o deleted %hself from the universe.";
+
+OB_THUG       = "%o was plugged by a Thug.";
+OB_ANDROID    = "%o plugged in to the wrong machine.";
+OB_MONSTRUCT  = "%o was horrendously Monstructed.";
+OB_ICE        = "%o got ICE'd.";
+OB_BUZZER     = "%o feels a little Buzzed.";
+OB_STEALTH    = "%o got Stealth-fried.";
+OB_GENIESPAWN = "%o was caught wearing a G-Spawn.";
+OB_MANIAC     = "%o took a Mech to heck.";
+OB_TERMIN     = "%o was fried by a femme fatale freak.";
+OB_TERMINHIT  = "%o got a little close to the opposite sex.";
+OB_REPLI      = "%o got replaced by a Replicant.";
+OB_PHAGE      = "%o was Phaged out of existence.";
+OB_THORN      = "%o couldn't escape a Thorny death.";
+OB_GRAX       = "%o got %p genes spliced all over the place.";
+OB_GENIE      = "%o didn't get %p three wishes.";
+OB_MINE       = "%o tried to pet a mine.";
+OB_GLASS      = "%o gave %hself a glass jaw.";
+
+OB_MPKICK        = "%o took %k's Bruce Lee fu-kick to the face.";
+OB_MPREZNATOR    = "%o was shocked by %k's show of brutality.";
+OB_MPXPISTOL     = "%o took a double-dose of %k's punishment.";
+OB_MPTAZER       = "%o was shut down by %k's shock-stick.";
+OB_MPCRYOGUN     = "%o got a face-full of %k's ice-cold wrath.";
+OB_MPUZI         = "%o was drilled full of holes by %k, gangsta-style.";
+OB_MPDUALUZIS    = "%o has been swiss cheese'd by %k.";
+OB_MPZOOKA       = "%o ate %k's photon bomb.";
+OB_MPZ_SPLASH    = "%o was reduced to a neat pile of photons by %k.";
+OB_MPANTIGUN     = "%o was reduced to antimatter by %k.";
+OB_MPNUKE        = "%o swallowed %k's nuke.";
+OB_MPNUKESPLASH  = "%o didn't survive %k's fallout.";
+OB_MPTELEFRAG    = "%o was turned inside-out by %k.";
+
+OB_MONTELEFRAG = "%o's atomic structure was split apart.";
+
+OB_DEFAULT = "%o spontaneously expired.";
+
+// Items n' Stuff
+
+TAG_KICK        = "Kick";
+TAG_REZNATOR    = "Reznator";
+TAG_XPISTOL     = "Pistol";
+TAG_TAZER       = "Tazer";
+TAG_CRYOGUN     = "Cryogun";
+TAG_UZI         = "Uzi";
+TAG_DUALUZIS    = "Dual Uzis";
+TAG_PHOTONZOOKA = "Photon 'Zooka";
+TAG_ANTIGUN     = "Antigun";
+TAG_NUKER       = "Nuker";
+
+TAG_ROUNDS      = "Rounds";
+TAG_CARTRIDGES  = "Cartridges";
+TAG_TORPEDOS    = "Torpedos";
+TAG_MOLECULES   = "Molecules";
+
+GOTREZNATOR    = "A HOIG Reznator - FRY some butt!";
+GOTXPISTOL     = "You got a pistol!";
+GOTTAZER       = "You got a Tazer!";
+GOTCRYOGUN     = "You got a Cryogun! FREEZE!";
+GOTUZI         = "You got an UZI!";
+GOTDUALUZIS    = "Dual uzis? Don't mind if I do...";
+GOTPHOTONZOOKA = "You got a Photon 'Zooka!";
+GOTANTIGUN     = "You carry a Big Stick!";
+GOTNUKER       = "You got a NUKER! Suck on this!";
+
+GOTROUNDS         = "You grab some rounds!";
+GOTROUNDSCASE     = "You grab a case of rounds!";
+GOTTORPEDO        = "You grab a Torpedo!";
+GOTTORPEDOS       = "You grab a case of Torpedos!";
+GOTMOLECULES      = "You grab a molecule module!";
+GOTMOLECULESTANK  = "You grab a tank full of molecules!";
+GOTCARTRIDGES     = "You grab some cartridges!";
+GOTCARTRIDGESCASE = "You grab a case of cartridges!";
+GOTVALISE         = "You grab a valise stuffed with goods!";
+
+GOTFORCEFIELD  = "Force Field!";
+GOTMICROTEL    = "007 Microtel!";
+GOTSPEEDHACK   = "Speed Hack!";
+GOTRUBBERBOOTS = "Vulcan rubber Boots!";
+GOTSIARRAY     = "SI Array mapping!";
+GOTINFRARED    = "Infrared Visor!";
+
+GOTINHALER  = "Breath deep, Inhaler!";
+GOTHYPONEED = "A dose of Hydergine from a Hypo saves you!";
+GOTHYPO     = "You grab a Hypo!";
+
+GOTKEYCARD  = "You found a KeyCard!";
+GOTPASSWORD = "You found a Password!";
+GOTGOLDKEY  = "You found a Gold Key!";
+GOTBLUEZKEY = "You found a Blue Z-Key!";
+GOTYELWZKEY = "You found a Yellow Z-Key!";
+GOTREDZKEY  = "You found a Red Z-Key!";
+
+GOTBODYARMOR = "Body Armor!";
+GOTCENTROPHENOXINE = "Centrophenoxine!";
+
+GOTKEVLARVEST  = "You grab a Kevlar vest!";
+GOTSKEVLARVEST = "You grab Super Kevlar vest!";
+GOTMICROKIT = "You grab a MicroKit!";
+GOTDAMPENER = "You grab a Dampener!";
+
+PD_KEYCARD = "You need a KeyCard to access this item!";
+PD_PASSWORD = "You need a Password to access this item!";
+PD_GOLDKEY = "You need a Gold Key to access this item!";
+PD_BLUEZKEY = "You need a Blue Z-Key to make this work!";
+PD_REDZKEY = "You need a Red Z-Key to make this work!";
+PD_YELWZKEY = "You need a Yellow Z-Key to make this work!";
+
+SKILL_BABY      = "Please don't shoot!";
+SKILL_EASY      = "Arrgh, I need health!";
+SKILL_NORMAL    = "Let's rip them apart!";
+SKILL_HARD      = "I am immortal";
+SKILL_NIGHTMARE = "INSANITY!";
+
+// Extra info
+SAVEGAMENAME = "zhacxsv";
+STARTUP1 = "==========================";
+STARTUP2 = "== HacX: Twitch n' Kill ==";
+STARTUP3 = "==    v2.0 Enhanced!    ==";
+STARTUP4 = "== Let's fry some butt! ==";
+STARTUP5 = "==========================";
+
+// Map names
+XHUSTR_1 = "GenEmp Corp.";
+XHUSTR_2 = "Tunnel Town";
+XHUSTR_3 = "Lava Annex";
+XHUSTR_4 = "Alcatraz";
+XHUSTR_5 = "Cyber Circus";
+XHUSTR_6 = "Digi-Ota";
+XHUSTR_7 = "The Great Wall";
+XHUSTR_8 = "Garden of Delights";
+XHUSTR_9 = "Hidden Fortress";
+XHUSTR_10 = "Anarchist Dream";
+XHUSTR_11 = "Notus Us!";
+XHUSTR_12 = "Gothik Gauntlet";
+XHUSTR_13 = "Catacombs";
+XHUSTR_14 = "Notre Damned";
+XHUSTR_15 = "Twilight of Enk's";
+XHUSTR_16 = "Protean Cybex";
+XHUSTR_17 = "Dune City";
+XHUSTR_18 = "River of Blood";
+XHUSTR_19 = "Valley of the Dead";
+XHUSTR_20 = "Artificial Annihilation";
+XHUSTR_21 = "CryoZine";
+XHUSTR_22 = "Pentagon Syndrome";
+XHUSTR_23 = "Capitol Punishment";
+XHUSTR_24 = "The War Rooms";
+XHUSTR_25 = "Intruder Alert!";
+XHUSTR_26 = "The Darkness";
+XHUSTR_27 = "'Trode Wars";
+XHUSTR_28 = "Bizarro";
+XHUSTR_29 = "Reality Bytes";
+XHUSTR_30 = "Twitch N' Kill";
+XHUSTR_31 = "Subspace Arcadum";
+XHUSTR_32 = "Dessicant Room";
+XHUSTR_33 = "Future Perfect";
+
+XHUSTR_34 = "GenEmp Lobby";
+XHUSTR_35 = "Cybernetic Junction";

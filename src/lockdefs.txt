@@ -1,0 +1,145 @@
+ClearLocks
+
+//
+// Hacx Locks -- or should that be "Locx"? :P
+//
+
+Lock 1
+{
+	HacxPassword
+	Message "$PD_PASSWORD"
+	RemoteMessage "$PD_PASSWORD"
+	Mapcolor 192 0 0
+}
+
+
+Lock 2
+{
+	HacxKeyCard
+	Message "$PD_KEYCARD"
+	RemoteMessage "$PD_KEYCARD"
+	Mapcolor 0 0 192
+}
+
+
+Lock 3
+{
+	HacxGoldKey
+	Message "$PD_GOLDKEY"
+	RemoteMessage "$PD_GOLDKEY"
+	Mapcolor 192 192 0
+}
+
+Lock 4
+{
+	HacxRedZKey
+	Message "$PD_REDZKEY"
+	RemoteMessage "$PD_REDZKEY"
+	Mapcolor 255 0 0
+}
+
+
+Lock 5
+{
+	HacxBlueZKey
+	Message "$PD_BLUEZKEY"
+	RemoteMessage "$PD_BLUEZKEY"
+	Mapcolor 0 0 255
+}
+
+
+Lock 6
+{
+	HacxYellowZKey
+	Message "$PD_YELWZKEY"
+	RemoteMessage "$PD_YELWZKEY"
+	Mapcolor 255 255 0
+}
+
+Lock 129
+{
+	Any { HacxPassword HacxRedZKey }
+	Message "$PD_REDZKEY"
+	RemoteMessage "$PD_PASSWORD"
+	Mapcolor 255 0 0
+}
+
+
+Lock 130
+{
+	Any { HacxKeyCard HacxBlueZKey }
+	Message "$PD_BLUEZKEY"
+	RemoteMessage "$PD_KEYCARD"
+	Mapcolor 0 0 255
+}
+
+
+Lock 131
+{
+	Any { HacxGoldKey HacxYellowZKey }
+	Message "$PD_YELWZKEY"
+	RemoteMessage "$PD_GOLDKEY"
+	Mapcolor 255 255 0
+}
+
+
+Lock 132
+{
+	Any { HacxPassword HacxRedZKey }
+	Message "$PD_REDZKEY"
+	RemoteMessage "$PD_PASSWORD"
+	Mapcolor 255 0 0
+}
+
+
+Lock 133
+{
+	Any { HacxKeyCard HacxBlueZKey }
+	Message "$PD_BLUEZKEY"
+	RemoteMessage "$PD_KEYCARD"
+	Mapcolor 0 0 255
+}
+
+
+Lock 134
+{
+	Any { HacxGoldKey HacxYellowZKey }
+	Message "$PD_YELWZKEY"
+	RemoteMessage "$PD_GOLDKEY"
+	Mapcolor 255 255 0
+}
+
+Lock 100
+{
+	Message "$PD_ANY"
+	RemoteMessage "$PD_ANYOBJ"
+	Mapcolor 128 128 255
+}
+
+Lock 228
+{
+	Message "$PD_ANY"
+	RemoteMessage "$PD_ANYOBJ"
+	Mapcolor 128 128 255
+}
+
+Lock 229
+{
+	Any { HacxPassword HacxRedZKey }
+	Any { HacxKeyCard HacxBlueZKey }
+	Any { HacxGoldKey HacxYellowZKey }
+	Message "$PD_ALL3"
+	RemoteMessage "$PD_ALL3O"
+}
+
+Lock 101
+{
+	HacxKeyCard 
+	HacxBlueZKey
+	HacxGoldKey 
+	HacxYellowZKey
+	HacxPassword 
+	HacxRedZKey
+	Message "$PD_ALL6"
+	RemoteMessage "$PD_ALL6O"
+}

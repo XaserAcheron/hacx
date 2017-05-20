@@ -1,0 +1,8 @@
+/* ZDoom Map Translator for HACX */
+
+// Import Eternity lines/specials
+include "xlat/eternity.txt"
+
+// Polyobject Specials
+270 = USE|REP, Line_SetIdentification(tag)
+348 = 0,	Polyobj_StartLine(tag%100 + 100*(((tag%10000)/1000)-8), 0, (tag%1000)/100, 0)

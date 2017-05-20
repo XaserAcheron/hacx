@@ -1,0 +1,379 @@
+// Hacx EDFs -- Weapons
+
+# Kick
+frame S_KICK     { cmp = "KICK|A|*|1|WeaponReady|@this";       dehackednum = 2 }
+frame S_KICKDOWN { cmp = "KICK|A|*|1|Lower      |@this";       dehackednum = 3 }
+frame S_KICKUP   { cmp = "KICK|A|*|1|Raise      |@this";       dehackednum = 4 }
+frame S_KICK1    { cmp = "KICK|B|*|3|PlaySoundEx(grunt, chan_weapon)|@next"; dehackednum = 5 }
+frame S_KICK2    { cmp = "KICK|C|*|3|*          |@next";   }
+frame S_KICK3    { cmp = "KICK|D|*|8|CustomPlayerMelee(4, 10, 10, punch, kick)|@next";   }
+frame S_KICK4    { cmp = "KICK|C|*|3|*          |@next"; }
+frame S_KICK5    { cmp = "KICK|B|*|3|*          |S_KICK"; }
+// Kick needs: Additional melee range (96 units). Also QuickKick... ?
+
+# Pistol
+frame S_XPISTOL      { cmp = "PISG|A|*|1|WeaponReady|@this";       dehackednum = 10 }
+frame S_XPISTOLDOWN  { cmp = "PISG|A|*|1|Lower      |@this";       dehackednum = 11 }
+frame S_XPISTOLUP    { cmp = "PISG|A|*|1|Raise      |@this";       dehackednum = 12 }
+frame S_XPISTOL1     { cmp = "PISG|A|*|0|GunFlash   |@next";       dehackednum = 13 }
+frame S_XPISTOL2     { cmp = "PISG|B|*|0|FireCustomBullets(pistol, first, 1, 5, 3)|@next"; }
+frame S_XPISTOL3     { cmp = "PISG|B|*|5|FireCustomBullets(pistol, first, 1, 5, 3)|@next"; }
+frame S_XPISTOL4     { cmp = "PISG|C|*|3|*          |@next";       }
+frame S_XPISTOL5     { cmp = "PISG|A|*|3|*          |@next";   }
+frame S_XPISTOL6     { cmp = "PISG|A|*|4|ReFire     |S_XPISTOL";    }
+frame S_XPISTOLFLASH { cmp = "PISF|A|T|3|Light1     |S_LIGHTDONE"; dehackednum = 17 }
+// Pistol needs: Tighter accuracy (2-degree spread) for shots.
+
+# Reznator
+frame S_REZ     { cmp = "REZG|C|*|1|WeaponReady|@next"; dehackednum = 67 }
+frame S_REZB    { cmp = "REZG|C|*|1|WeaponReady|@next"; }
+frame S_REZC    { cmp = "REZG|C|*|1|WeaponReady|@next"; }
+frame S_REZD    { cmp = "REZG|C|*|1|WeaponReady|@next"; }
+frame S_REZE    { cmp = "REZG|D|*|1|WeaponReady|@next"; }
+frame S_REZF    { cmp = "REZG|D|*|1|WeaponReady|@next"; }
+frame S_REZG    { cmp = "REZG|D|*|1|WeaponReady|@next"; }
+frame S_REZH    { cmp = "REZG|D|*|1|WeaponReady|S_REZ"; }
+frame S_REZDOWN { cmp = "REZG|C|*|1|Lower      |@this"; dehackednum = 69 }
+frame S_REZUP   { cmp = "REZG|C|*|1|Raise      |@this"; dehackednum = 70 }
+frame S_REZ1    { cmp = "REZG|A|T|3|Saw        |@next"; dehackednum = 71 }
+frame S_REZ2    { cmp = "REZG|B|T|3|Saw        |@next"; }
+frame S_REZ3    { cmp = "REZG|B|*|0|ReFire     |S_REZ"; }
+// Reznator needs: Custom puff. Maybe something else; wait 'til weapon code done
+
+# Tazer
+frame S_TAZER       { cmp = "TAZG|A|*|1|WeaponReady|@this"; dehackednum = 18 }
+frame S_TAZERDOWN   { cmp = "TAZG|A|*|1|Lower      |@this"; dehackednum = 19 }
+frame S_TAZERUP     { cmp = "TAZG|A|*|1|Raise      |@this"; dehackednum = 20 }
+frame S_TAZER1      { cmp = "TAZG|A|*|0|PlaySoundEx(tazerc,chan_voice) |@next"; dehackednum = 21 }
+frame S_TAZER2      { cmp = "TAZG|A|*|3|GunFlash                       |@next"; }
+frame S_TAZER3      { cmp = "TAZG|A|*|0|PlaySoundEx(tazgun,chan_weapon)|@next"; }
+frame S_TAZER4      { cmp = "TAZF|A|T|3|FirePlayerMissile(TazerShot,0) |@next"; }
+frame S_TAZER5      { cmp = "TAZF|B|T|2|*          |@next"; }
+frame S_TAZER6      { cmp = "TAZG|C|*|2|*          |@next"; }
+frame S_TAZER7      { cmp = "TAZG|D|*|3|*          |@next"; }
+frame S_TAZER8      { cmp = "TAZG|E|*|5|*          |@next"; }
+frame S_TAZER9      { cmp = "TAZG|D|*|4|*          |@next"; }
+frame S_TAZER10     { cmp = "TAZG|C|*|3|*          |@next"; }
+frame S_TAZER11     { cmp = "TAZG|A|*|4|*          |@next"; }
+frame S_TAZER12     { cmp = "TAZG|A|*|1|ReFire     |S_TAZER"; }
+frame S_TAZERFLASH1 { cmp = "TAZC|A|T|2|*          |@next"; dehackednum = 30 }
+frame S_TAZERFLASH2 { cmp = "TAZC|B|T|2|Light1     |S_TAZERFLASH3"; }
+frame S_TAZERFLASH3 { cmp = "TAZC|C|T|2|Light2     |@next"; }
+frame S_TAZERFLASH4 { cmp = "TNT1|A|*|2|*          |S_LIGHTDONE"; }
+
+thingtype TazerShot
+{
+  seesound    tazerz
+  deathsound  tazerh
+  speed       50.0
+  radius      13.0
+  height      8.0
+  damage      10
+  basictype   PlayerProjectile
+  addflags    TLSTYLEADD
+  mod         Tazer
+    
+  states
+  @"
+  Spawn:
+    TBAL AAABBBCCC 1 bright A_SpawnAbove(TazerTrail1, -1)
+    loop
+  Death:
+    TPUF AB 3 bright
+	TPUF C 3 bright A_MissileSpread(TazerFrag,5,-32,288,-1)
+	TPUF DE 3 bright
+    stop
+  "@
+}
+
+thingtype TazerFrag
+{
+  speed       20.0
+  radius      13.0
+  height      8.0
+  damage      6
+  basictype   PlayerProjectile
+  addflags    TLSTYLEADD
+  mod         Tazer_Splash
+    
+  states
+  @"
+  Spawn:
+    TPUF AABBBAA 1 bright A_SpawnAbove(TazerTrail2, -1)
+    stop
+  XDeath:
+    TPUF C 0 A_PlaySoundEx(tazerf,chan_voice)
+  Death:
+    TPUF CDE 2 bright
+    stop
+  "@
+}
+
+thingtype TazerTrail1 
+{
+  cflags      NOBLOCKMAP|NOGRAVITY|TRANSLUCENT|NOSPLASH|TLSTYLEADD
+  xscale 0.75
+  yscale 0.75
+  translucency 50%
+    
+  states
+  @"
+  Spawn:
+    TZAP EEEDDDCCCBBBAAA 1 bright A_FadeOut(0.05)
+    stop
+  "@
+}
+
+thingtype TazerTrail2
+{
+  cflags      NOBLOCKMAP|NOGRAVITY|TRANSLUCENT|NOSPLASH|TLSTYLEADD
+    
+  states
+  @"
+  Spawn:
+    TZAP AABBAA 1 bright A_FadeOut(0.10)
+    stop
+  "@
+}
+// Tazer needs: Some sort of projectile-chain-spawn function so the player doesn't hurt self with shots. FastMissile too.
+
+# Cryogun
+frame S_CRYO       { cmp = "CRYG|A|*|1|WeaponReady  |@this";   dehackednum = 32 }
+frame S_CRYODOWN   { cmp = "CRYG|A|*|1|Lower        |@this";   dehackednum = 33 }
+frame S_CRYOUP     { cmp = "CRYG|A|*|1|Raise        |@this";   dehackednum = 34 }
+frame S_CRYO1      { cmp = "CRYG|A|*|2|*            |@next";   dehackednum = 35 }
+frame S_CRYO2      { cmp = "CRYG|A|*|0|A_GunFlash   |@next"; }
+frame S_CRYO3      { cmp = "CRYG|A|T|4|FireCustomBullets(cryfir, ssg, 17, 5, 3)|@next"; }
+frame S_CRYO4      { cmp = "CRYG|B|*|3|*            |@next"; }
+frame S_CRYO5      { cmp = "CRYG|C|*|3|CheckReload  |@next"; }
+frame S_CRYO6      { cmp = "CRYG|D|*|4|PlaySoundEx(uzirel,chan_weapon)|@next"; }
+frame S_CRYO7      { cmp = "CRYG|E|*|5|*            |@next"; }
+frame S_CRYO8      { cmp = "CRYG|F|*|4|PlaySoundEx(cryhit,chan_weapon)|@next"; }
+frame S_CRYO9      { cmp = "CRYG|G|*|4|*            |@next"; }
+frame S_CRYO10     { cmp = "CRYG|H|*|0|PlaySoundEx(crycol,chan_weapon)|@next"; }
+frame S_CRYO11     { cmp = "CRYG|H|*|3|ReFire       |S_CRYO"; }
+frame S_CRYOFLASH1 { cmp = "CRYG|I|T|2|Light1       |@next";  dehackednum = 47 }
+frame S_CRYOFLASH2 { cmp = "CRYG|J|T|3|Light0       |S_LIGHTDONE"; }
+// Cryogun needs: Spready projectile thing! The attack is all wrong currently. :P
+
+# Uzi
+frame S_UZI        { cmp = "UZIG|A|*|1|WeaponReady|@this";       dehackednum = 49 }
+frame S_UZIDOWN    { cmp = "UZIG|A|*|1|Lower      |@this";       dehackednum = 50 }
+frame S_UZIUP      { cmp = "UZIG|A|*|1|Raise      |@this";       dehackednum = 51 }
+frame S_UZI1       { cmp = "UZIF|A|T|2|FireCustomBullets(pistol, never, 1, 5, 3)        |@next"; dehackednum = 52 }
+frame S_UZI2       { cmp = "UZIF|B|T|2|FireCustomBullets(pistol, never, 1, 5, 3)        |@next"; }
+frame S_UZI3       { cmp = "UZIG|A|*|0|WeaponSetCtr(0,2,add)                            |@next"; }
+frame S_UZI4       { cmp = "UZIG|A|*|0|WeaponCtrJump(S_UZIRELOAD1,greaterorequal,50,0,0)|@next"; }
+frame S_UZI5       { cmp = "UZIG|A|*|0|ReFire                                           |S_UZI"; }
+frame S_UZIFLASH1  { cmp = "TNT1|A|*|2|Light1     |S_LIGHTDONE"; dehackednum = 55 }
+frame S_UZIRELOAD1 { cmp = "UZIG|B|*|3|JumpIfNoAmmo(S_UZIRESET)       |@next"; }
+frame S_UZIRELOAD2 { cmp = "UZIG|C|*|3|*                              |@next"; }
+frame S_UZIRELOAD3 { cmp = "UZIG|D|*|3|PlaySoundEx(uzirel,chan_weapon)|@next"; }
+frame S_UZIRELOAD4 { cmp = "UZIG|E|*|8|WeaponSetCtr(0,0,assign)       |@next"; }
+frame S_UZIRELOAD5 { cmp = "UZIG|C|*|3|*                              |@next"; }
+frame S_UZIRELOAD6 { cmp = "UZIG|B|*|3|*                              |@next"; }
+frame S_UZIRELOAD7 { cmp = "UZIG|A|*|3|*                              |S_UZI"; }
+frame S_UZIRESET   { cmp = "UZIG|A|*|0|WeaponSetCtr(0,0,assign)       |S_UZI"; }
+// Uzi needs: Manual reload. Some way to manually invoke S_UZIRELOAD1
+
+# Photon 'Zooka
+frame S_ZOOKA       { cmp = "PHZG|A|*|1|WeaponReady|@this";       dehackednum = 57 }
+frame S_ZOOKADOWN   { cmp = "PHZG|A|*|1|Lower      |@this";       dehackednum = 58 }
+frame S_ZOOKAUP     { cmp = "PHZG|A|*|1|Raise      |@this";       dehackednum = 59 }
+frame S_ZOOKA1      { cmp = "PHZF|A|T|4|GunFlash   |@next";       dehackednum = 60 }
+frame S_ZOOKA2      { cmp = "PHZF|B|T|0|PlaySoundEx(zooka,chan_weapon)|@next";}
+frame S_ZOOKA3      { cmp = "PHZF|B|T|4|FirePlayerMissile(HacxPhoton,0)|@next";  }
+frame S_ZOOKA4      { cmp = "PHZF|C|T|4|*          |@next";       }
+frame S_ZOOKA5      { cmp = "PHZF|D|T|4|*          |@next";       }
+frame S_ZOOKA6      { cmp = "PHZG|B|T|4|*          |@next";       }
+frame S_ZOOKA7      { cmp = "PHZG|B|T|3|ReFire     |S_ZOOKA";   }
+frame S_ZOOKAFLASH1 { cmp = "TNT1|A|*|3|Light1     |@next";       dehackednum = 63 }
+frame S_ZOOKAFLASH2 { cmp = "TNT1|A|*|3|Light2     |@next";       }
+frame S_ZOOKAFLASH3 { cmp = "TNT1|A|*|3|Light1     |S_LIGHTDONE"; }
+
+thingtype HacxPhoton
+{
+  deathsound  explod
+  speed       35.0
+  radius      11.0
+  height      8.0
+  damage      20
+  basictype   PlayerProjectile
+  xscale 0.5
+  yscale 0.5
+  mod         Photon
+    
+  states
+  @"
+  Spawn:
+    TORP A 0 bright
+    TORP A 2 bright A_SpawnAbove(HacxPhotonTrail, -1)
+    loop
+  Death:
+    TORE A 0 bright A_SetFlags(0, NOGRAVITY)
+    TORE A 0 bright A_SetTranslucent(1.0, 1)
+    TNT1 A 0 bright A_SpawnAbove(HacxPhotonExplode, -1)
+    TNT1 A 4 bright A_Explode
+    TNT1 AAAA 4 bright
+	TNT1 A 35
+    stop
+  "@
+}
+thingtype HacxPhotonTrail 
+{
+  cflags      NOBLOCKMAP|NOGRAVITY|TRANSLUCENT|NOSPLASH|TLSTYLEADD
+  xscale 0.15
+  yscale 0.15
+    
+  states
+  @"
+  Spawn:
+    TPHO ABCDEBA 2 bright A_FadeOut(0.1)
+    stop
+  "@
+}
+thingtype HacxPhotonExplode
+{
+  cflags      NOBLOCKMAP|NOGRAVITY|TRANSLUCENT|NOSPLASH|TLSTYLEADD
+    
+  states
+  @"
+  Spawn:
+    TORE ABCDE 4 bright
+    stop
+  "@
+}
+// Zooka needs: A_SetScale (maybe), also A_SpawnItemEx equivalent
+
+# Antigun
+frame S_STICK       { cmp = "ANTG|A|*| *|WeaponReady|@this";       dehackednum = 74 }
+frame S_STICKDOWN   { cmp = "ANTG|A|*| *|Lower      |@this";       dehackednum = 75 }
+frame S_STICKUP     { cmp = "ANTG|A|*| *|Raise      |@this";       dehackednum = 76 }
+frame S_STICK1      { cmp = "ANTG|A|*| 0|GunFlash   |@next";       dehackednum = 77 }
+frame S_STICK2      { cmp = "ANTF|A|T| 2|FirePlayerMissile(HacxMolecule,0)|@next"; }
+frame S_STICK3      { cmp = "ANTF|B|T| 2|FirePlayerMissile(HacxMolecule,0)|@next"; }
+frame S_STICK4      { cmp = "ANTG|B|*|20|ReFire     |S_STICK";    }
+frame S_STICKFLASH1 { cmp = "TNT1|A|*| 2|Light1     |@next";       dehackednum = 79 }
+frame S_STICKFLASH2 { cmp = "TNT1|A|*| 3|Light2     |S_LIGHTDONE"; }
+
+thingtype HacxMolecule
+{
+  seesound    antign
+  deathsound  anthit
+  speed       100.0
+  radius      13.0
+  height      8.0
+  damage      4
+  basictype   PlayerProjectile
+  addflags    TLSTYLEADD
+  mod         Molecule
+    
+  states
+  @"
+  Spawn:
+    MOLS AABB 1 bright A_SpawnAbove(HacxMoleculeTrail, -1)
+    loop
+  Death:
+    MOLE ABCD 3 bright
+    stop
+  "@
+}
+thingtype HacxMoleculeTrail
+{
+  cflags      NOBLOCKMAP|NOGRAVITY|TRANSLUCENT|NOSPLASH|TLSTYLEADD
+    
+  states
+  @"
+  Spawn:
+    MOLS AB 1 bright A_FadeOut(0.33)
+    stop
+  "@
+}
+// Antigun needs: FastProjectile w/trail. :)
+
+# Nuker
+frame S_NUKER       { cmp = "NUKG|A|*| *|WeaponReady|@this";       dehackednum = 81 }
+frame S_NUKERDOWN   { cmp = "NUKG|A|*| *|Lower      |@this";       dehackednum = 82 }
+frame S_NUKERUP     { cmp = "NUKG|A|*| *|Raise      |@this";       dehackednum = 83 }
+frame S_NUKER1      { cmp = "NUKG|A|*|15|PlaySoundEx(nuker,chan_weapon)|@next"; dehackednum = 84 }
+frame S_NUKER2      { cmp = "NUKG|B|*| 3|GunFlash   |@next"; }
+frame S_NUKER3      { cmp = "NUKG|B|*| 7|FirePlayerMissile(HacxNukeShot,0)|@next"; }
+frame S_NUKER4      { cmp = "NUKG|B|*|15|*          |@next"; }
+frame S_NUKER5      { cmp = "NUKG|B|*| 0|ReFire     |S_NUKER"; }
+frame S_NUKERFLASH1 { cmp = "NUKF|A|T| 3|Light1     |@next";       dehackednum = 88 }
+frame S_NUKERFLASH2 { cmp = "NUKF|B|T| 4|Light2     |S_LIGHTDONE"; }
+
+thingtype HacxNukeShot
+{
+  speed       30.0
+  radius      13.0
+  height      8.0
+  damage      50 // currently too high on impact but needed for A_Mushroom
+  basictype   PlayerProjectile
+  addflags    BOUNCES
+  remflags    MISSILE|NOGRAVITY
+//  bouncefactor 0.5
+//  wallbouncefactor 0.25
+  xscale      0.5
+  yscale      0.5
+  mod         Nuke
+    
+  states
+  @"
+  Spawn:
+    NCAN ABCDABCDABCDABCD 2 bright
+    NCAN A 0 A_Stop
+    NCAN A 0 A_Die
+  Death:
+	NUK1 A 0 bright A_Stop
+    NUK1 A 0 bright A_SetFlags(0, NOGRAVITY)
+    NUK1 A 0 bright A_Explode
+    NUK1 A 0 bright A_PlaySoundEx(nuboom, chan_voice)
+    NUK1 A 5 bright A_SetTranslucent(1.0, 1)
+    NUK1 B 5 bright A_Mushroom(HacxNukeSpray)
+    NUK1 CDEF 5 bright
+	TNT1 A 100
+    Stop
+  "@
+}
+thingtype HacxNukeSpray
+{
+  speed       15.0
+  radius      13.0
+  height      8.0
+  damage      5
+  basictype   PlayerProjectile
+  addflags    TLSTYLEADD|BOUNCES //BOUNCEONWALLS
+//  remflags    MISSILE
+//  bouncefactor 0.5
+  mod         Nuke_Splash
+    
+  states
+  @"
+  Spawn:
+    NBAL AB 2 bright
+    loop
+  Death:
+    NUK2 B 4 bright A_SetFlags(0, NOGRAVITY)
+    NUK2 A 4 bright A_Detonate
+    NUK2 BCD 4 bright
+    stop
+  "@
+}
+// Nuker needs: Variable-damage A_Explode, velocity adjustments for A_Mushroom,
+// Hexen-style bouncing, bouncing on actors, bouncefactor, bounce on walls, Wallbouncefactor?
+// A_ScaleVelocity... eee, that's a lot
+
+// Weapon Damage Types
+damagetype Kick          { obituary "$OB_FIST"         }
+damagetype XPistol       { obituary "$OB_XPISTOL"      }
+damagetype Reznator      { obituary "$OB_REZNATOR"     }
+damagetype Tazer         { obituary "$OB_TAZER"        }
+damagetype Tazer_Splash  { obituary "$OB_TAZER_SPLASH" }
+damagetype Cryo          { obituary "$OB_CRYOGUN"      }
+damagetype Uzi           { obituary "$OB_UZI"          }
+damagetype Photon        { obituary "$OB_ZOOKA"        obituaryself "$OB_ZOOKA_SELF"        }
+damagetype Photon_Splash { obituary "$OB_ZOOKA_SPLASH" obituaryself "$OB_ZOOKA_SPLASH_SELF" }
+damagetype Molecule      { obituary "$OB_ANTIGUN"      }
+damagetype Nuke          { obituary "$OB_NUKER"        }
+damagetype Nuke_Splash   { obituary "$OB_NUKER_SPLASH" }

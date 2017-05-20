@@ -1,0 +1,8 @@
+stdinclude("root.edf")
+
+// Eternity Definitions for Hacx
+lumpinclude("EWEAPONS")
+lumpinclude("EENEMIES")
+lumpinclude("EPICKUPS")
+lumpinclude("EPROPS")
+lumpinclude("ESOUNDS")

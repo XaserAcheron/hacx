@@ -1,0 +1,65 @@
+#include "zcommon.acs"
+#library "hacxacs"
+
+// ExtraData Emulation Script
+script 888 OPEN {
+	// Translucent lines
+	for(int i = 1; i <= 10; i++) {
+		TranslucentLine(10100+i, (256/10)*i, 0); // Standard
+		TranslucentLine(10200+i, (256/10)*i, 1); // Additive
+	}
+	
+	// Swinging/Sliding Doors
+	for(int j = 0; j < 10; j++) {
+		for(i = 1; i < 100; i++) {
+			SetLineSpecial(20000+(j*100)+i, 80, 889, 0, i,  0, j);
+			SetLineSpecial(21000+(j*100)+i, 80, 889, 0, i, 64, j);
+			SetLineSpecial(22000+(j*100)+i, 80, 889, 0, i,128, j);
+			SetLineSpecial(23000+(j*100)+i, 80, 889, 0, i,192, j);
+			SetLineSpecial(24000+(j*100)+i, 80, 890, 0, i, -1, j);
+			SetLineSpecial(25000+(j*100)+i, 80, 890, 0, i,  1, j);
+		}
+	}
+}
+
+// "ACS Simulated" DoorSlide Special w/mirror
+script 889 (int tag, int angle, int behavior) {
+	int speed, dist, del;
+	switch (behavior) {
+		case 0: speed = 16; dist = 32;  del = 128; break;
+		case 1: speed = 32; dist = 32;  del = 128; break;
+		case 2: speed = 32; dist = 64;  del = 128; break;
+		case 3: speed = 64; dist = 64;  del = 128; break;
+		case 4: speed = 32; dist = 128; del = 128; break;
+		case 5: speed = 16; dist = 32;  del = -1;  break;
+		case 6: speed = 32; dist = 32;  del = -1;  break;
+		case 7: speed = 32; dist = 64;  del = -1;  break;
+		case 8: speed = 64; dist = 64;  del = -1;  break;
+		case 9: speed = 32; dist = 128; del = -1;
+	}
+	int revangle = angle - 128;
+	if(revangle < 0) revangle += 256;
+	Polyobj_DoorSlide(tag, speed, angle, dist, del);
+	if(GetPolyobjX(tag+100) != 0x7FFFFFFF)
+		Polyobj_DoorSlide(tag+100, speed, revangle, dist, del);
+}
+
+// "ACS Simulated" DoorSwing Special w/mirror
+script 890 (int tag, int dir, int behavior) {
+	int speed, dist, del;
+	switch (behavior) {
+		case 0: speed = 16; dist = 64; del = 128; break;
+		case 1: speed = 64; dist = 64; del = 128; break;
+		case 2: speed = 16; dist = 42; del = 128; break;
+		case 3: speed = 64; dist = 42; del = 128; break;
+		case 4: speed = 16; dist = 21; del = 0;   break;
+		case 5: speed = 16; dist = 64; del = -1;  break;
+		case 6: speed = 64; dist = 64; del = -1;  break;
+		case 7: speed = 16; dist = 42; del = -1;  break;
+		case 8: speed = 64; dist = 42; del = -1;  break;
+		case 9: speed = 16; dist = 21; del = -1;
+	}
+	Polyobj_DoorSwing(tag, speed*dir, dist, del);
+	if(GetPolyobjX(tag+100) != 0x7FFFFFFF)
+		Polyobj_DoorSwing(tag+100, speed*dir*(-1), dist, del);
+}

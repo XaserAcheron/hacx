@@ -1,0 +1,412 @@
+// Hacx EDFs -- Pickups
+
+thingtype HacxKevlarVest 
+{
+	doomednum   2018
+	dehackednum 44
+	flags       SPECIAL
+  
+	states
+	@"
+	Spawn:
+		ARM1 A -1
+		stop
+	"@
+}
+
+thingtype HacxSuperKevlarVest
+{
+	doomednum   2019
+	dehackednum 45  
+	flags       SPECIAL
+	
+	states
+	@"
+	Spawn:
+		ARM2 A 6
+		ARM2 B 6 bright
+		loop
+	"@
+}
+
+thingtype HacxMicroKit
+{
+	doomednum   2014
+	dehackednum 46
+	flags       SPECIAL|COUNTITEM
+  
+	states
+	@"
+	Spawn:
+		BON1 ABCD 4
+		loop
+	"@
+}
+
+thingtype HacxDampener 
+{
+	doomednum   2015
+	dehackednum 47
+	flags       SPECIAL|COUNTITEM
+  
+	states
+	@"
+	Spawn:
+		BON2 A -1
+		stop
+	"@
+}
+
+thingtype HacxKeyCard 
+{
+	doomednum   5
+	dehackednum 48
+	flags       SPECIAL|NOTDMATCH
+	
+	states
+	@"
+	Spawn:
+		BKEY A -1
+		stop
+	"@
+}
+
+thingtype HacxPassword 
+{
+	doomednum   13
+	dehackednum 49
+	flags       SPECIAL|NOTDMATCH
+	
+	states
+	@"
+	Spawn:
+		RKEY A -1
+		loop
+	"@
+}
+
+thingtype HacxCKey 
+{
+	doomednum   6
+	dehackednum 50
+	flags       SPECIAL|NOTDMATCH
+	
+	states
+	@"
+	Spawn:
+		YKEY A -1
+		stop
+	"@
+}
+
+thingtype HacxYellowZKey 
+{
+  doomednum   39
+  dehackednum 51
+  flags       SPECIAL|NOTDMATCH
+  
+  states
+  @"
+  Spawn:
+    YSKU A 10
+    YSKU B 10 bright
+    loop
+  "@
+}
+
+thingtype HacxRedZKey 
+{
+  doomednum   38
+  dehackednum 52
+  flags       SPECIAL|NOTDMATCH
+  
+  states
+  @"
+  Spawn:
+    RSKU A 10
+    RSKU B 10 bright
+    loop
+  "@
+}
+
+thingtype HacxBlueZKey 
+{
+  doomednum   40
+  dehackednum 53
+  flags       SPECIAL|NOTDMATCH
+  
+  states
+  @"
+  Spawn:
+    BSKU A 10
+    BSKU B 10 bright
+    loop
+  "@
+}
+
+thingtype HacxInhaler 
+{
+  doomednum   2011
+  dehackednum 54
+  flags       SPECIAL
+  
+  states
+  @"
+  Spawn:
+    STIM A -1
+    stop
+  "@
+}
+
+thingtype HacxHypo 
+{
+  doomednum   2012
+  dehackednum 55
+  flags       SPECIAL
+  
+  states
+  @"
+  Spawn:
+    MEDI A -1
+    stop
+  "@
+}
+
+thingtype HacxCentrophenoxine
+{
+  doomednum   2013
+  dehackednum 56
+  flags       SPECIAL|COUNTITEM|TRANSLUCENT
+  
+  states
+  @"
+  Spawn:
+    SOUL ABCDEFGH 4 bright
+    loop
+  "@
+}
+
+thingtype HacxForceField 
+{
+  doomednum   2022
+  dehackednum 57
+  cflags      SPECIAL|COUNTITEM|TRANSLUCENT|SUPERITEM
+  
+  states
+  @"
+  Spawn:
+    PINV ABCD 12 bright
+    loop
+  "@
+}
+
+thingtype HacxMicrotel 
+{
+  doomednum   2023
+  dehackednum 58
+  flags       SPECIAL|COUNTITEM
+  
+  states
+  @"
+  Spawn:
+    PSTR A -1 bright
+    stop
+  "@
+}
+
+thingtype HacxENKBlind 
+{
+  doomednum   2024
+  dehackednum 59
+  cflags      SPECIAL|COUNTITEM|TRANSLUCENT|SUPERITEM
+  
+  states
+  @"
+  Spawn:
+    PINS ABCD 6 bright
+    loop
+  "@  
+}
+
+thingtype HacxVulcanBoots 
+{
+  doomednum   2025
+  dehackednum 60
+  flags       SPECIAL
+  
+  states
+  @"
+  Spawn:
+    SUIT A -1 bright
+    stop
+  "@
+}
+
+thingtype HacxSIArrayMap 
+{
+  doomednum   2026
+  dehackednum 61
+  flags       SPECIAL|COUNTITEM
+  
+  states
+  @"
+  Spawn:
+    PMAP ABCDCB 6 bright
+    loop
+  "@
+}
+
+thingtype HacxInfraredVisor 
+{
+  doomednum   2045
+  dehackednum 62
+  flags       SPECIAL|COUNTITEM
+  
+  states
+  @"
+  Spawn:
+    PVIS A 6 bright
+    PVIS B 6
+    loop
+  "@
+}
+
+thingtype HacxBodyArmor 
+{
+  doomednum   83
+  dehackednum 63
+  flags       SPECIAL|COUNTITEM|TRANSLUCENT
+  
+  states
+  @"
+  Spawn:
+    MEGA ABCDBC 6 bright
+    loop
+  "@
+}
+
+thingtype HacxRounds 
+{
+  doomednum   2007
+  dehackednum 64
+  flags       SPECIAL
+  
+  states
+  @"
+  Spawn:
+    CLIP A -1
+    stop
+  "@
+}
+
+thingtype HacxRoundsCase 
+{
+  doomednum   2048
+  dehackednum 65
+  flags       SPECIAL
+  
+  states
+  @"
+  Spawn:
+    AMMO A -1
+    stop
+  "@
+}
+
+thingtype HacxCartridges 
+{
+  doomednum   2008
+  dehackednum 70
+  flags       SPECIAL
+  
+  states
+  @"
+  Spawn:
+    SHEL A -1
+    stop
+  "@
+}
+
+thingtype HacxCartridgesCase 
+{
+  doomednum   2049
+  dehackednum 71
+  flags       SPECIAL
+  
+  states
+  @"
+  Spawn:
+    SBOX A -1
+    stop
+  "@
+}
+
+thingtype HacxTorpedo 
+{
+  doomednum   2010
+  dehackednum 66
+  flags       SPECIAL
+  
+  states
+  @"
+  Spawn:
+    ROCK B -1
+    stop
+  "@
+}
+
+thingtype HacxTorpedoCase
+{
+  doomednum   2046
+  dehackednum 67
+  flags       SPECIAL
+  
+  states
+  @"
+  Spawn:
+    BROK A -1
+    stop
+  "@
+}
+
+thingtype HacxMolecules 
+{
+  doomednum   2047
+  dehackednum 68
+  flags       SPECIAL
+  
+  states
+  @"
+  Spawn:
+    CELL A -1
+    stop
+  "@
+}
+
+thingtype HacxMoleculesTank 
+{
+  doomednum   17
+  dehackednum 69
+  flags       SPECIAL
+  
+  states
+  @"
+  Spawn:
+    CELP A -1
+    stop
+  "@
+}
+
+thingtype HacxValise 
+{
+  doomednum   8
+  dehackednum 72
+  flags       SPECIAL
+  
+  states
+  @"
+  Spawn:
+    BPAK A -1
+    stop
+  "@
+}

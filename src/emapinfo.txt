@@ -1,0 +1,455 @@
+/* Eternity MAPINFO for HACX */
+
+ [MAP01]
+levelname = GenEmp Corp.
+creator = Mike Reed / John Herndon / Grymmoire / Captain Toenail / Xaser Acheron
+nextlevel = MAP02
+nextsecret = MAP02
+music = HACX01
+levelpic = XWILV00
+skyname = SKY1
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP02]
+levelname = Tunnel Town
+creator = Stephen Watson / Xaser Acheron
+nextlevel = MAP03
+nextsecret = MAP03
+music = HACX02
+levelpic = XWILV01
+skyname = SKY1
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP03]
+levelname = Lava Annex
+creator = Marc "Fanatic" Pullen
+nextlevel = MAP04
+nextsecret = MAP04
+music = HACX03
+levelpic = XWILV02
+skyname = SKY1
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP04]
+levelname = Alcatraz
+creator = John Herndon
+nextlevel = MAP05
+nextsecret = MAP05
+music = HACX04
+levelpic = XWILV03
+skyname = SKY1
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP05]
+levelname = Cyber Circus
+creator = Iikka Keranen / John Herndon
+nextlevel = MAP06
+nextsecret = MAP31
+music = HACX05
+levelpic = XWILV04
+skyname = SKY3
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP06]
+levelname = Digi-Ota
+creator = Stephen Watson / Aleksander "Cage" Kowalczyk / Xaser Acheron
+nextlevel = MAP07
+nextsecret = MAP07
+music = HACX06
+levelpic = XWILV05
+skyname = SKY1
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP07]
+levelname = The Great Wall
+creator = Adam Williamson
+nextlevel = MAP08
+nextsecret = MAP08
+music = HACX07
+levelpic = XWILV06
+skyname = SKY1
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP08]
+levelname = Garden of Delights
+creator = Ryan Rapsys
+nextlevel = MAP09
+nextsecret = MAP09
+music = HACX08
+levelpic = XWILV07
+skyname = SKY1
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP09]
+levelname = Hidden Fortress
+creator = Anthony "Adelusion" Czerwonka
+nextlevel = MAP10
+nextsecret = MAP10
+music = HACX09
+levelpic = XWILV08
+skyname = SKY1
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP10]
+levelname = Anarchist Dream
+creator = Ryan Rapsys
+nextlevel = MAP11
+nextsecret = MAP11
+music = HACX10
+levelpic = XWILV09
+skyname = SKY3
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP11]
+levelname = Notus Us!
+creator = Michal Mesko
+nextlevel = MAP12
+nextsecret = MAP12
+music = HACX11
+levelpic = XWILV10
+skyname = SKY2
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP12]
+levelname = Gothik Gauntlet
+creator = Rich "Nostromo" Johnson
+nextlevel = MAP13
+nextsecret = MAP13
+music = HACX12
+levelpic = XWILV11
+skyname = SKY2
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP13]
+levelname = Catacombs
+creator = Anthony "Adelusion" Czerwonka
+nextlevel = MAP14
+nextsecret = MAP14
+music = HACX13
+levelpic = XWILV12
+skyname = SKY2
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP14]
+levelname = Notre Damned
+creator = N/A
+nextlevel = MAP15
+nextsecret = MAP32
+music = HACX14
+levelpic = XWILV13
+skyname = SKY2
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP15]
+levelname = Twilight of ENK's
+creator = Jeremy Statz / Rich "Nostromo" Johnson
+nextlevel = MAP16
+nextsecret = MAP16
+music = HACX15
+levelpic = XWILV14
+skyname = SKY3
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP16]
+levelname = Protean Cybex
+creator = Xaser Acheron
+nextlevel = MAP17
+nextsecret = MAP17
+music = HACX16
+levelpic = XWILV15
+skyname = SKY1
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP17]
+levelname = Dune City
+creator = N/A
+nextlevel = MAP18
+nextsecret = MAP18
+music = HACX17
+levelpic = XWILV16
+skyname = SKY1
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP18]
+levelname = River of Blood
+creator = Marc "Fanatic" Pullen
+nextlevel = MAP19
+nextsecret = MAP19
+music = HACX18
+levelpic = XWILV17
+skyname = SKY1
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP19]
+levelname = Valley of the Dead
+creator = Chris Kaplan
+nextlevel = MAP20
+nextsecret = MAP20
+music = HACX19
+levelpic = XWILV18
+skyname = SKY1
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP20]
+levelname = Artificial Annihilation
+creator = N/A
+nextlevel = MAP21
+nextsecret = MAP21
+music = HACX20
+levelpic = XWILV19
+skyname = SKY3
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP21]
+levelname = CryoZine
+creator = N/A
+nextlevel = MAP22
+nextsecret = MAP22
+music = HACX21
+levelpic = XWILV20
+skyname = SKY2
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP22]
+levelname = Pentagon Syndrome
+creator = N/A
+nextlevel = MAP23
+nextsecret = MAP23
+music = HACX22
+levelpic = XWILV21
+skyname = SKY2
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP23]
+levelname = Capitol Punishment
+creator = N/A
+nextlevel = MAP24
+nextsecret = MAP24
+music = HACX23
+levelpic = XWILV22
+skyname = SKY2
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP24]
+levelname = The War Rooms
+creator = Adam Williamson
+nextlevel = MAP25
+nextsecret = MAP25
+music = HACX24
+levelpic = XWILV23
+skyname = SKY2
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP25]
+levelname = Intruder Alert!
+creator = John Herndon
+nextlevel = MAP26
+nextsecret = MAP26
+music = HACX25
+levelpic = XWILV24
+skyname = SKY3
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP26]
+levelname = The Darkness
+creator = N/A
+nextlevel = MAP27
+nextsecret = MAP27
+music = HACX26
+levelpic = XWILV25
+skyname = SKY3
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP27]
+levelname = 'Trode Wars
+creator = Andrew Gate / Darkhaven3
+nextlevel = MAP28
+nextsecret = MAP28
+music = HACX27
+levelpic = XWILV26
+skyname = SKY3
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP28]
+levelname = Bizarro
+creator = Anthony "Adelusion" Czerwonka
+nextlevel = MAP29
+nextsecret = MAP33
+music = HACX28
+levelpic = XWILV27
+skyname = SKY3
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP29]
+levelname = Reality Bytes
+creator = N/A
+nextlevel = MAP30
+nextsecret = MAP30
+music = HACX29
+levelpic = XWILV28
+skyname = SKY3
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP30]
+levelname = Twitch n' Kill
+creator = N/A
+endofgame = true
+music = HACX30
+levelpic = XWILV29
+skyname = SKY3
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP31]
+levelname = Subspace Arcadum
+creator = N/A
+nextlevel = MAP06
+nextsecret = MAP06
+music = HACX31
+levelpic = XWILV30
+skyname = SKY3
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP32]
+levelname = Dessicant Room
+creator = Stephen Watson
+nextlevel = MAP15
+nextsecret = MAP15
+music = HACX32
+levelpic = XWILV31
+skyname = SKY2
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP33]
+levelname = Future Perfect
+creator = N/A
+nextlevel = MAP29
+nextsecret = MAP29
+music = HACX33
+levelpic = XWILV32
+skyname = SKY3
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP34]
+levelname = GenEmp Lobby
+creator = Captain Toenail
+nextlevel = MAP35
+nextsecret = MAP35
+music = HACX34
+levelpic = XWILV33
+skyname = SKY1
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA
+
+ [MAP35]
+levelname = Cybernetic Junction
+creator = Maniac
+nextlevel = MAP34
+nextsecret = MAP34
+music = HACX35
+levelpic = XWILV34
+skyname = SKY3
+partime = 0
+interpic = INTERPIC
+intermusic = HAXINT
+extradata = HACXTRA

@@ -1,0 +1,119 @@
+//-------------------------------------------------------------------------------------------
+//
+// MENUDEF for Hacx
+//
+//-------------------------------------------------------------------------------------------
+
+DEFAULTLISTMENU
+{
+	Font "BigFont", "Untranslated"
+	Selector "M_SKULL1", -32, -5
+	Linespacing 16
+	Font "BigFont", "Red"
+}
+
+//-------------------------------------------------------------------------------------------
+//
+// The main menu.
+//
+//-------------------------------------------------------------------------------------------
+
+LISTMENU "MainMenu"
+{
+	StaticPatch 94, 2, "M_HACX"
+	Position 97, 72
+	IfOption(ReadThis) { Position 97, 64 }
+	PatchItem "M_NGAME", "n", "PlayerclassMenu"
+	PatchItem "M_LOADG", "l", "LoadGameMenu"
+	PatchItem "M_SAVEG", "s", "SaveGameMenu"
+	PatchItem "M_OPTION","o", "OptionsMenu"
+	IfOption(ReadThis) { PatchItem "M_RDTHIS","r", "ReadThisMenu" }
+	PatchItem "M_QUITG", "q", "QuitMenu"
+}
+
+//-------------------------------------------------------------------------------------------
+//
+// Customize Controls menu. Split into two screens, since a large number of the controls
+// are unused (and in some cases disabled) in Hacx proper. They still need to be definable
+// for modding support, though.
+//
+//-------------------------------------------------------------------------------------------
+
+OptionMenu "CustomizeControls"
+{
+	Title "CUSTOMIZE CONTROLS"
+	ScrollTop 2
+	StaticTextSwitchable 	"ENTER to change, BACKSPACE to clear", "Press new key for control, ESC to cancel", "ControlMessage"
+	StaticText 	""
+	StaticText 	"Movement", 1
+	Control 	"Move forward",			"+forward"
+	Control 	"Move backward",		"+back"
+	Control 	"Turn left",			"+left"
+	Control 	"Turn right",			"+right"
+	Control 	"Run",					"+speed"
+	Control 	"Strafe",				"+strafe"
+	Control 	"Strafe left",			"+moveleft"
+	Control 	"Strafe right",			"+moveright"
+	Control 	"Look up",				"+lookup"
+	Control 	"Look down",			"+lookdown"
+	Control 	"Center view",			"centerview"
+	StaticText 	""
+	StaticText 	"Action", 1
+	Control 	"Fire",					"+attack"
+	Control 	"Altfire / Quick Kick",	"+altattack"
+	Control 	"Reload",				"+reload"
+	Control 	"Use / Open",			"+use"
+	Control 	"Next weapon",			"weapnext"
+	Control 	"Previous weapon",		"weapprev"
+	Control 	"Drop weapon",			"weapdrop"
+	StaticText 	""
+	StaticText 	"Multiplayer", 1
+	Control 	"Say",					"messagemode"
+	Control 	"Team say",				"messagemode2"
+	Control 	"Show Scoreboard",		"+showscores"
+	Control 	"Coop spy",				"spynext"
+	StaticText 	""
+	StaticText 	"Miscellaneous", 1
+	Control  	"Open Console",			"toggleconsole"
+	Control 	"Toggle automap",		"togglemap"
+	Control 	"Toggle Chasecam",		"chase"
+	Control 	"Take Screenshot",		"screenshot"
+	Control 	"Mouse look",			"+mlook"
+	Control 	"Keyboard look",		"+klook"
+	
+	StaticText 	""	
+	StaticText 	"Extra Controls", 1
+	Submenu "Configure Extra Controls",			"ExtraControls"
+}
+
+OptionMenu "ExtraControls"
+{
+	Title "EXTRA CONTROLS"
+	ScrollTop 2
+	StaticText 	"These are not used in Hacx, but", 1
+	StaticText 	"certain mods may require them.", 1
+	StaticText 	""
+	StaticTextSwitchable 	"ENTER to change, BACKSPACE to clear", "Press new key for control, ESC to cancel", "ControlMessage"
+	StaticText 	""
+	StaticText 	"Extended Movement", 1
+	Control 	"Jump",					"+jump"
+	Control 	"Crouch",				"+crouch"
+	Control 	"Crouch Toggle",		"crouch"
+	Control 	"Fly / Swim up",		"+moveup"
+	Control 	"Fly / Swim down",		"+movedown"
+	Control 	"Stop flying",			"land"
+	Control 	"Weapon zoom",			"+zoom"
+	StaticText 	""
+	StaticText 	"Inventory", 1
+	Control 	"Activate item",		"invuse"
+	Control 	"Activate all items",	"invuseall"
+	Control 	"Next item",			"invnext"
+	Control 	"Previous item",		"invprev"
+	Control 	"Drop item",			"invdrop"
+	Control		"Query item",			"invquery"
+	StaticText 	""
+	StaticText 	"Popup Screens", 1
+	Control 	"Mission objectives",	"showpop 1"
+	Control 	"Keys list",			"showpop 2"
+	Control 	"Weapons/ammo/stats",	"showpop 3"
+}

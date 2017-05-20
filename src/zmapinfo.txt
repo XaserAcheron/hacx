@@ -1,0 +1,485 @@
+/* ZDoom MAPINFO for HACX */
+
+gameinfo
+{
+    titlepage = "TITLEPIC"
+    creditpage = "CREDIT"
+    titlemusic = "D_HAXTTL"
+    finalemusic = "D_HACX14"
+    borderflat = "FSTEEL1"
+    translator = "HACXLAT"
+    backpacktype = "HacxValise"
+    armoricons = "KEV1A0", 0.5, "KEV2A0"
+    intermissionmusic = "D_HAXINT"
+    dimcolor = "00 00 00"
+    dimamount = 0.5
+    pickupcolor = "aa aa aa"
+    menufontcolor_title = "UNTRANSLATED"
+    menufontcolor_label = "UNTRANSLATED"
+    menufontcolor_value = "WHITE"
+    menufontcolor_action = "UNTRANSLATED"
+    menufontcolor_header = "WHITE"
+    menufontcolor_highlight = "WHITE"
+    menufontcolor_selection = "GOLD"
+    playerclasses = "HacxPlayer"
+}
+
+
+clearskills
+skill baby
+{
+	AutoUseHealth
+	AmmoFactor = 1.5
+	DamageFactor = 0.5
+	EasyBossBrain
+	SpawnFilter = Baby
+	PicName = "M_JKILL"
+	Name = "$SKILL_BABY"
+	Key = "p"
+}
+
+skill easy
+{
+	EasyBossBrain
+	SpawnFilter = Easy
+	PicName = "M_ROUGH"
+	Name = "$SKILL_EASY"
+	Key = "a"
+}
+
+skill normal
+{
+	SpawnFilter = Normal
+	PicName = "M_HURT"
+	Key = "l"
+	Name = "$SKILL_NORMAL"
+	DefaultSkill
+}
+
+skill hard
+{
+	SpawnFilter = Hard
+	PicName = "M_ULTRA"
+	Name = "$SKILL_HARD"
+	Key = "i"
+}
+
+skill nightmare
+{
+	AmmoFactor = 1.5
+	FastMonsters
+	SpawnFilter = Nightmare
+	PicName = "M_NMARE"
+	Name = "$SKILL_NIGHTMARE"
+	Key = "n"
+}
+
+
+clearepisodes
+episode map01
+{
+	picname = "M_TWITCH"
+	key = "t"
+}
+
+defaultmap
+{
+	nojump
+	nocrouch
+	smoothlighting
+	forcenoskystretch
+	sucktime = 0
+}
+
+map MAP01 lookup "XHUSTR_1"
+{
+	titlepatch= "XWILV00"
+	next= "MAP02"
+	secretnext= "MAP02"
+	sky1= "SKY_CITY", 0
+	cluster= 1
+	par= 30
+	music= "D_HACX01"
+}
+
+map MAP02 lookup "XHUSTR_2"
+{
+	titlepatch= "XWILV01"
+	next= "MAP03"
+	secretnext= "MAP03"
+	sky1= "SKY_TRAZ", 0
+	cluster= 1
+	par= 90
+	music= "D_HACX02"
+}
+
+map MAP03 lookup "XHUSTR_3"
+{
+	titlepatch= "XWILV02"
+	next= "MAP04"
+	secretnext= "MAP04"
+	sky1= "SKY_TRAZ", 0
+	cluster= 1
+	par= 120
+	music= "D_HACX03"
+}
+
+map MAP04 lookup "XHUSTR_4"
+{
+	titlepatch= "XWILV03"
+	next= "MAP05"
+	secretnext= "MAP05"
+	sky1= "SKY_TRAZ", 0
+	cluster= 1
+	par= 120
+	music= "D_HACX04"
+}
+
+map MAP05 lookup "XHUSTR_5"
+{
+	titlepatch= "XWILV04"
+	next= "MAP06"
+	secretnext= "MAP31"
+	sky1= "SKY_CYB1", 0
+	cluster= 1
+	par= 90
+	music= "D_HACX05"
+}
+
+map MAP06 lookup "XHUSTR_6"
+{
+	titlepatch= "XWILV05"
+	next= "MAP07"
+	secretnext= "MAP07"
+	sky1= "SKY_WALL", 0
+	cluster= 1
+	par= 150
+	music= "D_HACX06"
+}
+
+map MAP07 lookup "XHUSTR_7"
+{
+	titlepatch= "XWILV06"
+	next= "MAP08"
+	secretnext= "MAP08"
+	sky1= "SKY_WALL", 0
+	cluster= 1
+	par= 120
+	music= "D_HACX07"
+}
+
+map MAP08 lookup "XHUSTR_8"
+{
+	titlepatch= "XWILV07"
+	next= "MAP09"
+	secretnext= "MAP09"
+	sky1= "SKY_WALL", 0
+	cluster= 1
+	par= 120
+	sucktime= 1
+	music= "D_HACX08"
+}
+
+map MAP09 lookup "XHUSTR_9"
+{
+	titlepatch= "XWILV08"
+	next= "MAP10"
+	secretnext= "MAP10"
+	sky1= "SKY_WALL", 0
+	cluster= 1
+	par= 270
+	music= "D_HACX09"
+}
+
+map MAP10 lookup "XHUSTR_10"
+{
+	titlepatch= "XWILV09"
+	next= "MAP11"
+	secretnext= "MAP11"
+	sky1= "SKY_CYB1", 0
+	cluster= 1
+	par= 90
+	music= "D_HACX10"
+}
+
+map MAP11 lookup "XHUSTR_11"
+{
+	titlepatch= "XWILV10"
+	next= "MAP12"
+	secretnext= "MAP12"
+	sky1= "SKY_PARI", 0
+	cluster= 1
+	par= 210
+	music= "D_HACX11"
+}
+
+map MAP12 lookup "XHUSTR_12"
+{
+	titlepatch= "XWILV11"
+	next= "MAP13"
+	secretnext= "MAP13"
+	sky1= "SKY_PARI", 0
+	cluster= 1
+	par= 150
+	music= "D_HACX12"
+}
+
+map MAP13 lookup "XHUSTR_13"
+{
+	titlepatch= "XWILV12"
+	next= "MAP14"
+	secretnext= "MAP14"
+	sky1= "SKY_PARI", 0
+	cluster= 1
+	par= 150
+	music= "D_HACX13"
+}
+
+map MAP14 lookup "XHUSTR_14"
+{
+	titlepatch= "XWILV13"
+	next= "MAP15"
+	secretnext= "MAP32"
+	sky1= "SKY_PARI", 0
+	cluster= 1
+	par= 150
+	music= "D_HACX14"
+}
+
+map MAP15 lookup "XHUSTR_15"
+{
+	titlepatch= "XWILV14"
+	next= "MAP16"
+	secretnext= "MAP16"
+	sky1= "SKY_CYB1", 0
+	cluster= 1
+	par= 210
+	music= "D_HACX15"
+}
+
+map MAP16 lookup "XHUSTR_16"
+{
+	titlepatch= "XWILV15"
+	next= "MAP17"
+	secretnext= "MAP17"
+	sky1= "SKY_DSRT", 0
+	cluster= 1
+	par= 150
+	music= "D_HACX16"
+}
+
+map MAP17 lookup "XHUSTR_17"
+{
+	titlepatch= "XWILV16"
+	next= "MAP18"
+	secretnext= "MAP18"
+	sky1= "SKY_DSRT", 0
+	cluster= 1
+	par= 420
+	music= "D_HACX17"
+}
+
+map MAP18 lookup "XHUSTR_18"
+{
+	titlepatch= "XWILV17"
+	next= "MAP19"
+	secretnext= "MAP19"
+	sky1= "SKY_DSRT", 0
+	cluster= 1
+	par= 150
+	music= "D_HACX18"
+}
+
+map MAP19 lookup "XHUSTR_19"
+{
+	titlepatch= "XWILV18"
+	next= "MAP20"
+	secretnext= "MAP20"
+	sky1= "SKY_DSRT", 0
+	cluster= 1
+	par= 210
+	music= "D_HACX19"
+}
+
+map MAP20 lookup "XHUSTR_20"
+{
+	titlepatch= "XWILV19"
+	next= "MAP21"
+	secretnext= "MAP21"
+	sky1= "SKY_CYB1", 0
+	cluster= 1
+	par= 150
+	music= "D_HACX20"
+}
+
+map MAP21 lookup "XHUSTR_21"
+{
+	titlepatch= "XWILV20"
+	next= "MAP22"
+	secretnext= "MAP22"
+	sky1= "SKY_CYB1", 0
+	cluster= 1
+	par= 240
+	music= "D_HACX21"
+}
+
+map MAP22 lookup "XHUSTR_22"
+{
+	titlepatch= "XWILV21"
+	next= "MAP23"
+	secretnext= "MAP23"
+	sky1= "SKY_CYB1", 0
+	cluster= 1
+	par= 150
+	music= "D_HACX22"
+}
+
+map MAP23 lookup "XHUSTR_23"
+{
+	titlepatch= "XWILV22"
+	next= "MAP24"
+	secretnext= "MAP24"
+	sky1= "SKY_CYB1", 0
+	cluster= 1
+	par= 180
+	music= "D_HACX23"
+}
+
+map MAP24 lookup "XHUSTR_24"
+{
+	titlepatch= "XWILV23"
+	next= "MAP25"
+	secretnext= "MAP25"
+	sky1= "SKY_CYB1", 0
+	cluster= 1
+	par= 150
+	music= "D_HACX24"
+}
+
+map MAP25 lookup "XHUSTR_25"
+{
+	titlepatch= "XWILV24"
+	next= "MAP26"
+	secretnext= "MAP26"
+	sky1= "SKY_CYB1", 0
+	cluster= 1
+	par= 150
+	music= "D_HACX25"
+}
+
+map MAP26 lookup "XHUSTR_26"
+{
+	titlepatch= "XWILV25"
+	next= "MAP27"
+	secretnext= "MAP27"
+	sky1= "SKY_CYB1", 0
+	cluster= 1
+	par= 300
+	music= "D_HACX26"
+}
+
+map MAP27 lookup "XHUSTR_27"
+{
+	titlepatch= "XWILV26"
+	next= "MAP28"
+	secretnext= "MAP28"
+	sky1= "SKY_CYB1", 0
+	cluster= 1
+	par= 330
+	music= "D_HACX27"
+}
+
+map MAP28 lookup "XHUSTR_28"
+{
+	titlepatch= "XWILV27"
+	next= "MAP29"
+	secretnext= "MAP29"
+	sky1= "SKY_CYB1", 0
+	cluster= 1
+	par= 420
+	music= "D_HACX28"
+}
+
+map MAP29 lookup "XHUSTR_29"
+{
+	titlepatch= "XWILV28"
+	next= "MAP30"
+	secretnext= "MAP30"
+	sky1= "SKY_CYB1", 0
+	cluster= 1
+	par= 300
+	music= "D_HACX29"
+}
+
+map MAP30 lookup "XHUSTR_30"
+{
+	titlepatch= "XWILV29"
+	next= "EndGameC"
+	secretnext= "EndGameC"
+	sky1= "SKY_CYB1", 0
+	cluster= 1
+	par= 180
+	allowmonstertelefrags
+	music= "D_HACX30"
+}
+
+map MAP31 lookup "XHUSTR_31"
+{
+	titlepatch= "XWILV30"
+	next= "MAP06"
+	secretnext= "MAP06"
+	sky1= "SKY_CYB1", 0
+	cluster= 1
+	par= 120
+	music= "D_HACX31"
+}
+
+map MAP32 lookup "XHUSTR_32"
+{
+	titlepatch= "XWILV31"
+	next= "MAP15"
+	secretnext= "MAP15"
+	sky1= "SKY_CYB1", 0
+	cluster= 1
+	par= 30
+	music= "D_HACX32"
+}
+
+map MAP33 lookup "XHUSTR_33"
+{
+	titlepatch= "XWILV32"
+	next= "MAP29"
+	secretnext= "MAP29"
+	sky1= "SKY_CYB1", 0
+	cluster= 1
+	par= 30
+	music= "D_HACX33"
+}
+
+// DM maps
+
+map MAP34 lookup "XHUSTR_34"
+{
+	titlepatch= "XWILV33"
+	next= "MAP35"
+	secretnext= "MAP35"
+	sky1= "SKY1", 0
+	cluster= 1
+	par= 30
+	music= "D_HACX34"
+}
+
+map MAP35 lookup "XHUSTR_35"
+{
+	titlepatch= "XWILV34"
+	next= "MAP34"
+	secretnext= "MAP34"
+	sky1= "SKY_CYB1", 0
+	cluster= 1
+	par= 30
+	music= "D_HACX35"
+}
+
+cluster 1
+{
+}
