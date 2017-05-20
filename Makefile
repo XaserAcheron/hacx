@@ -4,4 +4,6 @@ clean:
 	rm -f dist/hacx.pk3
 
 compress:
-	zip dist/hacx.pk3 src/*
+	cd src; \
+	zip -r ../dist/hacx.pk3 *; \
+	cd ..;
