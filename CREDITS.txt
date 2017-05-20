@@ -1,0 +1,70 @@
+
+1.2:
+
+Programming: 
+Art: Ken Scott, Perry "Bow" Bowman, Thomas Moeller, Gerald Swanson, Stefan C. Scandizzo, Ronald C. Ray, Greg Schomo, Jeff Rubin, Erick Gravel, Zack Quarles
+Biz: Randy Lee
+Design: John Herndon, Stephen Watson, Rich Johnston, Anthony Czerwonka, Marc A. Pullen, Ryan Rapsys, Adam Williamson, Andrew Gate, Iikka Keranen, Michal Mesko, Mike Reed
+Story: Holt Satterfield
+Sound: Ricardo Augstroze Barijan, Scott Evans
+Music: Jim Lynch, Ellsworth Hall, Mark Van Natta
+Special Thanks: Blake Wilfong, Xaser Acheron, Blzut3
+
+
+
+2.0:
+
+Xaser Acheron:
+- Project Lead
+- Mapping (MAP16)
+
+Rich "Nostromo" Johnston
+- Official Hacx Consultant guy
+
+Braden "Blzut3" Obrzut:
+- Co-Lead
+- ZDoom Support
+- Map Tweaks (MAP01, MAP11)
+
+Chris Kaplan:
+- Mapping (MAP19)
+
+James "Quasar" Haley:
+- Eternity support
+
+Aleksander "Cage" Kowalczyk:
+- Widescreen-friendly weapon graphics (Reznator, Uzi, Cryogun, Antigun)
+- Texture Art (city, cyberspace, many improvements)
+- New Palette ;)
+
+Pawel "NMN" Zarcynski [sp?]
+- Enemy art (GENIE)
+
+Paul "NeuralStunner" Lawrence
+- Sounds (Replicant, various ambience)
+- Antigun edits
+
+JustinC
+- Graphics (Player sprites, Uzi gloves)
+
+Maniac
+- Mapping (HACXDM02)
+
+Cpt. Toenail
+- Mapping (HACXDM01, MAP01)
+
+Grymmoire
+- Mapping (MAP01, MAP25)
+
+JoeyTD
+- Uzi edits
+
+Mike12
+- Graphics (Side-angled Uzi / Dual Uzis)
+
+DavidPH
+- Tools Development (DeuHacx)
+
+
+Testing:
+Michael Mancuso, James Paddock
