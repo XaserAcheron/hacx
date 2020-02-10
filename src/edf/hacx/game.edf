@@ -1,0 +1,14 @@
+/**
+ * HacX 2.0 - EDF
+ *
+ * Game Properties.
+ */
+
+gameproperties
+{
+  flags.add "MAPXY"
+  border.flat "FSTEEL1"
+  menu.background "FBLACK"
+  credit.background "FBLACK"
+  console.backdrop "CONBACK"
+}

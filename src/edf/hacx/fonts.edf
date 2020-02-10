@@ -1,0 +1,97 @@
+/**
+ * HacX 2.0 - EDF
+ *
+ * Fonts.
+ */
+
+font ee_smallfont
+{
+  id          0
+  start       '!'
+  end         0x7f
+  linesize    8
+  spacesize   4
+  tallestchar 8
+  uppercase   true
+
+  filter { start '!'; end 0x7f; mask "STCFN%.3d" }
+
+  colorable    true
+  defaultcolor gray
+
+  colortables
+  {
+    brick  "0:37=73:107"
+    tan    "0:24=206:223,25:37=64:72"
+    gray   @identity
+    green  "0:37=148:165"
+    brown  "0:37=38:70"
+    gold   "0:37=188:205"
+    red    "0:24=133:147,25:37=100:107"
+    blue   "0:37=108:127"
+    orange "0:27=166:187,28:37=102:107"
+    yellow "0:27=188:197,28:37=198:205"
+  }
+}
+
+font ee_bigfont
+{
+  id          2
+  start       '!'
+  end         ']'
+  linesize    12
+  spacesize   8
+  widthdelta  1
+  tallestchar 12
+  uppercase   true
+
+  filter { start '!'; end ']'; mask "BIGFN%.3d" }
+
+  colorable    true
+  defaultcolor gray
+
+  colortables
+  {
+    brick  "0:37=73:107"
+    tan    "0:24=206:223,25:37=64:72"
+    gray   @identity
+    green  "0:37=148:165"
+    brown  "0:37=38:70"
+    gold   "0:37=188:205"
+    red    "0:24=133:147,25:37=100:107"
+    blue   "0:37=108:127"
+    orange "0:27=166:187,28:37=102:107"
+    yellow "0:27=188:197,28:37=198:205"
+  }
+}
+
+font ee_menufont
+{
+  id          5
+  start       '!'
+  end         0x7f
+  linesize    8
+  spacesize   4
+  widthdelta  1
+  tallestchar 8
+  uppercase   true
+   
+  filter { start '!'; end 0x7f; mask "STCFN%.3d" }
+
+  colorable    true
+  defaultcolor gray
+
+  colortables
+  {
+    brick  "0:37=73:107"
+    tan    "0:24=206:223,25:37=64:72"
+    gray   @identity
+    green  "0:37=148:165"
+    brown  "0:37=38:70"
+    gold   "0:37=188:205"
+    red    "0:24=133:147,25:37=100:107"
+    blue   "0:37=108:127"
+    orange "0:27=166:187,28:37=102:107"
+    yellow "0:27=188:197,28:37=198:205"
+  }
+}

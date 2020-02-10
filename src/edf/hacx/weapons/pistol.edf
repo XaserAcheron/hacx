@@ -1,0 +1,36 @@
+/**
+ * HacX 2.0 - EDF
+ *
+ * Weapon: Pistol
+ */
+
+weaponinfo Pistol : Weapon
+{
+  ammotype AmmoClip
+  ammouse  2
+
+  slotnumber         2
+  slotselectionorder 1
+  selectionorder     1.0
+
+  states
+  @"
+  Ready:
+    PISG A 1 A_WeaponReady()
+    Loop
+  Deselect:
+    PISG A 1 A_Lower()
+    Loop
+  Select:
+    PISG A 1 A_Raise()
+    Loop
+  Fire:
+    PISG B 5 A_FireCustomBullets(pistol, custom, 2, 5, 3, Flash, 2, 0)
+    PISG CA 3
+    PISG A 4 A_ReFire()
+    Goto Ready
+  Flash:
+    PISF A 3 bright A_Light2()
+    Goto LightDone
+  "@
+}

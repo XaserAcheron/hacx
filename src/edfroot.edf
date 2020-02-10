@@ -1,0 +1,15 @@
+/**
+ * HacX 2.0
+ *
+ * EDF Root. 'Nuff said.
+ */
+
+setdialect("ALFHEIM")
+stdinclude("root.edf")
+
+// Basic Stuff
+include("edf/hacx/game.edf")
+include("edf/hacx/fonts.edf")
+
+// Weapons
+include("edf/hacx/weapons/pistol.edf")
