@@ -1,0 +1,56 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Weapon: Pistol
+ */
+
+class HacxPistol : HacxWeapon replaces Pistol
+{
+  Default
+  {
+    Weapon.SelectionOrder 1900;
+    Weapon.UpSound "weapons/pistolup";
+    Weapon.AmmoUse 2;
+    Weapon.AmmoGive 20;
+    Weapon.AmmoType "HacxRounds";
+    Inventory.Pickupmessage "$GOTXPISTOL";
+    Obituary "$OB_MPXPISTOL";
+    Tag "$TAG_XPISTOL";
+    +WEAPON.WIMPY_WEAPON;
+  }
+
+  States
+  {
+    Spawn:
+      PIST A -1;
+      Stop;
+    Ready:
+      PISG A 1 A_WeaponReady();
+      Loop;
+    Idle:
+      PISG A 0;
+      Goto IdleWait;
+    Deselect:
+      PISG A 0 A_Lower();
+      PISG A 1 A_Lower();
+      Loop;
+    Select:
+      PISG A 0 A_Raise();
+      PISG A 1 A_Raise();
+      Loop;
+    Fire:
+      PISG A 0 A_GunFlash();
+      PISG B 0 A_PlaySound("weapons/pistol", CHAN_WEAPON);
+      PISG B 5 A_FireBullets (2, 0, 2, 5, "HacxPuff");
+      PISG CA 3;
+      PISG A 4 A_ReFire();
+      goto Ready;
+    Flash:
+      PISF A 3 bright A_Light1();
+      PISF A 0 bright A_Light0();
+      stop;
+    AltFire:
+      PISK A 0;
+      Goto Kick;
+  }
+}

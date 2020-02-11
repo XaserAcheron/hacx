@@ -1,0 +1,153 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Weapon: Nuker
+ */
+
+class HacxNuker : HacxWeapon replaces BFG9000
+{
+  Default
+  {
+    Height 20;
+    Weapon.SelectionOrder 2800;
+    Weapon.UpSound "weapons/nukerup";
+    Weapon.AmmoUse 50;
+    Weapon.AmmoGive 50;
+    weapon.ammotype "HacxMolecules";
+    Inventory.PickupMessage "$GOTNUKER";
+    Tag "$TAG_NUKER";
+    +WEAPON.BFG;
+    +WEAPON.NOAUTOFIRE;
+    +WEAPON.NOAUTOAIM;
+  }
+
+  States
+  {
+    Spawn:
+      NUKR A -1;
+      Stop;
+    Ready:
+      NUKG A 1 A_WeaponReady();
+      Loop;
+    Idle:
+      NUKG A 0;
+      Goto IdleWait;
+    Deselect:
+      NUKG A 0 A_Lower();
+      NUKG A 1 A_Lower();
+      Loop;
+    Select:
+      NUKG A 0 A_Raise();
+      NUKG A 1 A_Raise();
+      Loop;
+    Fire:
+      NUKG A 15 A_PlaySound("weapons/nuker", CHAN_WEAPON);
+      NUKG B 3 A_GunFlash();
+      NUKG B 7 A_FireProjectile("HacxNukeShot",0,1,0,-8,0,-10);
+      NUKG A 15;
+      NUKG A 0 A_Refire();
+      goto Ready;
+    Flash:
+      NUKF A 3 bright A_Light1();
+      NUKF B 4 bright A_Light2();
+      NUKF B 0 bright A_Light0();
+      stop;
+    AltFire:
+      NUKK A 0;
+      Goto Kick;
+  }
+}
+
+class HacxNukeShot : HacxProjectile replaces BFGBall
+{
+  Default
+  {
+    Radius 8;
+    Damage 10;
+    Speed 30;
+    Scale 0.5;
+    Obituary "$OB_MPNUKE";
+    Renderstyle "Normal";
+    Bouncetype "Hexen";
+    Bouncefactor 0.5;
+    Wallbouncefactor 0.25;
+    -NOGRAVITY;
+    +BOUNCEONACTORS;
+  }
+
+  States
+  {
+    Spawn:
+      NCAN ABCDABCDABCDABCD 2 bright;
+      NCAN A 0 A_Stop();
+      NCAN A 0 A_Die();
+      // Fallthrough, just in case.
+    Death:
+      NUK1 A 0 bright A_NoGravity();
+      NUK1 A 0 bright A_Explode(128,256,1);
+      NUK1 A 0 bright A_PlaySound("weapons/nukehit", 0, 1.0, 0, 0.5);
+      NUK1 A 0 bright A_SetScale(1.0, 1.0);
+      NUK1 A 5 bright A_SetTranslucent(1.0, 1);
+      NUK1 B 0 bright A_Mushroom("HacxNukeSpray", 50, MSF_Classic, 0.5, 1.0);
+      NUK1 B 5 bright A_Mushroom("HacxNukeSmoke", 20, MSF_Classic, 2.0, 0.2);
+      NUK1 CDEF 5 bright;
+      Stop;
+  }
+}
+
+class HacxNukeSmoke : Actor
+{
+  Default
+  {
+    Projectile;
+    +THRUACTORS;
+    Radius 13;
+    Speed 15;
+    RenderStyle "Add";
+    Alpha 0.5;
+    Gravity 0.5;
+  }
+
+  States
+  {
+    Spawn:
+      NUK1 A 0 BRIGHT;
+      NUK1 A 0 bright A_ScaleVelocity(1.0+0.05*random(-5,5));
+      NUK1 A 0 BRIGHT A_Jump(128,2);
+      NUK2 D 0 BRIGHT;
+      ---- AAAA 4 bright;
+    Death:
+      ---- A 0 A_ScaleVelocity(1.5);
+      ---- A 4 bright A_FadeOut(0.125);
+      Goto Death;
+  }
+}
+
+class HacxNukeSpray : HacxProjectile replaces BFGExtra
+{
+  Default
+  {
+    Speed 15;
+    Damage 5;
+    obituary "$OB_MPNUKE";
+    +BOUNCEONWALLS;
+    Wallbouncefactor 0.5;
+    Damagetype "Extreme";
+    RenderStyle "Add";
+    Alpha 0.75;
+  }
+
+  States
+  {
+    Spawn:
+      NBAL A 0 bright;
+      NBAL A 0 bright A_ScaleVelocity(1.0+0.05*random(-5,5));
+      NBAL AB 2 bright;
+      loop;
+    Death:
+      NUK2 B 4 bright;
+      NUK2 A 4 bright A_Explode(20, 64, 1, 1, 64);
+      NUK2 BCD 4 bright;
+      stop;
+  }
+}

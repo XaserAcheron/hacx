@@ -1,0 +1,106 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Player Definition.
+ */
+
+class HacxPlayer : PlayerPawn
+{
+  Default
+  {
+    Speed 1;
+    Health 100;
+    Radius 16;
+    Height 56;
+    Mass 100;
+    Scale 0.9;
+    PainChance 255;
+    Player.ColorRange 112, 127;
+    Player.DisplayName "Hacker";
+    Player.CrouchSprite "PLYC";
+    Player.ViewHeight 56;
+    Player.AttackZOffset 28;
+    player.startitem "HacxLightKevlarVest";
+    player.startitem "HacxPistol";
+    player.startitem "HacxRounds", 100;
+    player.startitem "HacxKick", 1;
+
+    Player.Weaponslot 1, "HacxKick", "HacxReznator";
+    Player.Weaponslot 2, "HacxPistol";
+    Player.Weaponslot 3, "HacxTazer", "HacxCryogun";
+    Player.Weaponslot 4, "HacxUzi", "HacxDualUzis";
+    Player.Weaponslot 5, "HacxPhotonZooka";
+    Player.Weaponslot 6, "HacxAntigun";
+    Player.Weaponslot 7, "HacxNuker";
+  }
+
+  States
+  {
+    Spawn:
+      PLAY A -1;
+      Loop;
+    See:
+      PLAY BCDE 4;
+      Loop;
+    Missile:
+      PLAY F 8;
+      Goto Spawn;
+    Melee:
+      PLAY G 2 BRIGHT;
+      PLAY F 2;
+      Goto Missile;
+    Pain:
+      PLAY H 4;
+      PLAY H 4 A_Pain();
+      Goto Spawn;
+    Pain.Ramming:
+      PLAY A 0 A_Recoil(10.0);
+      Goto Pain;
+    Death:
+      PLAY I 6;
+      PLAY J 5 A_PlayerScream();
+      PLAY K 4 A_NoBlocking();
+      PLAY L 4;
+      PLAY MN 4;
+      PLAY O -1;
+      Stop;
+    XDeath:
+      PLAY P 4;
+      PLAY Q 4 A_XScream();
+      PLAY R 4 A_NoBlocking();
+      PLAY ST 4;
+      PLAY U -1;
+      Stop;
+  }
+}
+
+class HacxPlayerDummy : HacxPlayer
+{
+  Default
+  {
+    speed 16;
+    painchance 100;
+    painsound "*pain";
+    deathsound "*death";
+    MONSTER;
+    +FLOORCLIP;
+    -PICKUP;
+  }
+ 
+  States
+  {
+    Spawn:
+      PLAY A 10 A_Look();
+      Loop;
+    See:
+      PLAY BBCCDDEE 2 A_Wander();
+      Loop;
+    Pain:
+      PLAY A 4;
+      PLAY A 4 A_Pain();
+      Goto Spawn;
+    Melee:
+    Missile:
+      Stop;
+  }
+}

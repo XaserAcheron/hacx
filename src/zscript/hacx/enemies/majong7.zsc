@@ -1,0 +1,58 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Enemy: Majong 7
+ */
+
+class HacxMajong7 : Actor replaces PainElemental
+{
+  Default
+  {
+    health 400;
+    speed 12;
+    radius 31;
+    height 56;
+    painchance 0;
+    mass 400;
+    seesound "majong7/sight";
+    painsound "majong7/pain";
+    deathsound "majong7/death";
+    activesound "majong7/active";
+    MONSTER;
+    +FLOORCLIP;
+    +NOBLOOD;
+    +NORADIUSDMG;
+  }
+
+  States
+  {
+    Spawn:
+      MAJ7 A 10 A_Look();
+      loop;
+    See:
+      MAJ7 A 0 A_PlaySound("majong7/walk");
+      MAJ7 AABB 4 A_Chase();
+      MAJ7 A 0 A_PlaySound("majong7/walk");
+      MAJ7 DDCC 4 A_Chase();
+      loop;
+    Missile:
+      VILE LL 5 bright A_FaceTarget();
+      MAJ7 E 5 bright A_FaceTarget();
+      MAJ7 F 0 bright A_PlaySound("weapons/zookafire");
+      MAJ7 F 5 bright A_SpawnProjectile("HacxEnemyPhoton",48,0,0);
+      goto See;
+    Pain:
+      MAJ7 A 1;
+      goto See;
+    Death:
+      MAJ7 G 7;
+      MAJ7 H 7 A_Scream();
+      MAJ7 I 7 A_NoBlocking();
+      MAJ7 JK 7;
+      MAJ7 L -1;
+      stop;
+    Raise:
+      MAJ7 LKJIHG 8;
+      goto See;
+  }
+}

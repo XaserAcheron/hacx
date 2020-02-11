@@ -1,0 +1,38 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Base actor definitions
+ */
+
+class HacxProjectile : Actor
+{
+  Default
+  {
+    Radius 13;
+    Height 8;
+    Projectile;
+  }
+}
+
+class HacxTrail : Actor
+{
+  Default
+  {
+    +NOBLOCKMAP;
+    +NOGRAVITY;
+    +NOINTERACTION;
+  }
+}
+
+class HacxPuff : BulletPuff replaces BulletPuff
+{
+  States
+  {
+    Spawn:
+      PUFF A 3 bright;
+      PUFF B 3;
+    Melee:
+      PUFF CD 3;
+      Stop;
+  }
+}

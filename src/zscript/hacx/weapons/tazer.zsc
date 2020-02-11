@@ -1,0 +1,153 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Weapon: Tazer
+ */
+
+class HacxTazer : HacxWeapon replaces Shotgun
+{
+  Default
+  {
+    Weapon.SelectionOrder 1300;
+    Weapon.UpSound "weapons/tazerup";
+    Weapon.AmmoUse 1;
+    Weapon.AmmoGive 8;
+    weapon.ammotype "HacxCartridges";
+    inventory.pickupmessage "$GOTTAZER";
+    obituary "$OB_MPTAZER";
+    Tag "$TAG_TAZER";
+  }
+
+  States
+  {
+    Spawn:
+      TAZR A -1;
+      Stop;
+    Idle:
+      TAZG A 0;
+      Goto IdleWait;
+    Ready:
+      TAZG A 1 A_WeaponReady();
+      loop;
+    Deselect:
+      TAZG A 0 A_Lower();
+      TAZG A 1 A_Lower();
+      loop;
+    Select:
+      TAZG A 0 A_Raise();
+      TAZG A 1 A_Raise();
+      loop;
+    Fire:
+      TAZG B 0 A_PlaySound("weapons/tazercharge");
+      TAZG A 3 A_GunFlash();
+      TAZG A 0 A_PlaySound("weapons/tazer", CHAN_WEAPON);
+      TAZF A 3 bright A_FireProjectile("TazerShot");
+      TAZF B 2 bright;
+      TAZG C 2;
+      TAZG D 3;
+      TAZG E 5;
+      TAZG D 4;
+      TAZG C 3;
+      TAZG A 4;
+      TAZG A 1 A_ReFire();
+      goto Ready;
+    Flash:
+      TAZC A 2 bright;
+      TAZC B 2 bright A_Light1();
+      TAZC C 2 bright A_Light2();
+      TNT1 A 2;
+      TNT1 A 0 A_Light0();
+      stop;
+    AltFire:
+      TAZK A 0;
+      Goto Kick;
+  }
+}
+
+class TazerShot : HacxProjectile
+{
+  Default
+  {
+    Speed 50;
+    damage 10;
+    seesound "weapons/tazerzap";
+    deathsound "weapons/tazerhit";
+    obituary "$OB_MPTAZER";
+    decal "TazerScorch";
+    RenderStyle "Add";
+    Alpha 0.75;
+  }
+
+  States
+  {
+    Spawn:
+      TBAL AAABBBCCC 1 bright A_SpawnItemEx("TazerTrail1",0,0.1*random(-10,10),0.1*random(-10,10)-2,0,0,0,0,SXF_CLIENTSIDE,0);
+      loop;
+    Death:
+      TPUF AB 3 bright;
+      TPUF C 0 A_SpawnItemEx("TazerFrag",0,0,0,20,0,0, 0   + random(-5,5),SXF_TRANSFERPOINTERS,0);
+      TPUF C 0 A_SpawnItemEx("TazerFrag",0,0,0,20,0,0, 72  + random(-5,5),SXF_TRANSFERPOINTERS,0);
+      TPUF C 0 A_SpawnItemEx("TazerFrag",0,0,0,20,0,0, 144 + random(-5,5),SXF_TRANSFERPOINTERS,0);
+      TPUF C 0 A_SpawnItemEx("TazerFrag",0,0,0,20,0,0, 216 + random(-5,5),SXF_TRANSFERPOINTERS,0);
+      TPUF C 0 A_SpawnItemEx("TazerFrag",0,0,0,20,0,0, 288 + random(-5,5),SXF_TRANSFERPOINTERS,0);
+      TPUF CDE 3 bright;
+      stop;
+  }
+}
+
+class TazerFrag : HacxProjectile
+{
+  Default
+  {
+    Speed 20;
+    Damage 6;
+    SeeSound "weapons/tazerzap";
+    Obituary "$OB_MPTAZER";
+    Decal "TazerScorch";
+  }
+
+  States
+  {
+    Spawn:
+      TPUF AABBBAA 1 bright A_SpawnItemEx("TazerTrail2",0,0.5*random(-10,10),0.5*random(-10,10),0,0,0,0,SXF_CLIENTSIDE,0);
+      stop;
+    XDeath:
+      TPUF C 0 A_PlaySound("weapons/tazerfire");
+    Death:
+      TPUF CDE 2 bright;
+      stop;
+  }
+}
+
+class TazerTrail1 : HacxTrail
+{
+  Default
+  {
+    Alpha 0.5;
+    Scale 0.75;
+    Renderstyle "Add";
+  }
+
+  States
+  {
+    Spawn:
+      TZAP EEEDDDCCCBBBAAA 1 bright A_FadeOut(0.05);
+      Stop;
+  }
+}
+
+class TazerTrail2 : HacxTrail
+{
+  Default
+  {
+    Alpha 1;
+    Renderstyle "Add";
+  }
+
+  States
+  {
+    Spawn:
+      TZAP AABBAA 1 bright A_FadeOut(0.10);
+      Stop;
+  }
+}

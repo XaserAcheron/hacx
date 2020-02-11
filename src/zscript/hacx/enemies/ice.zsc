@@ -1,0 +1,58 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Enemy: ICE
+ */
+
+class HacxICE : Actor replaces DoomImp
+{
+  Default
+  {
+    obituary "$OB_ICE";
+    health 200;
+    speed 15;
+    radius 32;
+    height 55;
+    damage 6;
+    painchance 10;
+    seesound "ice/sight";
+    attacksound "ice/attack";
+    painsound "ice/pain";
+    deathsound "ice/death";
+    activesound "ice/active";
+    MONSTER;
+    +FLOORCLIP;
+  }
+
+  States
+  {
+    Spawn:
+      ICES A 10 A_Look();
+      loop;
+    See:
+      ICES AABBCCDD 4 A_Chase();
+      loop;
+    Missile:
+      ICES E 6 A_FaceTarget();
+      ICES F 20 A_SkullAttack();
+      ICES G 6;
+      ICES A 6 A_Stop();
+      loop;
+    Pain:
+      ICES H 10 A_Pain();
+      ICES H 10;
+      goto See;
+    Death:
+    XDeath:
+      ICES N 10;
+      ICES O 5 A_Scream();
+      ICES P 5;
+      ICES Q 5 A_NoBlocking();
+      ICES RS 5;
+      ICES T -1;
+      stop;
+    Raise:
+      ICES SRQPON 5;
+      goto See;
+  }
+}

@@ -1,0 +1,36 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Rooty McRootface
+ */
+
+version "2.5"
+
+#include "zscript/hacx/base.zsc"
+#include "zscript/hacx/player.zsc"
+
+#include "zscript/hacx/weapons/base.zsc"
+#include "zscript/hacx/weapons/kick.zsc"
+#include "zscript/hacx/weapons/reznator.zsc"
+#include "zscript/hacx/weapons/pistol.zsc"
+#include "zscript/hacx/weapons/tazer.zsc"
+#include "zscript/hacx/weapons/cryogun.zsc"
+#include "zscript/hacx/weapons/uzi.zsc"
+#include "zscript/hacx/weapons/zooka.zsc"
+#include "zscript/hacx/weapons/antigun.zsc"
+#include "zscript/hacx/weapons/nuker.zsc"
+
+#include "zscript/hacx/enemies/thug.zsc"
+#include "zscript/hacx/enemies/android.zsc"
+#include "zscript/hacx/enemies/buzzer.zsc"
+#include "zscript/hacx/enemies/phage.zsc"
+#include "zscript/hacx/enemies/cyborg.zsc"
+#include "zscript/hacx/enemies/monstruct.zsc"
+#include "zscript/hacx/enemies/thorn.zsc"
+#include "zscript/hacx/enemies/terminatrix.zsc"
+#include "zscript/hacx/enemies/replicant.zsc"
+#include "zscript/hacx/enemies/ice.zsc"
+#include "zscript/hacx/enemies/spawn.zsc"
+#include "zscript/hacx/enemies/majong7.zsc"
+#include "zscript/hacx/enemies/genie.zsc"
+#include "zscript/hacx/enemies/mine.zsc"

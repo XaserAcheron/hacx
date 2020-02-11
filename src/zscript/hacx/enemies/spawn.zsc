@@ -1,0 +1,76 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Enemy: GENIE Spawn
+ */
+
+class HacxGenieSpawn : Actor replaces LostSoul
+{
+  Default
+  {
+    obituary "$OB_GENIESPAWN";
+    health 250;
+    speed 10;
+    radius 48;
+    height 77;
+    damage 9;
+    painchance 31;
+    mass 600;
+    attacksound "spawn/attack";
+    painsound "spawn/pain";
+    deathsound "spawn/death";
+    activesound "spawn/active";
+    MONSTER;
+    +FLOORCLIP;
+    +NOGRAVITY;
+    +FLOAT;
+    +NOBLOOD;
+    damagetype "Ramming";
+  }
+
+  States
+  {
+    Spawn:
+      GSPN A 10 A_Look();
+      loop;
+    See:
+      GSPN A 2 A_Chase();
+      GSPN A 2 A_Chase(null,null);
+      loop;
+    Missile:
+      GSPN B 10 bright A_FaceTarget();
+      GSPN C 0 bright A_FaceTarget();
+      GSPN C 0 bright A_SkullAttack(30);
+      GSPN CCCCCCCCCC 2 bright A_SpawnItemEx("HacxGenieSpawnTrail",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION,0);
+      GSPN DDDDD 2 bright A_ScaleVelocity(0.25);
+      goto Missile+1;
+    Pain:
+      GSPN D 3;
+      GSPN D 7 A_Pain();
+      goto Missile+1;
+    Death:
+      GSPN K 4;
+      GSPN L 4 A_Scream();
+      GSPN M 4;
+      GSPN N 4 A_NoBlocking();
+      GSPN OPQ 4;
+      GSPN R -1;
+      stop;
+  }
+}
+
+class HacxGenieSpawnTrail : Actor
+{
+  Default
+  {
+    +NOINTERACTION;
+    Alpha 0.6;
+  }
+
+  States
+  {
+    Spawn:
+      GSPN CCCCCCC 1 bright A_FadeOut(0.075);
+      Stop;
+  }
+}

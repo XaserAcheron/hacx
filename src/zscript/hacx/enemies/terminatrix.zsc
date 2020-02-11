@@ -1,0 +1,126 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Enemy: Terminatrix
+ */
+
+class HacxTerminatrix : Actor replaces BaronOfHell
+{
+  Default
+  {
+    obituary "$OB_TERMIN";
+    hitobituary "$OB_TERMINHIT";
+    health 800;
+    speed 12;
+    radius 24;
+    height 96;
+    painchance 40;
+    mass 1000;
+    seesound "terminatrix/sight";
+    painsound "terminatrix/pain";
+    deathsound "terminatrix/death";
+    activesound "terminatrix/active";
+    MONSTER;
+    +FLOORCLIP;
+  }
+
+  States
+  {
+    Spawn:
+      TRIX AB 10 A_Look();
+      loop;
+    See:
+      TRIX A 3 A_Chase();
+      TRIX A 3 A_VileChase();
+      TRIX B 3 A_Chase();
+      TRIX B 3 A_VileChase();
+      TRIX C 3 A_Chase();
+      TRIX C 3 A_VileChase();
+      TRIX D 3 A_Chase();
+      TRIX D 3 A_VileChase();
+      loop;
+    Melee:
+      TRIX P 8 A_FaceTarget();
+      TRIX Q 8 A_VileAttack("misc/explode");
+      TRIX R 20;
+      goto See;
+    Missile:
+      TRIX EF 8 A_FaceTarget();
+      TRIX G 8 A_SpawnProjectile ("HacxTerminatrixBall", 32.0, 0, 0);
+      goto See;
+    Heal:
+      TRIX STU 8 BRIGHT;
+      Goto See;
+    Pain:
+      TRIX H 7 bright A_Pain();
+      TRIX H 7 bright;
+      goto See;
+    Death:
+      TRIX I 8;
+      TRIX J 8 A_Scream();
+      TRIX K 8;
+      TRIX L 8 A_NoBlocking();
+      TRIX MN 8;
+      TRIX O -1 A_BossDeath();
+      stop;
+  }
+}
+
+class HacxTerminatrixBall : Actor replaces BaronBall
+{
+  Default
+  {
+    health 1000;
+    speed 20;
+    radius 6;
+    height 8;
+    damage 10;
+    mass 100;
+    seesound "misc/projectilefire";
+    deathsound "misc/projectilehit";
+    PROJECTILE;
+    +RANDOMIZE;
+  }
+
+  States
+  {
+    Spawn:
+      TRXB AAAABBBB 1 bright A_SpawnItemEx("HacxTerminatrixTrail",0,0,0,0,0,0,0,128,0);
+      loop;
+    Death:
+      PHGX ABCDE 5 bright;
+      stop;
+  }
+}
+
+class HacxTerminatrixTrail : HacxPuff
+{
+  Default
+  {
+    Alpha 1;
+    Renderstyle "Add";
+    VSpeed 0;
+  }
+
+  States
+  {
+    Spawn:
+      TRXB AAAABBBB 1 bright A_FadeOut(0.1,1);
+      loop;
+  }
+}
+
+class HacxOverlordDummy : Actor {
+  Default
+  {
+    radius 20;
+    height 40;
+  }
+
+  states
+  {
+    Spawn:
+      OVLD A -1;
+      stop;
+  }
+}

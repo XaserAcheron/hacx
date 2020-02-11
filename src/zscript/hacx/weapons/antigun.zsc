@@ -1,0 +1,100 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Weapon: Antigun (a big stick!)
+ */
+
+class HacxAntigun : HacxWeapon replaces PlasmaRifle
+{
+  Default
+  {
+    Weapon.SelectionOrder 100;
+    Weapon.UpSound "weapons/antigunup";
+    Weapon.AmmoUse 1;
+    Weapon.AmmoGive 40;
+    Weapon.AmmoType "HacxMolecules";
+    Inventory.PickupMessage "$GOTANTIGUN";
+    Tag "$TAG_ANTIGUN";
+  }
+
+  States
+  {
+    Spawn:
+      ANTI A -1;
+      Stop;
+    Ready:
+      ANTG A 1 A_WeaponReady();
+      Loop;
+    Idle:
+      ANTG A 0;
+      Goto IdleWait;
+    Deselect:
+      ANTG A 0 A_Lower();
+      ANTG A 1 A_Lower();
+      Loop;
+    Select:
+      ANTG A 0 A_Raise();
+      ANTG A 1 A_Raise();
+      Loop;
+    Fire:
+      ANTG A 0 A_GunFlash();
+      ANTF A 2 A_FireProjectile("HacxMolecule");
+      ANTF B 2 A_FireProjectile("HacxMolecule");
+      ANTG B 20 A_ReFire();
+      goto Ready;
+    Flash:
+      TNT1 A 2 bright A_Light1();
+      TNT1 B 3 bright A_Light2();
+      TNT1 B 0 A_Light0();
+      stop;
+    AltFire:
+      ANTK A 0;
+      Goto Kick;
+  }
+}
+
+class HacxMolecule : FastProjectile replaces PlasmaBall
+{
+  Default
+  {
+    Radius 13;
+    Height 8;
+    Speed 100;
+    Damage 4;
+    Projectile;
+    +RANDOMIZE;
+    RenderStyle "Translucent";
+    Alpha 0.8;
+    obituary "$OB_MPANTIGUN";
+    seesound "weapons/antigun";
+    deathsound "weapons/antigunhit";
+    MissileType "HacxMoleculeTrail";
+    MissileHeight 8;
+  }
+
+  States
+  {
+    Spawn:
+      MOLS AB 2 bright;
+      loop;
+    Death:
+      MOLE ABCD 3 bright;
+      Stop;
+  }
+}
+
+class HacxMoleculeTrail : HacxTrail
+{
+  Default
+  {
+    RenderStyle "Translucent";
+    Alpha 0.8;
+  }
+
+  States
+  {
+    Spawn:
+      MOLS AB 1 bright A_FadeOut(0.33,1);
+      loop;
+  }
+}

@@ -1,0 +1,68 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Enemy: Replicant
+ */
+
+class HacxReplicant : Actor replaces Revenant
+{
+  Default
+  {
+    obituary "$OB_REPLICANT";
+    health 150;
+    radius 21;
+    height 72;
+    scale 0.9;
+    mass 45;
+    speed 16;
+    painchance 100;
+    seesound "replicant/sight";
+    attacksound "weapons/pistol";
+    painsound "replicant/pain";
+    deathsound "replicant/death";
+    activesound "replicant/active";
+    dropitem "HacxUzi", 256;
+    MONSTER;
+    +FLOORCLIP;
+  }
+
+  States
+  {
+    Spawn:
+      REPL A 10 A_Look();
+      loop;
+    See:
+      REPL BBCCDDEE 2 A_Chase();
+      loop;
+    Missile:
+      REPL F 0 A_PlaySound("replicant/attack");
+    MissileLoop:
+      REPL F 10 A_FaceTarget();
+      REPL G 2 bright A_CustomBulletAttack (22.5, 0, 1, random(1,5) * 2, "HacxPuff", 0, CBAF_NORANDOM);
+      REPL F 1 A_FaceTarget();
+      REPL G 2 bright A_CustomBulletAttack (22.5, 0, 1, random(1,5) * 2, "HacxPuff", 0, CBAF_NORANDOM);
+      REPL F 1 A_FaceTarget();
+      REPL G 2 bright A_CustomBulletAttack (22.5, 0, 1, random(1,5) * 2, "HacxPuff", 0, CBAF_NORANDOM);
+      REPL F 1 A_FaceTarget();
+      REPL G 2 bright A_CustomBulletAttack (22.5, 0, 1, random(1,5) * 2, "HacxPuff", 0, CBAF_NORANDOM);
+      REPL F 1 A_FaceTarget();
+      REPL G 2 bright A_CustomBulletAttack (22.5, 0, 1, random(1,5) * 2, "HacxPuff", 0, CBAF_NORANDOM);
+      REPL F 0 A_CPosRefire();
+      Loop;
+    Pain:
+      REPL H 2;
+      REPL H 2 A_Pain();
+      goto See;
+    Death:
+      REPL I 6;
+      REPL J 5 A_PlayerScream();
+      REPL K 4 A_NoBlocking();
+      REPL L 4;
+      REPL MN 4;
+      REPL O -1;
+      Stop;
+    Raise:
+      REPL NMLKJIH 4;
+      goto See;
+  }
+}

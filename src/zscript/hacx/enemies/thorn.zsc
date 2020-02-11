@@ -1,0 +1,114 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Enemy: Thorn Thing
+ */
+
+class HacxThornThing : Actor replaces Arachnotron
+{
+  Default
+  {
+    obituary "$OB_THORN";
+    health 600;
+    speed 20;
+    radius 64;
+    height 96;
+    painchance 20;
+    mass 600;
+    seesound "thorn/sight";
+    painsound "thorn/sight";
+    deathsound "thorn/death";
+    activesound "thorn/active";
+    scale 1.15;
+    MONSTER;
+    +FLOORCLIP;
+  }
+
+  States
+  {
+    Spawn:
+      THRN AB 10 A_Look();
+      loop;
+    See:
+      THRN A 10;
+    Walk:
+      THRN AA 3 A_Chase();
+      THRN A 0 A_PlaySound("thorn/walk");
+      THRN BBCCDD 3 A_Chase();
+      Loop;
+    Missile:
+      THRN E 8 bright A_FaceTarget();
+      THRN E 0 bright A_SpawnProjectile ("HacxThornThingBall", 64.0,  32, 0);
+      THRN F 6 bright A_SpawnProjectile ("HacxThornThingBall", 64.0, -32, 0);
+      THRN E 6 bright A_FaceTarget();
+      goto Walk;
+    Pain:
+      THRN G 3;
+      THRN G 3 A_Pain();
+      goto Walk;
+    Death:
+      THRN H 7 A_Scream();
+      THRN I 7 A_NoBlocking();
+      THRN JKLMN 7;
+      THRN O -1;
+      stop;
+    Raise:
+      THRN MNLKJIH 5;
+      goto See;
+  }
+}
+
+class HacxThornThingSniper : HacxThornThing replaces DeadLostSoul
+{
+  Default
+  {
+    speed 0;
+  }
+
+  States
+  {
+    See:
+      THRN A 3 A_Chase();
+      loop;
+    Missile:
+      THRN A 8 bright A_FaceTarget();
+      THRN D 0 bright A_SpawnProjectile("HacxThornThingBall", 40.0,  32, 0);
+      THRN D 3 bright A_SpawnProjectile("HacxThornThingBall", 40.0, -32, 0);
+      THRN E 3 bright;
+      THRN D 6 bright A_FaceTarget();
+      goto See;
+    Pain:
+      THRN F 3;
+      THRN F 3 A_Pain();
+      goto See;
+    Raise:
+      THRN LKJIHG 5;
+      goto See;
+  }
+}
+
+class HacxThornThingBall : RevenantTracer replaces RevenantTracer
+{
+  Default
+  {
+    mass 100;
+    damage 5;
+    seesound "thorn/attack";
+    deathsound "misc/projectilehit";
+  }
+
+  States
+  {
+    Spawn:
+      THNB ABABABABABABABABABAB 1 bright A_Tracer();
+      THNB A 0 bright A_PlaySound("thorn/fly", CHAN_VOICE, 1.0, 1);
+    Fly:
+      THNB AB 1 bright A_Tracer();
+      goto Fly;
+    Death:
+      THNB C 8 bright;
+      THNB D 6 bright;
+      THNB E 4 bright;
+      stop;
+  }
+}

@@ -1,0 +1,77 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Enemy: GENIE
+ */
+
+class HacxGenie : Actor replaces Cyberdemon
+{
+  Default
+  {
+    health 8000;
+    speed 16;
+    radius 40;
+    height 110;
+    painchance 10;
+    mass 0x7FFFFFF;
+    seesound "genie/sight";
+    activesound "genie/active";
+    painsound "genie/pain";
+    deathsound "genie/death";
+    obituary "$OB_GENIE";
+    meleerange 192;
+    MONSTER;
+    +BOSS;
+    +FLOORCLIP;
+    +FULLVOLACTIVE;
+  }
+
+  States
+  {
+    Spawn:
+      GENI A 0 bright A_PlaySound("genie/engine", CHAN_BODY, 1.0, 1);
+      GENI ACBC 4 bright A_Look();
+      loop;
+    See:
+      GENI A 0 bright A_PlaySound("genie/engine", CHAN_BODY, 1.0, 1);
+      GENI AABBCC 2 bright A_Chase();
+      loop;
+    Melee:
+      GENI D 0 bright A_PlaySound("genie/claw", CHAN_VOICE);
+      GENI D 2 bright A_FaceTarget();
+      GENI D 1 bright A_Recoil(-8.0);
+      GENI D 1 bright A_FaceTarget();
+      GENI D 1 bright A_Recoil(-8.0);
+      GENI D 1 bright A_FaceTarget();
+      GENI D 1 bright A_Recoil(-8.0);
+      GENI D 1 bright A_FaceTarget();
+      GENI E 4 bright A_FaceTarget();
+      GENI F 2 bright A_CustomMeleeAttack(10,"genie/slash","");
+      GENI F 8 bright;
+      goto See;
+    Missile:
+      GENI AH 3 bright A_FaceTarget();
+      GENI H 0 bright A_Jump(128,"Laser");
+      GENI H 5 bright A_SpawnProjectile("HacxEnemyPhoton", 64.0, 0, 0);
+      GENI H 3 bright A_FaceTarget();
+      goto See;
+    Laser:
+      GENI HHHHHHHH 2 bright A_SpawnProjectile("HacxCyborgShot", 64.0, 0, 0);
+      GENI H 3 bright A_FaceTarget();
+      goto See;
+    Pain:
+      GENI I 2 bright;
+      GENI I 8 bright A_Pain();
+      goto See;
+    Death:
+      GENI J 6 bright A_Scream();
+      GENI K 6 bright A_StopSound(CHAN_BODY);
+      GENI L 6 bright;
+      GENI M 6 bright A_NoBlocking();
+      GENI NOP 6 bright;
+      NUK1 B 5 bright A_PlaySound("misc/explode");
+      NUK1 CDEF 5 bright;
+      TNT1 A -1 bright;
+      stop;
+  }
+}

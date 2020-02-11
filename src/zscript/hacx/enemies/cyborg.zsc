@@ -1,0 +1,73 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Enemy: Cyborg (Mecha Maniac)
+ */
+
+class HacxCyborg : Actor replaces HellKnight
+{
+  Default
+  {
+    health 600;
+    speed 8;
+    radius 24;
+    height 96;
+    painchance 40;
+    //scale 1.15
+    mass 1000;
+    seesound "mecha/sight";
+    painsound "mecha/pain";
+    deathsound "mecha/death";
+    obituary "$OB_MANIAC";
+    MONSTER;
+    +FLOORCLIP;
+  }
+
+  States
+  {
+    Spawn:
+      MECH E 10 A_Look();
+      loop;
+    See:
+      MECH AAAABBBB 2 A_Chase();
+      MECH B 0 A_PlaySound("mecha/walk", CHAN_BODY);
+      MECH CCCCDDDD 2 A_Chase();
+      MECH D 0 A_PlaySound("mecha/walk", CHAN_BODY);
+      loop;
+    Melee:
+    Missile:
+      MECH E 8 bright A_FaceTarget();
+      MECH F 2 bright A_SpawnProjectile("HacxCyborgShot", 48.0, -24.0, 0);
+      MECH GE 2 bright A_FaceTarget();
+      MECH H 2 bright A_SpawnProjectile("HacxCyborgShot", 48.0,  24.0, 0);
+      MECH IE 2 bright A_FaceTarget();
+      MECH F 2 bright A_SpawnProjectile("HacxCyborgShot", 48.0, -24.0, 0);
+      MECH GEE 2 bright A_FaceTarget();
+      MECH D 0 A_PlaySound("mecha/walk", CHAN_BODY);
+      goto See;
+    Pain:
+      MECH J 3;
+      MECH J 3 A_Pain();
+      goto See;
+    Death:
+      MECH K 6 bright A_Scream();
+      MECH L 6 bright A_PlaySound("misc/explode2");
+      MECH M 6 bright;
+      MECH N 6 bright A_NoBlocking();
+      MECH OP 6 bright;
+      MECH Q -1;
+      stop;
+    Raise:
+      MECH PONMLK 6;
+      goto See;
+  }
+}
+
+class HacxCyborgShot : HacxMolecule
+{
+  Default
+  {
+    speed 50;
+    damage 3;
+  }
+}

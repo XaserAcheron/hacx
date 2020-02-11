@@ -1,0 +1,151 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Weapon: Photon 'Zooka
+ */
+
+class HacxPhotonZooka : HacxWeapon replaces RocketLauncher
+{
+  Default
+  {
+    Weapon.SelectionOrder 2500;
+    Weapon.UpSound "weapons/zookaup";
+    Weapon.AmmoUse 1;
+    Weapon.AmmoGive 2;
+    Weapon.AmmoType "HacxTorpedo";
+    inventory.pickupmessage "$GOTPHOTONZOOKA";
+    Tag "$TAG_PHOTONZOOKA";
+    +WEAPON.EXPLOSIVE;
+    +WEAPON.NOAUTOFIRE;
+  }
+
+  States
+  {
+    Spawn:
+      ZOOK A -1;
+      Stop;
+    Ready:
+      PHZG A 1 A_WeaponReady();
+      loop;
+    Idle:
+      PHZG A 0;
+      Goto IdleWait;
+    Deselect:
+      PHZG A 0 A_Lower();
+      PHZG A 1 A_Lower();
+      loop;
+    Select:
+      PHZG A 0 A_Raise();
+      PHZG A 1 A_Raise();
+      loop;
+    Fire:
+      PHZF A 4 bright A_GunFlash();
+      PHZF B 0 bright A_PlaySound("weapons/zookafire", CHAN_WEAPON);
+      PHZF B 4 bright A_FireProjectile("HacxPhoton",0,1);
+      PHZF CD 4 bright;
+      PHZG B 4 bright;
+      PHZG B 3 bright A_ReFire();
+      goto Ready;
+    Flash:
+      TNT1 A 3 A_Light1();
+      TNT1 A 3 A_Light2();
+      TNT1 A 3 A_Light1();
+      TNT1 A 0 A_Light0();
+      stop;
+    AltFire:
+      PHZK A 0;
+      Goto Kick;
+  }
+}
+
+class HacxPhoton : HacxProjectile replaces Rocket
+{
+  Default
+  {
+    obituary "$OB_MPZOOKA";
+    speed 35;
+    damage 20;
+    scale 0.5;
+    deathsound "weapons/zookahit";
+  }
+
+  States
+  {
+    Spawn:
+      TORP A 0 bright;
+      TORP A 2 bright A_SpawnItemEx("HacxPhotonTrail",0,0.2*random(-10,10),0.2*random(-10,10),0,0,0,0,SXF_CLIENTSIDE,0);
+      wait;
+    Death:
+      TORE A 0 bright A_NoGravity();
+      TORE A 0 bright A_SetScale(1.0,1.0);
+      TORE A 0 bright A_SetTranslucent(1.0,1);
+      TORE A 4 bright A_Explode(128,192);
+      TORE BBCC 2 bright A_SpawnItemEx("HacxPhotonExplode",frandom(-24,24),frandom(-24,24),frandom(-8,8));
+      TORE DE 4 bright;
+      stop;
+  }
+}
+
+class HacxPhotonExplode : HacxTrail
+{
+  Default
+  {
+    Alpha 1;
+    Renderstyle "Add";
+    Scale 0.75;
+  }
+
+  States
+  {
+    Spawn:
+      TORE ABCDE 3 bright;
+      stop;
+  }
+}
+
+class HacxPhotonGravity : HacxPhoton
+{
+  Default
+  {
+    -NOGRAVITY;
+    gravity 0.25;
+  }
+}
+
+class HacxEnemyPhoton : HacxPhoton
+{
+  Default
+  {
+    seesound "weapons/zookafire";
+    damage 0;
+  }
+
+  States
+  {
+    Death:
+      TORE A 0 bright A_NoGravity();
+      TORE A 0 bright A_SetScale(1.0,1.0);
+      TORE A 0 bright A_SetTranslucent(1.0,1);
+      TORE A 4 bright A_Explode(80,192);
+      TORE BCDE 4 bright;
+      stop;
+  }
+}
+
+class HacxPhotonTrail : HacxTrail
+{
+  Default
+  {
+    Alpha 0.75;
+    Scale 0.15;
+    Renderstyle "Add";
+    VSpeed 1;
+  }
+
+  States
+  {
+    Spawn:
+      TPHO ABCDEBA 2 bright A_FadeOut(0.1);
+      Stop;
+  }
+}

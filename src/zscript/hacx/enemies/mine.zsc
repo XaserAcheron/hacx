@@ -1,0 +1,46 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Enemy: Roaming Mine
+ */
+
+class HacxRoamingMine : Actor replaces WolfensteinSS
+{
+  Default
+  {
+    obituary "$OB_MINE";
+    health 80;
+    speed 12;
+    radius 16;
+    height 40;
+    painchance 0;
+    mass 600;
+    deathsound "misc/explode";
+    activesound "mine/active";
+    MONSTER;
+    +FLOORCLIP;
+    +NOBLOOD;
+    +FLOAT;
+    +NOGRAVITY;
+  }
+
+  States
+  {
+    Spawn:
+      MINE I 2 A_Look();
+      loop;
+    See:
+      MINE JKLMNOABCDEFGHI 2 A_Chase();
+      loop;
+    Melee:
+      MINE A 0 A_Die();
+    Death:
+      MEXP A 4 bright A_NoBlocking();
+      MEXP B 0 bright A_SetTranslucent(1.0,1);
+      MEXP B 0 bright A_Scream();
+      MEXP B 4 bright A_Explode();
+      MEXP C 4 bright;
+      MEXP DEF 3 bright;
+      stop;
+  }
+}

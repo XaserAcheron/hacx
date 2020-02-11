@@ -1,0 +1,63 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Enemy: Thug
+ */
+
+class HacxThug : Actor replaces Zombieman
+{
+  Default
+  {
+    obituary "$OB_THUG";
+    health 50;
+    radius 21;
+    height 72;
+    mass 45;
+    speed 12;
+    painchance 100;
+    seesound "thug/sight";
+    attacksound "thug/attack";
+    painsound "thug/pain";
+    deathsound "thug/death";
+    activesound "thug/active";
+    dropitem "HacxRounds", 256;
+    MONSTER;
+    +FLOORCLIP;
+  }
+
+  States
+  {
+    Spawn:
+      THUG A 10 A_Look();
+      loop;
+    See:
+      THUG AABBCCDD 3 A_Chase();
+      loop;
+    Missile:
+      THUG E 6 A_FaceTarget();
+      THUG F 3 bright A_CustomBulletAttack(22.5, 0, 1, random(1,5) * 3, "HacxPuff", 0, CBAF_NORANDOM);
+      THUG E 6;
+      goto See;
+    Pain:
+      THUG G 4;
+      THUG G 4 A_Pain();
+      goto See;
+    Death:
+      THUG H 9;
+      THUG I 5 A_Scream();
+      THUG J 4 A_NoBlocking();
+      THUG K 4;
+      THUG L -1;
+      stop;
+    XDeath:
+      THUG M 3;
+      THUG N 3 A_XScream();
+      THUG O 3 A_NoBlocking();
+      THUG PQRST 3;
+      THUG U -1;
+      stop;
+    Raise:
+      THUG KJIH 5;
+      goto See;
+  }
+}

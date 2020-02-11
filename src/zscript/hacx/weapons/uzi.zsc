@@ -1,0 +1,149 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Weapon: Uzi
+ */
+
+class HacxUzi : HacxWeapon replaces Chaingun
+{
+  Default
+  {
+    Weapon.SelectionOrder 700;
+    Weapon.UpSound "weapons/uziup";
+    Weapon.AmmoUse 1;
+    Weapon.AmmoUse2 1;
+    Weapon.AmmoGive 20;
+    Weapon.AmmoType "HacxRounds";
+    Weapon.AmmoType2 "HacxRounds";
+    Inventory.PickupMessage "$GOTUZI";
+    Obituary "$OB_MPUZI";
+    Tag "$TAG_UZI";
+  }
+
+  States
+  {
+    Spawn:
+      UZII A -1;
+      Stop;
+    Ready:
+      UZIG A 1 A_WeaponReady(WRF_ALLOWRELOAD);
+      loop;
+    Idle:
+      UZIG A 0;
+      Goto IdleWait;
+    Deselect:
+      UZIG A 0 A_Lower();
+      UZIG A 1 A_Lower();
+      loop;
+    Select:
+      UZIG A 0 A_Raise();
+      UZIG A 1 A_Raise();
+      loop;
+    Fire:
+    Hold:
+      UZIF A 0 A_GunFlash();
+      UZIF A 0 A_PlaySound("weapons/pistol", CHAN_WEAPON);
+      UZIF A 2 bright A_FireBullets (5.6, 0, -1, 5, "HacxPuff");
+      UZIF B 0 A_PlaySound("weapons/pistol", CHAN_WEAPON);
+      UZIF B 2 bright A_FireBullets (5.6, 0, -1, 5, "HacxPuff");
+      UZIG B 0 A_CheckForReload (25, "Refire");
+      // intentional fall-through
+    DoReload:
+      UZIG B 3 A_JumpIfNoAmmo("Ready");
+      UZIG C 3;
+      UZIG D 3 A_PlaySound("weapons/uzireload", CHAN_WEAPON);
+      UZIG E 8 A_ResetReloadCounter();
+      UZIG CBA 3;
+      // ditto
+    Refire:
+      UZIG B 0 A_ReFire();
+      goto Ready;
+    Reload:
+      UZIG A 0 A_GunFlash("LightDone", GFF_NOEXTCHANGE);
+      UZIG A 1 A_WeaponReady(WRF_NOFIRE);
+      UZIG A 0 A_CheckForReload (1, "Ready", 1);
+      goto DoReload;
+    Flash:
+      TNT1 A 2 A_Light1();
+      TNT1 A 2 A_Light2();
+      TNT1 A 0 A_Light0();
+      stop;
+    AltFire:
+      UZIK A 0;
+      Goto Kick;
+  }
+}
+
+class HacxDualUzis : HacxUzi
+{
+  Default
+  {
+    obituary "$OB_MPDUALUZIS";
+    inventory.pickupmessage "$GOTDUALUZIS";
+    Tag "$TAG_DUALUZIS";
+    +Weapon.CHEATNOTWEAPON; // hee hee, secret shit
+  }
+
+  States
+  {
+    Spawn:
+      UZII A -1;
+      Stop;
+    Ready:
+      UZI2 A 1 A_WeaponReady(WRF_ALLOWRELOAD);
+      loop;
+    Idle:
+      UZI2 A 0;
+      Goto IdleWait;
+    Deselect:
+      UZI2 A 0 A_Lower();
+      UZI2 A 1 A_Lower();
+      loop;
+    Select:
+      UZI2 A 0 A_Raise();
+      UZI2 A 1 A_Raise();
+      loop;
+    Fire:
+    Hold:
+      UZI2 B 0 A_GunFlash();
+      UZI2 A 0 A_PlaySound("weapons/pistol");
+      UZI2 B 0 bright A_FireBullets (5.6, 0, -1, 5, "HacxPuff");
+      UZI2 B 1 bright A_FireBullets (5.6, 0, -1, 5, "HacxPuff");
+      UZI2 B 1 A_PlaySound("weapons/pistol",CHAN_WEAPON);
+      UZI2 C 0 bright A_FireBullets (5.6, 0, -1, 5, "HacxPuff");
+      UZI2 C 2 bright A_FireBullets (5.6, 0, -1, 5, "HacxPuff");
+      UZI2 C 0 A_CheckForReload (25, 1);
+      goto DoReload;
+      UZI2 C 0 A_JumpIfNoAmmo("Ready");
+      UZI2 C 0 A_PlaySound("weapons/pistol");
+      UZI2 D 0 bright A_FireBullets (5.6, 0, -1, 5, "HacxPuff");
+      UZI2 D 1 bright A_FireBullets (5.6, 0, -1, 5, "HacxPuff");
+      UZI2 D 1 A_PlaySound("weapons/pistol",CHAN_WEAPON);
+      UZI2 E 0 bright A_FireBullets (5.6, 0, -1, 5, "HacxPuff");
+      UZI2 E 2 bright A_FireBullets (5.6, 0, -1, 5, "HacxPuff");
+      UZI2 C 0 A_CheckForReload (25, "Refire");
+      // intentional fall-through
+    DoReload:
+      UZI2 F 3 A_JumpIfNoAmmo("Ready");
+      UZI2 GH 3;
+      UZIG D 3 A_PlaySound("weapons/uzireload", CHAN_WEAPON);
+      UZIG E 8 A_ResetReloadCounter();
+      UZIG CB 3;
+      UZI2 I 3;
+      UZI2 JK 3;
+      UZI2 L 3 A_PlaySound("weapons/uzireload", CHAN_WEAPON);
+      UZI2 M 8;
+      UZI2 NOP 3;
+      // ditto
+    Refire:
+      UZI2 A 0 A_ReFire();
+      goto Ready;
+    Reload:
+      UZI2 A 1 A_WeaponReady(WRF_NOFIRE);
+      UZI2 A 0 A_CheckForReload (1, "Ready", 1);
+      goto DoReload;
+    AltFire:
+      UZ2K A 0;
+      Goto Kick;
+  }
+}
