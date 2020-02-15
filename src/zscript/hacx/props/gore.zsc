@@ -1,0 +1,104 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Hardcore Gore
+ */
+
+class HacxHangingBody : Actor replaces BloodyTwitch
+{
+  Default
+  {
+    radius 16;
+    height 68;
+    painchance 256;
+    health 10000000;
+    mass 10000000;
+    +SOLID;
+    +NOGRAVITY;
+    +SPAWNCEILING;
+    +SHOOTABLE;
+    painsound "*xdeath";
+  }
+
+  States
+  {
+    Spawn:
+      HBOD A 10;
+      HBOD B 15;
+      HBOD C 10;
+      loop;
+    Pain:
+      HBOD D 12 A_Pain();
+      goto Spawn;
+  }
+}
+
+class HacxDeadLabTech1 : Actor replaces Meat2
+{
+  States
+  {
+    Spawn:
+      DED1 A -1;
+      stop;
+  }
+}
+
+class HacxDeadLabTech2 : Actor replaces Meat3
+{
+  States
+  {
+    Spawn:
+      DED2 A -1;
+      stop;
+  }
+}
+
+class HacxDeadLabTech3 : Actor replaces Meat4
+{
+  States
+  {
+    Spawn:
+      DED3 A -1;
+      stop;
+  }
+}
+
+class HacxGibs : Actor replaces Gibs
+{
+  States
+  {
+    Spawn:
+      DED4 A -1;
+      stop;
+  }
+}
+
+class DeadThug : DeadZombieMan replaces DeadZombieMan
+{
+  States
+  {
+    Spawn:
+      THUG L -1;
+      stop;
+  }
+}
+
+class DeadAndroid : DeadShotgunGuy replaces DeadShotgunGuy
+{
+  States
+  {
+    Spawn:
+      ANDY L -1;
+      stop;
+  }
+}
+
+class DeadBuzzer : DeadDemon replaces DeadDemon
+{
+  States
+  {
+    Spawn:
+      BUZZ N -1;
+      stop;
+  }
+}

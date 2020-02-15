@@ -1,0 +1,91 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Glass n' Shards
+ */
+
+class HacxGlass : Actor replaces Cacodemon
+{
+  Default
+  {
+    obituary "$OB_GLASS";
+    health 1;
+    speed 8;
+    radius 36;
+    height 128;
+    painchance 256;
+    mass 6000;
+    deathsound "glass/break";
+    +ISMONSTER;
+    +SHOOTABLE;
+    +NOBLOOD;
+    +FLOORCLIP;
+  }
+
+  States
+  {
+    Spawn:
+      TNT1 A -1 A_Look();
+      stop;
+    Death:
+      GLAS A 2;
+      GLAS B 2 A_Scream();
+      GLAS C 2 A_NoBlocking();
+      GLAS D 2 A_FaceTarget();
+      GLAS E 4 A_SpawnProjectile("HacxGlassShards", 32.0, 0, 180);
+      GLAS FGHIJ 4;
+      stop;
+  }
+}
+
+class HacxGlassShards : Actor replaces CacodemonBall
+{
+  Default
+  {
+    obituary "$OB_GLASS";
+    speed 10;
+    radius 6;
+    height 8;
+    damage 2;
+    PROJECTILE;
+    +DROPOFF;
+    -NOGRAVITY;
+  }
+
+  States
+  {
+    Spawn:
+      SHRD AB 2;
+      loop;
+    Death:
+      SHRD CD 7;
+      SHRD E -1;
+      stop;
+  }
+}
+
+class HacxGlassAuto : HacxGlass
+{
+  Default {
+    -SHOOTABLE;
+  }
+
+  States
+  {
+    Spawn:
+      TNT1 A 4 A_Look();
+      Loop;
+    See:
+      TNT1 A 1 A_Die();
+      goto Death;
+  }
+}
+
+class HacxGlassSolid : HacxGlass
+{
+  Default
+  {
+    +SOLID
+  }
+}
+

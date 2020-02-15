@@ -1,0 +1,77 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Sounds n' such.
+ */
+
+class HacxAmbientLoop : Actor
+{
+  Default
+  {
+    +NOBLOCKMAP;
+    +NOSECTOR;
+    +DONTSPLASH;
+  }
+
+  States
+  {
+    Spawn:
+      TNT1 A 2 A_LoopActiveSound();
+      Loop;
+  }
+}
+
+class HacxAmbienceBubbles1    : HacxAmbientLoop { Default { ActiveSound "ambience/bubbles1"; } }
+class HacxAmbienceBubbles2    : HacxAmbientLoop { Default { ActiveSound "ambience/bubbles2"; } }
+class HacxAmbienceBubbles3    : HacxAmbientLoop { Default { ActiveSound "ambience/bubbles3"; } }
+class HacxAmbienceBubbles4    : HacxAmbientLoop { Default { ActiveSound "ambience/bubbles4"; } }
+class HacxAmbienceDarkCircuit : HacxAmbientLoop { Default { ActiveSound "ambience/darkcircuit"; } }
+class HacxAmbienceFireSmall   : HacxAmbientLoop { Default { ActiveSound "ambience/firesmall"; } }
+class HacxAmbienceLightBuzz   : HacxAmbientLoop { Default { ActiveSound "ambience/lightbuzz"; } }
+class HacxAmbienceMotor       : HacxAmbientLoop { Default { ActiveSound "ambience/motor"; } }
+class HacxAmbiencePulse       : HacxAmbientLoop { Default { ActiveSound "ambience/pulse"; } }
+class HacxAmbienceStream      : HacxAmbientLoop { Default { ActiveSound "ambience/stream"; } }
+class HacxAmbienceWave1       : HacxAmbientLoop { Default { ActiveSound "ambience/wave1"; } }
+class HacxAmbienceWave2       : HacxAmbientLoop { Default { ActiveSound "ambience/wave2"; } }
+class HacxAmbienceWaterfall   : HacxAmbientLoop { Default { ActiveSound "ambience/waterfall"; } }
+class HacxAmbienceWindHigh    : HacxAmbientLoop { Default { ActiveSound "ambience/windhigh"; } }
+class HacxAmbienceWindLow     : HacxAmbientLoop { Default { ActiveSound "ambience/windlow"; } }
+class HacxAmbienceWindSand    : HacxAmbientLoop { Default { ActiveSound "ambience/windsand"; } }
+class HacxAmbienceBeep1       : HacxAmbientLoop { Default { ActiveSound "ambience/beep1"; } }
+class HacxAmbienceFanLarge    : HacxAmbientLoop { Default { ActiveSound "ambience/fanlarge"; } }
+class HacxAmbienceStatic1     : HacxAmbientLoop { Default { ActiveSound "ambience/static1"; } }
+class HacxAmbienceCave1       : HacxAmbientLoop { Default { ActiveSound "ambience/cave1"; } }
+class HacxAmbienceCave2       : HacxAmbientLoop { Default { ActiveSound "ambience/cave2"; } }
+class HacxAmbienceFire1       : HacxAmbientLoop { Default { ActiveSound "ambience/fire1"; } }
+class HacxAmbienceFire2       : HacxAmbientLoop { Default { ActiveSound "ambience/fire2"; } }
+class HacxAmbienceFire3       : HacxAmbientLoop { Default { ActiveSound "ambience/fire3"; } }
+class HacxAmbienceFire4       : HacxAmbientLoop { Default { ActiveSound "ambience/fire4"; } }
+class HacxAmbienceLava1       : HacxAmbientLoop { Default { ActiveSound "ambience/lava1"; } }
+class HacxAmbienceLava2       : HacxAmbientLoop { Default { ActiveSound "ambience/lava2"; } }
+class HacxAmbienceLava3       : HacxAmbientLoop { Default { ActiveSound "ambience/lava3"; } }
+
+class HacxPointSound : Actor
+{
+  Default
+  {
+    Radius 8;
+    Height 16;
+    Mass 0x7FFFFFF;
+    +VULNERABLE;
+    +TOUCHY;
+  }
+
+  States
+  {
+    Spawn:
+      TNT1 A 4;
+      Loop;
+    Death:
+      TNT1 A 1 A_ActiveSound();
+      Stop;
+  }
+}
+
+class HacxSoundPowerDown : HacxPointSound { Default { ActiveSound "point/powerdown"; } }
+class HacxSoundPowerUp   : HacxPointSound { Default { ActiveSound "point/powerup"; } }
+class HacxSoundDitty     : HacxPointSound { Default { ActiveSound "point/ditty"; } }

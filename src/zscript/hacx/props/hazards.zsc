@@ -1,0 +1,136 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Super Ultra Danger Hazards
+ */
+
+class HacxLavaBall : Actor
+{
+  Default
+  {
+    radius 6;
+    height 8;
+    PROJECTILE;
+    -NOGRAVITY;
+    +THRUACTORS;
+  }
+
+  States
+  {
+    Spawn:
+      FBAL A 0 bright;
+      FBAL A 0 bright A_PlaySound("misc/fireball");
+      FBAL ABA 3 bright A_SpawnItemEx("HacxPuff",0,0,0,0,0,0,0,128,0);
+      FBAL BCDEF 4 bright A_SpawnItemEx("HacxPuff",0,0,0,0,0,0,0,128,0);
+      wait;
+    Death:
+      FBSH BCD 4 bright;
+      stop;
+  }
+}
+
+class HacxLavaBallSpawner : Actor replaces ShortRedColumn
+{
+  Default
+  {
+    radius 8;
+    height 16;
+  }
+
+  States
+  {
+    Spawn:
+      TNT1 A 50;
+      FBSH A 4 bright;
+      FBSH B 4 bright A_SpawnItemEx("HacxLavaBall",0,0,0,0,0,16,0,128,0);
+      FBSH CD 4 bright;
+      TNT1 A 50;
+      loop;
+  }
+}
+
+class HacxLavaBallSpawnerSync : HacxLavaBallSpawner replaces SkullColumn
+{
+  Default
+  {
+    -RANDOMIZE;
+  }
+}
+
+class HacxDetonator : Actor replaces BurningBarrel
+{
+  Default
+  {
+    radius 16;
+    height 32;
+    health 300;
+    mass 1000000;
+    +INVISIBLE;
+  }
+
+  States
+  {
+    Spawn:
+      TNT1 A 2 A_Look();
+      loop;
+    See:
+      TNT1 A 2 A_Explode();
+      TNT1 A 1 A_NoBlocking();
+      stop;
+    Death:
+      goto See+1;
+  }
+}
+
+class HacxExplosion : Actor replaces CommanderKeen
+{
+  Default
+  {
+    radius 32;
+    height 72;
+    health 2;
+    mass 1000000;
+    +SHOOTABLE;
+    DeathSound "misc/explode";
+  }
+
+  States
+  {
+    Spawn:
+      TNT1 A -1;
+      loop;
+    Pain:
+    Death:
+      NUK1 A 6 bright;
+      NUK1 B 6 bright A_Scream();
+      NUK1 C 6 bright A_Explode();//(0,16)
+      NUK1 DEF 6 bright A_NoBlocking();
+      stop;
+  }
+}
+
+class HacxNitro : ExplosiveBarrel replaces ExplosiveBarrel
+{
+  Default
+  {
+    +PUSHABLE;
+    DeathSound "misc/explode";
+    Height 56;
+  }
+
+  States
+  {
+    Spawn:
+      NITR A -1;
+      Stop;
+    Death:
+      NITR B 4 BRIGHT;
+      NITR C 4 BRIGHT A_Scream();
+      NUK1 C 5 BRIGHT A_Explode(255,255);
+      NUK1 D 5 BRIGHT;
+      NUK1 EF 5 BRIGHT;
+      NUK1 F 1050 BRIGHT A_BarrelDestroy();
+      NUK1 F 5 A_Respawn();
+      Wait;
+  }
+}

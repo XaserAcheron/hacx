@@ -1,0 +1,53 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Health Pickups
+ */
+
+class HacxMicroKit : HealthBonus replaces HealthBonus
+{
+  Default
+  {
+    inventory.maxamount 400;
+    inventory.pickupmessage "$GOTMICROKIT";
+  }
+
+  States
+  {
+    Spawn:
+      KIT1 ABCD 4;
+      Loop;
+  }
+}
+
+class HacxInhaler : Stimpack replaces Stimpack
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTINHALER";
+  }
+
+  States
+  {
+    Spawn:
+      HALE A -1;
+      Stop;
+  }
+}
+
+class HacxHypo : Medikit replaces Medikit
+{
+  Default
+  {
+    inventory.amount 25;
+    inventory.pickupmessage "$GOTHYPO";
+    health.lowmessage 25, "$GOTHYPONEED";
+  }
+
+  States
+  {
+    Spawn:
+      HYPO A -1;
+      Stop;
+  }
+}

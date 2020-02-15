@@ -1,0 +1,283 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Nature Props
+ */
+
+class HacxFlowers : Actor replaces TallRedColumn
+{
+  Default
+  {
+    radius 20;
+    height 26;
+  }
+
+  States
+  {
+    Spawn:
+      FLW1 A -1;
+      stop;
+  }
+}
+
+class HacxBush : Actor replaces Stalagtite
+{
+  Default
+  {
+    radius 16;
+    height 32;
+  }
+
+  States
+  {
+    Spawn:
+      BUSH A -1;
+      stop;
+  }
+}
+
+class HacxBonzaiTree : Actor replaces HeadOnAStick
+{
+  Default
+  {
+    radius 17;
+    height 55;
+  }
+
+  States
+  {
+    Spawn:
+      BONZ A -1;
+      stop;
+  }
+}
+
+
+class HacxMossSmall : Actor replaces HangNoGuts
+{
+  Default
+  {
+    radius 5;
+    height 25;
+    +NOGRAVITY;
+    +SPAWNCEILING;
+  }
+
+  States
+  {
+    Spawn:
+      MOS1 A -1;
+      stop;
+  }
+}
+
+class HacxMossLarge : Actor replaces HangBNoBrain
+{
+  Default
+  {
+    radius 5;
+    height 25;
+    +NOGRAVITY;
+    +SPAWNCEILING;
+  }
+
+  States
+  {
+    Spawn:
+      MOS2 A -1;
+      stop;
+  }
+}
+
+class HacxStalagmite : Actor replaces HangTLookingDown 
+{
+  Default
+  {
+    radius 5;
+    height 32;
+    +SOLID;
+  }
+
+  States
+  {
+    Spawn:
+      STG1 A -1;
+      stop;
+  }
+}
+
+class HacxStalactite : Actor replaces HangTLookingUp
+{
+  Default
+  {
+    radius 5;
+    height 35;
+    +SPAWNCEILING;
+    +NOGRAVITY;
+  }
+
+  States
+  {
+    Spawn:
+      STG3 A -1;
+      stop;
+  }
+}
+
+class HacxStalagmiteLarge : Actor replaces HangTSkull
+{
+  Default
+  {
+    radius 5;
+    height 45;
+    +SOLID;
+  }
+
+  States
+  {
+    Spawn:
+      STG2 A -1;
+      stop;
+  }
+}
+
+class HacxStalactiteLarge : Actor replaces HangTNoBrain
+{
+  Default
+  {
+    radius 5;
+    height 45;
+    +NOGRAVITY;
+    +SPAWNCEILING;
+  }
+
+  States
+  {
+    Spawn:
+      STG4 A -1;
+      stop;
+  }
+}
+
+class HacxRock : Actor replaces ColonGibs
+{
+  Default
+  {
+    radius 5;
+    height 32;
+  }
+
+  States
+  {
+    Spawn:
+      ROCK A -1;
+      stop;
+  }
+}
+
+class HacxCactus1 : Actor
+{
+  Default
+  {
+    +SOLID;
+    +BUMPSPECIAL;
+    radius 24;
+    height 72;
+    obituary "$OB_CACTUS";
+  }
+
+  States
+  {
+    Spawn:
+      CACT A 0;
+      CACT A 0 A_SetSpecial(73,5,0,0,0,0);
+      CACT A -1;
+      stop;
+  }
+}
+
+class HacxCactus2 : HacxCactus1
+{
+  Default
+  {
+    radius 16;
+    height 64;
+  }
+
+  States
+  {
+    Spawn:
+      CACT B 0;
+      CACT B 0 A_SetSpecial(73,2,0,0,0,0);
+      CACT B -1;
+      stop;
+  }
+}
+
+class HacxPalmTreeShort : Actor
+{
+  Default
+  {
+    +SOLID;
+    radius 24;
+    height 80;
+  }
+
+  States
+  {
+    Spawn:
+      PALM A -1;
+      stop;
+  }
+}
+
+class HacxPalmTreeLeanRight : Actor
+{
+  Default
+  {
+    +SOLID;
+    radius 24;
+    height 96;
+  }
+
+  States
+  {
+    Spawn:
+      PALM B -1;
+      stop;
+  }
+}
+
+class HacxPalmTreeLeanLeft : Actor
+{
+  Default
+  {
+    +SOLID;
+    radius 24;
+    height 96;
+  }
+
+  States
+  {
+    Spawn:
+      PALM C -1;
+      stop;
+  }
+}
+
+class HacxPalmTreeTall : Actor
+{
+  Default
+  {
+    +SOLID;
+    radius 24;
+    height 128;
+  }
+
+  States
+  {
+    Spawn:
+      PALM D -1;
+      stop;
+  }
+}

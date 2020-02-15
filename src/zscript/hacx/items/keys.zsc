@@ -1,0 +1,105 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Keys for what to open doors with yes
+ */
+
+class HacxKeyCard : DoomKey replaces BlueCard
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTKEYCARD";
+    inventory.icon "STKEYS0";
+  }
+
+  States
+  {
+    Spawn:
+      CARD A -1;
+      stop;
+  }
+}
+
+class HacxPassword : DoomKey replaces RedCard
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTPASSWORD";
+    inventory.icon "STKEYS2";
+  }
+
+  States
+  {
+    Spawn:
+      PASS A -1;
+      stop;
+  }
+}
+
+class HacxGoldKey : DoomKey replaces YellowCard
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTGOLDKEY";
+    inventory.icon "STKEYS1";
+  }
+
+  States
+  {
+    Spawn:
+      GKEY A -1;
+      stop;
+  }
+}
+
+class HacxBlueZKey : DoomKey replaces BlueSkull
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTBLUEZKEY";
+    inventory.icon "STKEYS3";
+  }
+
+  States
+  {
+    Spawn:
+      ZKYB A 10;
+      ZKYB B 10 bright;
+      loop;
+  }
+}
+
+class HacxRedZKey : DoomKey replaces RedSkull
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTREDZKEY";
+    inventory.icon "STKEYS5";
+  }
+
+  States
+  {
+    Spawn:
+      ZKYR A 10;
+      ZKYR B 10 bright;
+      loop;
+  }
+}
+
+class HacxYellowZKey : DoomKey replaces YellowSkull
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTYELWZKEY";
+    inventory.icon "STKEYS4";
+  }
+
+  States
+  {
+    Spawn:
+      ZKYY A 10;
+      ZKYY B 10 bright;
+      loop;
+  }
+}
+

@@ -483,3 +483,67 @@ map MAP35 lookup "XHUSTR_35"
 cluster 1
 {
 }
+
+DoomEdNums
+{
+	2999 = HacxGlassSolid
+	3000 = HacxGlassAuto
+
+	3501 = HacxAmbienceBubbles1
+	3502 = HacxAmbienceBubbles2
+	3503 = HacxAmbienceBubbles3
+	3504 = HacxAmbienceBubbles4
+	3505 = HacxAmbienceDarkCircuit
+	3506 = HacxAmbienceFireSmall
+	3507 = HacxAmbienceLightBuzz
+	3508 = HacxAmbienceMotor
+	3509 = HacxAmbiencePulse
+	3510 = HacxAmbienceStream
+	3511 = HacxAmbienceWave1
+	3512 = HacxAmbienceWave2
+	3513 = HacxAmbienceWaterfall
+	3514 = HacxAmbienceWindHigh
+	3515 = HacxAmbienceWindLow
+	3516 = HacxAmbienceWindSand
+	3517 = HacxAmbienceBeep1
+	3518 = HacxAmbienceFanLarge
+	3519 = HacxAmbienceStatic1
+	3520 = HacxAmbienceCave1
+	3521 = HacxAmbienceCave2
+	3522 = HacxAmbienceFire1
+	3523 = HacxAmbienceFire2
+	3524 = HacxAmbienceFire3
+	3525 = HacxAmbienceFire4
+	3526 = HacxAmbienceLava1
+	3527 = HacxAmbienceLava2
+	3528 = HacxAmbienceLava3
+
+	3601 = HacxRainLight64
+	3602 = HacxRainLight128
+	3603 = HacxRainLight256
+	3604 = HacxRainMedium64
+	3605 = HacxRainMedium128
+	3606 = HacxRainMedium256
+	3607 = HacxRainHeavy64
+	3608 = HacxRainHeavy128
+	3609 = HacxRainHeavy256
+
+	3701 = HacxSoundPowerDown
+	3702 = HacxSoundPowerUp
+	3703 = HacxSoundDitty
+
+	3801 = HacxCactus1
+	3802 = HacxCactus2
+	3803 = HacxPalmTreeShort
+	3804 = HacxPalmTreeLeanRight
+	3805 = HacxPalmTreeLeanLeft
+	3806 = HacxPalmTreeTall
+
+	3901 = HacxFileWhite
+	3902 = HacxFileGreen
+	3903 = HacxFileBlue
+	3904 = HacxFileRed
+	3905 = HacxFileYellow
+
+	5006 = EESkyboxCam
+}

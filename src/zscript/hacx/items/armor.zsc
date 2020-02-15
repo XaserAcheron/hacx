@@ -1,0 +1,60 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Armor Pickups
+ */
+
+class HacxDampener : ArmorBonus replaces ArmorBonus
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTDAMPENER";
+    armor.maxsaveamount 400;
+  }
+
+  States
+  {
+    Spawn:
+      KIT2 A -1;
+      stop;
+  }
+}
+
+class HacxKevlarVest : GreenArmor replaces GreenArmor
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTKEVLARVEST";
+  }
+
+  States
+  {
+    Spawn:
+      KEV1 A -1;
+      stop;
+  }
+}
+
+class HacxLightKevlarVest : HacxKevlarVest
+{
+  Default
+  {
+    Armor.Saveamount 50;
+  }
+}
+
+class HacxSuperKevlarVest : BlueArmor replaces BlueArmor
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTSKEVLARVEST";
+  }
+
+  States
+  {
+    Spawn:
+      KEV2 A 6;
+      KEV2 B 6 bright;
+      loop;
+  }
+}

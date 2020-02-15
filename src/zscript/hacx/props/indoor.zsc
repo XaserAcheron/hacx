@@ -1,0 +1,188 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Indoor Props
+ */
+
+class HacxCeilingLight : Actor replaces BlueTorch
+{
+  Default
+  {
+    radius 16;
+    height 16;
+    +SOLID;
+    +SPAWNCEILING;
+    +NOGRAVITY;
+  }
+
+  States
+  {
+    Spawn:
+      LIT1 A -1 bright;
+      stop;
+  }
+}
+
+class HacxLongCeilingLight : Actor replaces RedTorch
+{
+  Default
+  {
+    radius 16;
+    height 32;
+    +SPAWNCEILING;
+    +NOGRAVITY;
+  }
+
+  States
+  {
+    Spawn:
+      LIT2 A -1 bright;
+      stop;
+  }
+}
+
+class HacxDeskLamp : Actor replaces ShortBlueTorch
+{
+  Default
+  {
+    radius 20;
+    height 19;
+    health 2;
+    mass 10;
+    deathsound "misc/shatter";
+    +SHOOTABLE;
+    +NOBLOOD;
+  }
+
+  States
+  {
+    Spawn:
+      DLMP A -1 bright;
+      stop;
+    Death:
+      DLMP B 6 A_Scream();
+      DLMP C 6;
+      DLMP D -1;
+      stop;
+  }
+}
+
+class HacxFloorLamp : Actor replaces ShortRedTorch
+{
+  Default
+  {
+    radius 19;
+    height 51;
+    health 2;
+    mass 10;
+    deathsound "misc/shatter";
+    +SOLID;
+    +SHOOTABLE;
+    +NOBLOOD;
+  }
+
+  States
+  {
+    Spawn:
+      LAMP A -1 bright;
+      stop;
+    Death:
+      LAMP B 6 A_Scream();
+      LAMP C 6 A_NoBlocking();
+      LAMP D -1;
+      stop;
+  }
+}
+
+class HacxWallTorch : Actor replaces ShortGreenTorch
+{
+  Default
+  {
+    -SOLID;
+  }
+
+  States
+  {
+    Spawn:
+      TRCH ABCD 4 bright A_Jump(64,"AnimStart");
+    AnimStart:
+      TRCH A 0 bright A_PlaySound("misc/torch", CHAN_VOICE, 1.0, 1);
+    AnimLoop:
+      TRCH ABCD 4 bright;
+      loop;
+  }
+}
+
+class HacxOfficeChair : Actor replaces Candelabra
+{
+  Default
+  {
+    radius 24;
+    height 40;
+    health 40;
+    painchance 400;
+    mass 30;
+    +SOLID;
+    +SHOOTABLE;
+    +NOBLOOD;
+    +PUSHABLE;
+    deathsound "misc/smash";
+  }
+
+  States
+  {
+    Spawn:
+      CHAR A -1;
+      stop;
+    Pain:
+      CHAR B -1;
+      stop;
+    Death:
+      CHAR C 8 A_NoBlocking();
+      CHAR D -1;
+      stop;
+  }
+}
+
+class HacxSentryLamp : Actor replaces DeadStick
+{
+  Default
+  {
+    radius 12;
+    height 42;
+    +SOLID;
+  }
+
+  States
+  {
+    Spawn:
+      SECL A -1;
+      stop;
+  }
+}
+
+class HacxBreakableVase : Actor replaces LiveStick
+{
+  Default
+  {
+    radius 16;
+    height 48;
+    health 2;
+    mass 10;
+    deathsound "misc/shatter";
+    +SOLID;
+    +SHOOTABLE;
+    +NOBLOOD;
+  }
+
+  States
+  {
+    Spawn:
+      VASE A -1;
+      stop;
+    Death:
+      VASE B 7 A_Scream();
+      VASE C -1 A_Fall();
+      stop;
+  }
+}

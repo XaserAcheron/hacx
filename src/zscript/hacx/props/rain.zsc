@@ -1,0 +1,94 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Rain n' Droplets
+ */
+
+class HacxWaterDroplet : Actor
+{
+  Default
+  {
+    radius 6;
+    height 8;
+    PROJECTILE;
+    -NOGRAVITY;
+    +THRUACTORS;
+  }
+
+  States
+  {
+    Spawn:
+      DRIP A -1;
+      stop;
+    Death:
+      DRIP BCDE 3;
+      stop;
+  }
+}
+
+class HacxWaterDrip : Actor replaces TechLamp
+{
+  Default
+  {
+    radius 16;
+    height 8;
+    +SPAWNCEILING;
+    +NOGRAVITY;
+  }
+
+  States
+  {
+    Spawn:
+      TNT1 A 20;
+      TNT1 A 28 A_SpawnItemEx("HacxWaterDroplet",0,0,0,0,0,0,0,128,0);
+      loop;
+  }
+}
+
+class HacxWaterDrip2 : HacxWaterDrip replaces TechLamp2
+{
+  States
+  {
+    Spawn:
+      TNT1 A 28 A_SpawnItemEx("HacxWaterDroplet",0,0,0,0,0,0,0,128,0);
+      loop;
+  }
+}
+
+class HacxRainDroplet : Actor
+{
+  Default
+  {
+    radius 6;
+    height 8;
+    +NOINTERACTION;
+  }
+
+  States
+  {
+    Spawn:
+      TNT1 A 0;
+      TNT1 A 0 A_JumpIf(pos.z >= ceilingz, "Vanish");
+      TNT1 A 1 A_SpawnItemEx("HacxWaterDroplet",0,0,(ceilingz-pos.z)-8.0,0,0,0,0,128,0);
+      Stop;
+    Vanish:
+      TNT1 A 0;
+      Stop;
+  }
+}
+
+
+// I'm sure some people would want to murder me for this one-line
+// shite, but vertical space is precious in the Xasermind.
+
+class HacxRainLight64  : HacxWaterDrip { States { Spawn: TNT1 A 8    A_SpawnItemEx("HacxRainDroplet",random(-32,32)  ,random(-32,32)  ,0,0,0,0,0,128,0); loop; } }
+class HacxRainLight128 : HacxWaterDrip { States { Spawn: TNT1 A 4    A_SpawnItemEx("HacxRainDroplet",random(-64,64)  ,random(-64,64)  ,0,0,0,0,0,128,0); loop; } }
+class HacxRainLight256 : HacxWaterDrip { States { Spawn: TNT1 A 2    A_SpawnItemEx("HacxRainDroplet",random(-128,128),random(-128,128),0,0,0,0,0,128,0); loop; } }
+
+class HacxRainMedium64 : HacxWaterDrip { States { Spawn: TNT1 A 4    A_SpawnItemEx("HacxRainDroplet",random(-32,32)  ,random(-32,32)  ,0,0,0,0,0,128,0); loop; } }
+class HacxRainMedium128: HacxWaterDrip { States { Spawn: TNT1 A 2    A_SpawnItemEx("HacxRainDroplet",random(-64,64)  ,random(-64,64)  ,0,0,0,0,0,128,0); loop; } }
+class HacxRainMedium256: HacxWaterDrip { States { Spawn: TNT1 A 1    A_SpawnItemEx("HacxRainDroplet",random(-128,128),random(-128,128),0,0,0,0,0,128,0); loop; } }
+
+class HacxRainHeavy64  : HacxWaterDrip { States { Spawn: TNT1 A 1    A_SpawnItemEx("HacxRainDroplet",random(-32,32)  ,random(-32,32)  ,0,0,0,0,0,128,0); loop; } }
+class HacxRainHeavy128 : HacxWaterDrip { States { Spawn: TNT1 AA 0   A_SpawnItemEx("HacxRainDroplet",random(-64,64)  ,random(-64,64)  ,0,0,0,0,0,128,0); TNT1 A 1; loop; } }
+class HacxRainHeavy256 : HacxWaterDrip { States { Spawn: TNT1 AAAA 0 A_SpawnItemEx("HacxRainDroplet",random(-128,128),random(-128,128),0,0,0,0,0,128,0); TNT1 A 1; loop; } }

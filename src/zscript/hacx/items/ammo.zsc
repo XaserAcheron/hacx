@@ -1,0 +1,168 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Ammo Pickups
+ */
+
+class HacxRounds : Ammo replaces Clip
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTROUNDS";
+    inventory.amount 20;
+    inventory.maxamount 200;
+    ammo.backpackamount 20;
+    ammo.backpackmaxamount 400;
+    inventory.icon "ROUNA0";
+    tag "$TAG_ROUNDS";
+  }
+
+  States
+  {
+    Spawn:
+      ROUN A -1;
+      stop;
+  }
+}
+
+class HacxRoundsCase : HacxRounds replaces ClipBox
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTROUNDSCASE";
+    inventory.amount 100;
+  }
+
+  States
+  {
+    Spawn:
+      RBOX A -1;
+      stop;
+  }
+}
+
+class HacxCartridges : Ammo replaces Shell
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTCARTRIDGES";
+    inventory.amount 4;
+    inventory.maxamount 50;
+    ammo.backpackamount 4;
+    ammo.backpackmaxamount 100;
+    inventory.icon "CARTA0";
+    tag "$TAG_CARTRIDGES";
+  }
+
+  States
+  {
+    Spawn:
+      CART A -1;
+      stop;
+  }
+}
+
+class HacxCartridgesCase : HacxCartridges replaces ShellBox
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTCARTRIDGESCASE";
+    inventory.amount 20;
+  }
+
+  States
+  {
+    Spawn:
+      CBOX A -1;
+      stop;
+  }
+}
+
+class HacxTorpedo : Ammo replaces RocketAmmo
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTTORPEDO";
+    inventory.amount 1;
+    inventory.maxamount 50;
+    ammo.backpackamount 1;
+    ammo.backpackmaxamount 100;
+    inventory.icon "TMISA0";
+    tag "$TAG_TORPEDOS";
+  }
+
+  States
+  {
+    Spawn:
+      TMIS A -1;
+      stop;
+  }
+}
+
+class HacxTorpedoCase : HacxTorpedo replaces RocketBox
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTTORPEDOS";
+    inventory.amount 5;
+  }
+
+  States
+  {
+    Spawn:
+      TPAK A -1;
+      stop;
+  }
+}
+
+class HacxMolecules : Ammo replaces Cell
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTMOLECULES";
+    inventory.amount 20;
+    inventory.maxamount 400;
+    ammo.backpackamount 20;
+    ammo.backpackmaxamount 800;
+    inventory.icon "MOLCA0";
+    tag "$TAG_MOLECULES";
+  }
+
+  States
+  {
+    Spawn:
+      MOLC A -1;
+      stop;
+  }
+}
+
+class HacxMoleculesTank : HacxMolecules replaces CellPack
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTMOLECULESTANK";
+    inventory.amount 100;
+  }
+
+  States
+  {
+    Spawn:
+      MOLT A -1;
+      stop;
+  }
+}
+
+class HacxValise : Backpack replaces Backpack
+{
+  Default
+  {
+    Inventory.PickupMessage "$GOTVALISE";
+  }
+
+  States
+  {
+    Spawn:
+      VALI A -1;
+      Stop;
+  }
+}

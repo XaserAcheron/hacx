@@ -1,0 +1,151 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Powerups
+ */
+
+class HacxMicrotel : Berserk replaces Berserk
+{
+  Default
+  {
+    Inventory.PickupMessage "$GOTMICROTEL";
+  }
+
+  States
+  {
+    Spawn:
+      MICR A -1;
+      Stop;
+    Pickup:
+      TNT1 A 0 A_GiveInventory("PowerStrength");
+      TNT1 A 0 HealThing(100, 0);
+      TNT1 A 0 A_SelectWeapon("HacxKick");
+      Stop;
+  }
+}
+
+class HacxCentrophenoxine : Soulsphere replaces Soulsphere
+{
+  Default
+  {
+    Inventory.PickupMessage "$GOTCENTROPHENOXINE";
+  }
+
+  States
+  {
+    Spawn:
+      DRUG ABCDEFGH 4 Bright;
+      Loop;
+  }
+}
+
+class HacxBodyArmorHealth : Health
+{
+  Default
+  {
+    Inventory.Amount 400;
+    Inventory.MaxAmount 400;
+    +INVENTORY.ALWAYSPICKUP;
+  }
+}
+
+class HacxBodyArmor : Megasphere replaces Megasphere
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTBODYARMOR";
+  }
+
+  States
+  {
+    Spawn:
+      BODY ABCDBC 6;
+      loop;
+    Pickup:
+      TNT1 A 0 A_GiveInventory("BlueArmorForMegasphere", 1);
+      TNT1 A 0 A_GiveInventory("HacxBodyArmorHealth", 1);
+      stop;
+  }
+}
+
+class HacxForceField : InvulnerabilitySphere replaces InvulnerabilitySphere
+{
+  Default
+  {
+    powerup.color "BlueMap";
+    inventory.pickupmessage "$GOTFORCEFIELD";
+  }
+
+  States
+  {
+    Spawn:
+      FORC ABCB 4 bright;
+      loop;
+  }
+}
+
+class HacxSpeedHack : PowerupGiver replaces BlurSphere
+{
+  Default
+  {
+    +COUNTITEM;
+    +INVENTORY.AUTOACTIVATE;
+    +INVENTORY.ALWAYSPICKUP;
+    Inventory.MaxAmount 0;
+    Powerup.Type "PowerSpeed";
+    inventory.pickupmessage "$GOTSPEEDHACK";
+  }
+
+  States
+  {
+    Spawn:
+      ENKB ABCD 4 Bright;
+      Loop;
+  }
+}
+
+class HacxVulcanBoots : RadSuit replaces RadSuit
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTRUBBERBOOTS";
+  }
+
+  States
+  {
+    Spawn:
+      BOOT A -1;
+      Stop;
+  }
+}
+
+class HacxInfraredVisor : Infrared replaces Infrared
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTINFRARED";
+  }
+
+  States
+  {
+    Spawn:
+      VISR A 6 Bright;
+      VISR B 6;
+      Loop;
+  }
+}
+
+class HacxSIArrayMap : Allmap replaces Allmap
+{
+  Default
+  {
+    inventory.pickupmessage "$GOTSIARRAY";
+  }
+
+  States
+  {
+    Spawn:
+      AMAP ABCDCB 6 Bright;
+      Loop;
+  }
+}

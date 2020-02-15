@@ -36,3 +36,5 @@ class HacxPuff : BulletPuff replaces BulletPuff
       Stop;
   }
 }
+
+class EESkyboxCam : SkyCamCompat {}

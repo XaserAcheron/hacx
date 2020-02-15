@@ -1,0 +1,129 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Misc Props
+ */
+
+class HacxRoadSpike : Actor replaces TechPillar {
+  Default
+  {
+    radius 20;
+    height 40;
+    +SOLID;
+  }
+
+  States
+  {
+    Spawn:
+      SPIK A -1;
+      stop;
+  }
+}
+
+class HacxSamuraiStatue : Actor replaces Candlestick
+{
+  Default
+  {
+    radius 40;
+    height 95;
+    mass 4000;
+    +SOLID;
+  }
+
+  States
+  {
+    Spawn:
+      SAMU A -1 bright;
+      stop;
+  }
+}
+
+class HacxRaft : Actor replaces HeadsOnAStick
+{
+  Default
+  {
+    radius 50;
+    height 25;
+  }
+
+  States
+  {
+    Spawn:
+      RAFT A -1;
+      stop;
+  }
+}
+
+class Rickshaw : Actor replaces HeadCandles
+{
+  Default
+  {
+    radius 58;
+    height 70;
+    +SOLID;
+  }
+
+  States
+  {
+    Spawn:
+      SHAW A -1;
+      stop;
+  }
+}
+
+class HacxMummy : HacxPhage replaces BrainStem
+{
+  Default
+  {
+    radius 25;
+    height 96;
+    health 105;
+    speed 27;
+    damage 2;
+    painchance 150;
+    mass 150;
+    +SOLID;
+    +SHOOTABLE;
+    +JUSTATTACKED;
+    +DROPOFF;
+  }
+
+  States
+  {
+    Spawn:
+      PMUM A -1;
+      stop;
+    Pain:
+    See:
+      PMUM B 15 bright;
+    Chase:
+      FATT AABB 5 A_Chase();
+      goto Chase;
+  }
+}
+
+class HacxSkeleton : HacxMummy replaces SmallBloodPool
+{
+  Default
+  {
+    radius 27;
+    seesound "fatso/sight";
+    attacksound "imp/melee";
+    painsound "fatso/pain";
+    deathsound "fatso/death";
+    activesound "skeleton/death";
+  }
+
+  states
+  {
+    Spawn:
+      PSKE A -1;
+      stop;
+    Pain:
+    See:
+      PSKE B 15 bright;
+    Chase:
+      FATT AABB 5 A_Chase();
+      goto Chase;
+  }
+}

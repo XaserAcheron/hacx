@@ -1,0 +1,279 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Cyberspace Props
+ */
+
+class HacxPulsar : Actor replaces EvilEye
+{
+  Default {
+    radius 16;
+    height 16;
+  }
+
+  States
+  {
+    Spawn:
+      PULS A 15;
+      PULS B 15 A_PlaySound("misc/pulse");
+      PULS C 20 bright A_Explode();
+      loop;
+  }
+}
+
+class HacxCEye : Actor replaces FloatingSkull
+{
+  Default
+  {
+    radius 64;
+    height 128;
+    health 200;
+    mass 10000000;
+    +SOLID;
+    +SHOOTABLE;
+    deathsound "cyber/explode";
+    bloodtype "HacxDigitYellow";
+    renderstyle "Translucent";
+    alpha 0.8;
+  }
+
+  States
+  {
+    Spawn:
+      CEYE ABCD 5 bright;
+      loop;
+    Death:
+      TNT1 A 0 bright A_Scream();
+      TNT1 A 1 bright A_Burst("HacxDigitYellow");
+      Stop;
+  }
+}
+
+class HacxElectron : Actor replaces GreenTorch
+{
+  Default
+  {
+    radius 32;
+    height 96;
+    damage 40;
+    health 70;
+    mass 20;
+    +SOLID;
+    +SHOOTABLE;
+    +NOGRAVITY;
+    +DROPOFF;
+    +NOBLOOD;
+    +PUSHABLE;
+    deathsound "misc/explode";
+    renderstyle "Translucent";
+    Alpha 0.8;
+  }
+
+  States
+  {
+    Spawn:
+      TRON ABCDEFGHIJKLMNOP 2 bright;
+      loop;
+    Death:
+      NUK1 A 0 bright A_Scream();
+      NUK1 A 0 bright A_Explode(128,256);
+      NUK1 A 0 bright A_SpawnItemEx("HacxElectronExplode",0,0,32,0,0,0,0,SXF_NOCHECKPOSITION,0);
+      NUK1 A 0 bright A_Burst("HacxDigitYellow");
+      Stop;
+  }
+}
+
+class HacxElectronExplode : HacxTrail
+{
+  Default {
+    Alpha 1.0;
+    Renderstyle "Add";
+  }
+
+  States
+  {
+    Spawn:
+      NUK1 BCDEF 5 BRIGHT;
+      Stop;
+  }
+}
+
+class HacxFileWhite : Actor
+{
+  Default
+  {
+    radius 12;
+    height 48;
+    health 50;
+    mass 25;
+    +SOLID;
+    +SHOOTABLE;
+    +PUSHABLE;
+    bloodtype "HacxDigitWhite";
+    deathsound "cyber/hit";
+    renderstyle "Translucent";
+    alpha 0.8;
+  }
+
+  States
+  {
+    Spawn:
+      CFIL A -1 bright;
+      stop;
+    Death:
+      TNT1 A 0 bright A_Scream();
+      TNT1 A 1 bright A_Burst("HacxDigitWhite");
+      Stop;
+  }
+}
+
+class HacxFileGreen : HacxFileWhite
+{
+  Default
+  {
+    bloodtype "HacxDigitGreen";
+  }
+
+  States
+  {
+    Spawn:
+      CFIL B -1 bright;
+      stop;
+    Death:
+      TNT1 A 0 bright A_Scream();
+      TNT1 A 1 bright A_Burst("HacxDigitGreen");
+      Stop;
+  }
+}
+
+class HacxFileBlue : HacxFileWhite
+{
+  Default
+  {
+    bloodtype "HacxDigitBlue";
+  }
+
+  States
+  {
+    Spawn:
+      CFIL C -1 bright;
+      stop;
+    Death:
+      TNT1 A 0 bright A_Scream();
+      TNT1 A 1 bright A_Burst("HacxDigitBlue");
+      Stop;
+  }
+}
+
+class HacxFileRed : HacxFileWhite
+{
+  Default
+  {
+    bloodtype "HacxDigitRed";
+  }
+
+  States
+  {
+    Spawn:
+      CFIL D -1 bright;
+      stop;
+    Death:
+      TNT1 A 0 bright A_Scream();
+      TNT1 A 1 bright A_Burst("HacxDigitRed");
+      Stop;
+  }
+}
+
+class HacxFileYellow : HacxFileWhite
+{
+  Default
+  {
+    bloodtype "HacxDigitYellow";
+  }
+
+  States
+  {
+    Spawn:
+      CFIL E -1 bright;
+      stop;
+    Death:
+      TNT1 A 0 bright A_Scream();
+      TNT1 A 1 bright A_Burst("HacxDigitYellow");
+      Stop;
+  }
+}
+
+class HacxDigitWhite : Actor
+{
+  Default
+  {
+    radius 2;
+    height 2;
+    alpha 0.8;
+    gravity 0.75;
+    renderstyle "Translucent";
+    +NOBLOCKMAP;
+    +NOTELEPORT;
+    +THRUACTORS;
+  }
+
+  States
+  {
+    Spawn:
+      CDG1 AAA 0 Bright;
+      Goto SelectState;
+    SelectState:
+      "####" A 0 Bright A_Jump(256,1,2,3,4);
+      "####" A 6 Bright;
+      Goto Fadeout;
+      "####" B 6 Bright;
+      Goto Fadeout;
+      "####" C 6 Bright;
+      Goto Fadeout;
+      "####" D 6 Bright;
+      Goto Fadeout;
+    Fadeout:
+      "####" # 1 Bright A_FadeOut(0.1,1);
+      Loop;
+  }
+}
+
+class HacxDigitGreen : HacxDigitWhite
+{
+  States
+  {
+    Spawn:
+      CDG2 AAA 0 Bright;
+      Goto SelectState;
+  }
+}
+
+class HacxDigitBlue : HacxDigitWhite
+{
+  States
+  {
+    Spawn:
+      CDG3 AAA 0 Bright;
+      Goto SelectState;
+  }
+}
+
+class HacxDigitRed : HacxDigitWhite
+{
+  States
+  {
+    Spawn:
+      CDG4 AAA 0 Bright;
+      Goto SelectState;
+  }
+}
+
+class HacxDigitYellow : HacxDigitWhite
+{
+  States
+  {
+    Spawn:
+      CDG5 AAA 0 Bright;
+      Goto SelectState;
+  }
+}

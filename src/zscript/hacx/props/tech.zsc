@@ -1,0 +1,76 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Tech Props
+ */
+
+class HacxComputer : Actor replaces Column
+{
+  Default
+  {
+    health 1;
+    radius 12;
+    height 27;
+    mass 85;
+    deathsound "misc/shatter";
+    +SOLID;
+    +SHOOTABLE;
+    +NOBLOOD;
+  }
+
+  States
+  {
+    Spawn:
+      COMP A -1;
+      stop;
+    Death:
+      COMP A 0 A_Scream();
+      COMP A 0 A_NoBlocking();
+    DeathLoop:
+      COMP BCD 6;
+      goto DeathLoop;
+  }
+}
+
+class HacxAndroidUpperPart : Actor replaces TallGreenColumn
+{
+  Default
+  {
+    radius 15;
+    height 40;
+    health 10000;
+    mass 10000;
+    +SOLID;
+    +NOBLOOD;
+    +SHOOTABLE;
+    +INVULNERABLE;
+  }
+
+  States
+  {
+    Spawn:
+      AND1 A -1;
+      stop;
+  }
+}
+
+class HacxAndroidLowerPart : Actor replaces ShortGreenColumn
+{
+  Default {
+    radius 15;
+    height 40;
+    health 10000;
+    mass 10000;
+    +SOLID;
+    +NOBLOOD;
+    +SHOOTABLE;
+    +INVULNERABLE;
+  }
+
+  States
+  {
+    Spawn:
+      AND2 A -1;
+      stop;
+  }
+}
