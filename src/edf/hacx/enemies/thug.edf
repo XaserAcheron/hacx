@@ -22,7 +22,7 @@ thingtype HacxThug : Mobj, 3004
   painsound   "thug/pain"
   deathsound  "thug/death"
 
-  obituary_normal "was plugged by a Thug."
+  obituary_normal "$OB_THUG"
 
   acs_spawndata
   {

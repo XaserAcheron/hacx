@@ -1,0 +1,195 @@
+/**
+ * HacX 2.0 - Adagio for Strings for Eternity
+ */
+
+// Quit strings
+string QUITMSG { val "are you sure you want to\njack out of the action?"; }
+
+string QUITMSG1 { val "These bugs too tough for ya?"; }
+string QUITMSG2 { val "Trying to quit? And you call yourself a hacker?"; }
+string QUITMSG3 { val "Get back here before I send a virus up your tailpipe!"; }
+string QUITMSG4 { val "Real hackers never jack out of the action."; }
+string QUITMSG5 { val "C'mon! You haven't seen the best part yet!"; }
+string QUITMSG6 { val "Give up now, and cyberspace is toast!"; }
+string QUITMSG7 { val "GENIE sends its best regards, scumbag!"; }
+string QUITMSG8 { val "Hmm. So much for being a hero, Hacker."; }
+string QUITMSG9 { val "What? You'd rather go back to the pen?"; }
+string QUITMSG10 { val "Shoulda taken the blue pill."; }
+string QUITMSG11 { val "The name of the game ain't Twitch n' Run!"; }
+string QUITMSG12 { val "No worries. Saving the world can wait, right?"; }
+string QUITMSG13 { val "Guess it's time to make like the 'net and split!"; }
+string QUITMSG14 { val "Don't go off and forget about Hacx, now!"; }
+
+// Obituary strings
+string OB_SUICIDE    { val "%o deleted %hself from the universe."; }
+string OB_FALLING    { val "%o formed a crater the size of Kansas."; }
+string OB_CRUSH      { val "%o became a human pancake."; }
+string OB_EXIT       { val "%o tried to jack out."; }
+string OB_WATER      { val "%o swam like a brick."; }
+string OB_SLIME      { val "%o went nuclear."; }
+string OB_LAVA       { val "%o took a hot bath."; }
+string OB_BARREL     { val "%o overdosed on nitro glycerine."; }
+string OB_CACTUS     { val "%o kissed a cactus."; }
+string OB_SPLASH     { val "%o was flayed into tiny little pieces."; }
+string OB_R_SPLASH   { val "%o wanted to see what %g looked like inside-out."; }
+string OB_ROCKET     { val "%o wanted to see what %g looked like inside-out."; }
+string OB_KILLEDSELF { val "%o deleted %hself from the universe."; }
+
+string OB_THUG       { val "%o was plugged by a Thug."; }
+string OB_ANDROID    { val "%o plugged in to the wrong machine."; }
+string OB_MONSTRUCT  { val "%o was horrendously Monstructed."; }
+string OB_ICE        { val "%o got ICE'd."; }
+string OB_BUZZER     { val "%o feels a little Buzzed."; }
+string OB_STEALTH    { val "%o got Stealth-fried."; }
+string OB_GENIESPAWN { val "%o was caught wearing a G-Spawn."; }
+string OB_MANIAC     { val "%o took a Mech to heck."; }
+string OB_TERMIN     { val "%o was fried by a femme fatale freak."; }
+string OB_TERMINHIT  { val "%o got a little close to the opposite sex."; }
+string OB_REPLI      { val "%o got replaced by a Replicant."; }
+string OB_PHAGE      { val "%o was Phaged out of existence."; }
+string OB_THORN      { val "%o couldn't escape a Thorny death."; }
+string OB_GRAX       { val "%o got %p genes spliced all over the place."; }
+string OB_GENIE      { val "%o didn't get %p three wishes."; }
+string OB_MINE       { val "%o tried to pet a mine."; }
+string OB_GLASS      { val "%o gave %hself a glass jaw."; }
+
+string OB_MPKICK        { val "%o took %k's Bruce Lee fu-kick to the face."; }
+string OB_MPREZNATOR    { val "%o was shocked by %k's show of brutality."; }
+string OB_MPXPISTOL     { val "%o took a double-dose of %k's punishment."; }
+string OB_MPTAZER       { val "%o was shut down by %k's shock-stick."; }
+string OB_MPCRYOGUN     { val "%o got a face-full of %k's ice-cold wrath."; }
+string OB_MPUZI         { val "%o was drilled full of holes by %k, gangsta-style."; }
+string OB_MPDUALUZIS    { val "%o has been swiss cheese'd by %k."; }
+string OB_MPZOOKA       { val "%o ate %k's photon bomb."; }
+string OB_MPZ_SPLASH    { val "%o was reduced to a neat pile of photons by %k."; }
+string OB_MPANTIGUN     { val "%o was reduced to antimatter by %k."; }
+string OB_MPNUKE        { val "%o swallowed %k's nuke."; }
+string OB_MPNUKESPLASH  { val "%o didn't survive %k's fallout."; }
+string OB_MPTELEFRAG    { val "%o was turned inside-out by %k."; }
+
+string OB_MONTELEFRAG { val "%o's atomic structure was split apart."; }
+
+string OB_DEFAULT { val "%o spontaneously expired."; }
+
+// Items n' Stuff
+
+string TAG_KICK        { val "Kick"; }
+string TAG_REZNATOR    { val "Reznator"; }
+string TAG_XPISTOL     { val "Pistol"; }
+string TAG_TAZER       { val "Tazer"; }
+string TAG_CRYOGUN     { val "Cryogun"; }
+string TAG_UZI         { val "Uzi"; }
+string TAG_DUALUZIS    { val "Dual Uzis"; }
+string TAG_PHOTONZOOKA { val "Photon 'Zooka"; }
+string TAG_ANTIGUN     { val "Antigun"; }
+string TAG_NUKER       { val "Nuker"; }
+
+string TAG_ROUNDS      { val "Rounds"; }
+string TAG_CARTRIDGES  { val "Cartridges"; }
+string TAG_TORPEDOS    { val "Torpedos"; }
+string TAG_MOLECULES   { val "Molecules"; }
+
+string GOTREZNATOR    { val "A HOIG Reznator - FRY some butt!"; }
+string GOTXPISTOL     { val "You got a pistol!"; }
+string GOTTAZER       { val "You got a Tazer!"; }
+string GOTCRYOGUN     { val "You got a Cryogun! FREEZE!"; }
+string GOTUZI         { val "You got an UZI!"; }
+string GOTDUALUZIS    { val "Dual uzis? Don't mind if I do..."; }
+string GOTPHOTONZOOKA { val "You got a Photon 'Zooka!"; }
+string GOTANTIGUN     { val "You carry a Big Stick!"; }
+string GOTNUKER       { val "You got a NUKER! Suck on this!"; }
+
+string GOTROUNDS         { val "You grab some rounds!"; }
+string GOTROUNDSCASE     { val "You grab a case of rounds!"; }
+string GOTTORPEDO        { val "You grab a Torpedo!"; }
+string GOTTORPEDOS       { val "You grab a case of Torpedos!"; }
+string GOTMOLECULES      { val "You grab a molecule module!"; }
+string GOTMOLECULESTANK  { val "You grab a tank full of molecules!"; }
+string GOTCARTRIDGES     { val "You grab some cartridges!"; }
+string GOTCARTRIDGESCASE { val "You grab a case of cartridges!"; }
+string GOTVALISE         { val "You grab a valise stuffed with goods!"; }
+
+string GOTFORCEFIELD  { val "Force Field!"; }
+string GOTMICROTEL    { val "007 Microtel!"; }
+string GOTSPEEDHACK   { val "Speed Hack!"; }
+string GOTRUBBERBOOTS { val "Vulcan rubber Boots!"; }
+string GOTSIARRAY     { val "SI Array mapping!"; }
+string GOTINFRARED    { val "Infrared Visor!"; }
+
+string GOTINHALER  { val "Breath deep, Inhaler!"; }
+string GOTHYPONEED { val "A dose of Hydergine from a Hypo saves you!"; }
+string GOTHYPO     { val "You grab a Hypo!"; }
+
+string GOTKEYCARD  { val "You found a KeyCard!"; }
+string GOTPASSWORD { val "You found a Password!"; }
+string GOTGOLDKEY  { val "You found a Gold Key!"; }
+string GOTBLUEZKEY { val "You found a Blue Z-Key!"; }
+string GOTYELWZKEY { val "You found a Yellow Z-Key!"; }
+string GOTREDZKEY  { val "You found a Red Z-Key!"; }
+
+string GOTBODYARMOR { val "Body Armor!"; }
+string GOTCENTROPHENOXINE { val "Centrophenoxine!"; }
+
+string GOTKEVLARVEST  { val "You grab a Kevlar vest!"; }
+string GOTSKEVLARVEST { val "You grab Super Kevlar vest!"; }
+string GOTMICROKIT { val "You grab a MicroKit!"; }
+string GOTDAMPENER { val "You grab a Dampener!"; }
+
+string PD_KEYCARD { val "You need a KeyCard to access this item!"; }
+string PD_PASSWORD { val "You need a Password to access this item!"; }
+string PD_GOLDKEY { val "You need a Gold Key to access this item!"; }
+string PD_BLUEZKEY { val "You need a Blue Z-Key to make this work!"; }
+string PD_REDZKEY { val "You need a Red Z-Key to make this work!"; }
+string PD_YELWZKEY { val "You need a Yellow Z-Key to make this work!"; }
+
+string SKILL_BABY      { val "Please don't shoot!"; }
+string SKILL_EASY      { val "Arrgh, I need health!"; }
+string SKILL_NORMAL    { val "Let's rip them apart!"; }
+string SKILL_HARD      { val "I am immortal"; }
+string SKILL_NIGHTMARE { val "INSANITY!"; }
+
+// Extra info
+string SAVEGAMENAME { val "zhacxsv"; }
+string STARTUP1 { val "=========================="; }
+string STARTUP2 { val "== HacX: Twitch n' Kill =="; }
+string STARTUP3 { val "==    v2.0 Enhanced!    =="; }
+string STARTUP4 { val "== Let's fry some butt! =="; }
+string STARTUP5 { val "=========================="; }
+
+// Map names
+string XHUSTR_1 { val "GenEmp Corp."; }
+string XHUSTR_2 { val "Tunnel Town"; }
+string XHUSTR_3 { val "Lava Annex"; }
+string XHUSTR_4 { val "Alcatraz"; }
+string XHUSTR_5 { val "Cyber Circus"; }
+string XHUSTR_6 { val "Digi-Ota"; }
+string XHUSTR_7 { val "The Great Wall"; }
+string XHUSTR_8 { val "Garden of Delights"; }
+string XHUSTR_9 { val "Hidden Fortress"; }
+string XHUSTR_10 { val "Anarchist Dream"; }
+string XHUSTR_11 { val "Notus Us!"; }
+string XHUSTR_12 { val "Gothik Gauntlet"; }
+string XHUSTR_13 { val "Catacombs"; }
+string XHUSTR_14 { val "Notre Damned"; }
+string XHUSTR_15 { val "Twilight of Enk's"; }
+string XHUSTR_16 { val "Protean Cybex"; }
+string XHUSTR_17 { val "Dune City"; }
+string XHUSTR_18 { val "River of Blood"; }
+string XHUSTR_19 { val "Valley of the Dead"; }
+string XHUSTR_20 { val "Artificial Annihilation"; }
+string XHUSTR_21 { val "CryoZine"; }
+string XHUSTR_22 { val "Pentagon Syndrome"; }
+string XHUSTR_23 { val "Capitol Punishment"; }
+string XHUSTR_24 { val "The War Rooms"; }
+string XHUSTR_25 { val "Intruder Alert!"; }
+string XHUSTR_26 { val "The Darkness"; }
+string XHUSTR_27 { val "'Trode Wars"; }
+string XHUSTR_28 { val "Bizarro"; }
+string XHUSTR_29 { val "Reality Bytes"; }
+string XHUSTR_30 { val "Twitch N' Kill"; }
+string XHUSTR_31 { val "Subspace Arcadum"; }
+string XHUSTR_32 { val "Dessicant Room"; }
+string XHUSTR_33 { val "Future Perfect"; }
+
+string XHUSTR_34 { val "GenEmp Lobby"; }
+string XHUSTR_35 { val "Cybernetic Junction"; }

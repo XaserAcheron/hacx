@@ -11,7 +11,7 @@ thingtype HacxRounds : Mobj, 2007
   pickupeffect
   {
     effects HacxRounds
-    message "YOU SPIN ME RIGHT ROUND BABY RIGHT ROUND LIKE A RECORD BABY" // TODO: this for real
+    message "$GOTROUNDS"
     sound   itemup
   }
 
