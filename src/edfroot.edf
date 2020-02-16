@@ -7,9 +7,12 @@
 setdialect("ALFHEIM")
 stdinclude("root.edf")
 
-// Basic Stuff
 include("edf/hacx/game.edf")
 include("edf/hacx/fonts.edf")
+include("edf/hacx/sounds.edf")
 
-// Weapons
 include("edf/hacx/weapons/pistol.edf")
+
+include("edf/hacx/enemies/thug.edf")
+
+include("edf/hacx/items/ammo.edf")

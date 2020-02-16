@@ -1,0 +1,68 @@
+/**
+ * HacX 2.0 - EDF
+ *
+ * Enemy: Thug
+ */
+
+thingtype HacxThug : Mobj, 3004
+{
+  basictype Monster
+
+  spawnhealth  50
+  speed        12
+  radius       21.0
+  height       72.0
+  painchance   100
+  mass         45
+
+  droptype    HacxRounds
+
+  seesound    "thug/sight"
+  activesound "thug/active"
+  painsound   "thug/pain"
+  deathsound  "thug/death"
+
+  obituary_normal "was plugged by a Thug."
+
+  acs_spawndata
+  {
+    num   4
+    modes hacx
+  }
+
+  states
+  @"
+    Spawn:
+      THUG A 10 A_Look()
+      loop
+    See:
+      THUG AABBCCDD 3 A_Chase()
+      loop
+    Missile:
+      THUG EE 4 A_FaceTarget()
+      THUG F 6 bright A_BulletAttack("thug/attack", ba_never, 1, 5, 3, BulletPuff)
+      THUG E 6 A_FaceTarget()
+      goto See
+    Pain:
+      THUG G 4
+      THUG G 4 A_Pain()
+      goto See
+    Death:
+      THUG H 9
+      THUG I 5 A_Scream()
+      THUG J 4 A_Fall()
+      THUG K 4
+      THUG L -1
+      stop
+    XDeath:
+      THUG M 3
+      THUG N 3 A_XScream()
+      THUG O 3 A_Fall()
+      THUG PQRST 3
+      THUG U -1
+      stop
+    Raise:
+      THUG KJIH 5
+      goto See
+  "@
+}

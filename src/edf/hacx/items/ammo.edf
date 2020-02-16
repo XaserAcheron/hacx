@@ -1,0 +1,89 @@
+/**
+ * HacX 2.0 - EDF
+ *
+ * Ammo Pickups
+ */
+
+thingtype HacxRounds : Mobj, 2007
+{
+  flags SPECIAL
+
+  pickupeffect
+  {
+    effects HacxRounds
+    message "YOU SPIN ME RIGHT ROUND BABY RIGHT ROUND LIKE A RECORD BABY" // TODO: this for real
+    sound   itemup
+  }
+
+  states
+  @"
+  Spawn:
+    ROUN A -1
+    stop
+  "@
+}
+
+artifactdelta
+{
+  name AmmoClip
+
+  ammo.backpackamount    20
+}
+
+artifactdelta
+{
+  name AmmoCell
+
+  maxamount 400
+
+  ammo.backpackmaxamount 800
+}
+
+ammoeffect HacxRounds
+{
+  ammo       AmmoClip
+  amount     20
+  dropamount 10
+}
+
+ammoeffect HacxRoundsCase
+{
+  ammo       AmmoClip
+  amount     100
+}
+
+ammoeffect HacxCartridges
+{
+  ammo       AmmoShell
+  amount     4
+}
+
+ammoeffect HacxCartridgesCase
+{
+  ammo       AmmoShell
+  amount     20
+}
+
+ammoeffect HacxTorpedo
+{
+  ammo       AmmoMissile
+  amount     1
+}
+
+ammoeffect HacxTorpedoCase
+{
+  ammo       AmmoMissile
+  amount     5
+}
+
+ammoeffect HacxMolecules
+{
+  ammo       AmmoCell
+  amount     20
+}
+
+ammoeffect HacxMoleculesTank
+{
+  ammo       AmmoCell
+  amount     100
+}

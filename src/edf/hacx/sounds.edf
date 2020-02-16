@@ -1,0 +1,20 @@
+/**
+ * HacX 2.0 - EDF
+ *
+ * Sounds
+ */
+
+sound "weapons/pistolup" { lump "dspiscok"; pitchvariance Doom; }
+
+sound "thug/sight"   { random { "thug/sight1", "thug/sight2", "thug/sight3" } }
+sound "thug/death"   { random { "thug/death1", "thug/death2", "thug/death3" } }
+sound "thug/sight1"  { lump "dsthgsi1"; pitchvariance Doom; }
+sound "thug/sight2"  { lump "dsthgsi2"; pitchvariance Doom; }
+sound "thug/sight3"  { lump "dsthgsi3"; pitchvariance Doom; }
+sound "thug/active"  { lump "dsthgact"; pitchvariance Doom; }
+sound "thug/pain"    { lump "dsthgpai"; pitchvariance Doom; }
+sound "thug/death1"  { lump "dsthgdt1"; pitchvariance Doom; }
+sound "thug/death2"  { lump "dsthgdt2"; pitchvariance Doom; }
+sound "thug/death3"  { lump "dsthgdt3"; pitchvariance Doom; }
+sound "thug/aim"     { lump "dspiscok"; pitchvariance Doom; }
+sound "thug/attack"  { lump "dspistol"; pitchvariance Doom; }
