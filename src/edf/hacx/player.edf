@@ -1,0 +1,79 @@
+/**
+ * HacX 2.0 - EDF
+ *
+ * Player Definition
+ */
+
+playerclass DoomMarine
+{
+  defaultskin    marine
+  thingtype      HacxPlayer
+  viewheight     56.0
+
+//weaponslot 1 { weapons : HacxReznator, HacxKick }
+  weaponslot 1 { weapons : HacxKick }
+  weaponslot 2 { weapons : HacxPistol }
+//weaponslot 3 { weapons : HacxCryogun, HacxTazer }
+//weaponslot 4 { weapons : HacxUzi }
+//weaponslot 5 { weapons : HacxZooka }
+//weaponslot 6 { weapons : HacxAntigun }
+//weaponslot 7 { weapons : HacxNuker }
+//weaponslot 8 { weapons : HacxReznator }
+//weaponslot 9 { weapons : HacxCryogun }
+
+  // TODO: give light kevlar vest (50 armor)
+  rebornitem AmmoClip, 50
+  rebornitem HacxKick
+  rebornitem HacxPistol
+}
+
+thingtype HacxPlayer
+{
+  spawnhealth  100
+  reactiontime 0
+  painchance   255
+  painsound    plpain
+  deathsound   pldeth
+  radius       16.0
+  height       56.0
+  flags        SOLID|SHOOTABLE|DROPOFF|PICKUP|NOTDMATCH
+  flags2       FOOTCLIP
+  flags3       SLIDE|TELESTOMP|WINDTHRUST|PASSMOBJ
+  mod          PlayerMisc
+
+  states
+  @"
+  Spawn:
+    PLAY A -1
+    stop
+  See:
+    PLAY BCDE 4
+    loop
+  Missile:
+    PLAY F 8
+    goto Spawn
+  Missile2:
+    PLAY G 2 bright
+    PLAY F 2
+    goto Missile
+  Pain:
+    PLAY H 4
+    PLAY H 4 A_Pain
+    goto Spawn
+  Death:
+    PLAY I 6
+    PLAY J 5 A_PlayerScream()
+    PLAY K 4 A_Fall()
+    PLAY L 4
+    PLAY MN 4
+    PLAY O -1
+    Stop
+  XDeath:
+    PLAY P 4
+    PLAY Q 4 A_XScream()
+    PLAY R 4 A_Fall()
+    PLAY ST 4
+    PLAY U -1
+    Stop
+  "@
+}

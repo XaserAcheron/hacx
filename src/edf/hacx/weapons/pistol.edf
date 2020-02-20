@@ -4,16 +4,17 @@
  * Weapon: Pistol
  */
 
-weaponinfo Pistol : Weapon
+weaponinfo HacxPistol : Weapon
 {
   ammotype AmmoClip
   ammouse  2
+  upsound  "weapons/pistolup"
+  selectionorder 8.0
 
-  slotnumber         2
-  slotselectionorder 1
-  selectionorder     1.0
-
-  upsound "weapons/pistolup"
+  flags        SILENCEABLE|DISABLEAPS|HAPTICRECOIL|AUTOSWITCHFROM
+  mod          HacxPistol
+  hapticrecoil 1
+  haptictime   1
 
   states
   @"
@@ -36,5 +37,13 @@ weaponinfo Pistol : Weapon
   Flash:
     PISF A 3 bright A_Light2()
     Goto LightDone
+  AltFire:
+    PISK A 3 A_PlaySoundEx("weapons/grunt", chan_weapon)
+    PISK B 3
+    PISK C 8 A_CustomPlayerMelee(4, 10, 10, punch, "weapons/kick", 96)
+    PISK B 3
+    PISK A 3
+    PISK A 0 A_ReFire()
+    goto Ready
   "@
 }

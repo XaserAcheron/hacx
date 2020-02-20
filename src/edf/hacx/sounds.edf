@@ -4,7 +4,45 @@
  * Sounds
  */
 
-sound "weapons/pistolup" { lump "dspiscok"; pitchvariance Doom; }
+sound "weapons/grunt"       { lump "dsgrunt" ; pitchvariance Doom; }
+sound "weapons/kick"        { lump "dskick"  ; pitchvariance Doom; }
+
+sound "weapons/rezup"       { lump "dsrezup" ; pitchvariance Doom; }
+sound "weapons/rezdown"     { lump "dsrezdwn"; pitchvariance Doom; }
+sound "weapons/rezidle"     { lump "dsrezidl"; pitchvariance Doom; }
+sound "weapons/rezfull"     { lump "dsrezful"; pitchvariance Doom; }
+sound "weapons/rezhit"      { lump "dsrezhit"; pitchvariance Doom; }
+
+sound "weapons/pistol"      { lump "dspistol"; pitchvariance Doom; }
+sound "weapons/pistolup"    { lump "dspiscok"; pitchvariance Doom; }
+
+sound "weapons/tazer"       { lump "dstazgun"; pitchvariance Doom; }
+sound "weapons/tazerfire"   { lump "dstazerf"; pitchvariance Doom; }
+sound "weapons/tazerhit"    { lump "dstazerh"; pitchvariance Doom; }
+sound "weapons/tazerzap"    { lump "dstazerz"; pitchvariance Doom; }
+sound "weapons/tazercharge" { lump "dstazerc"; pitchvariance Doom; }
+sound "weapons/tazerup"     { lump "dstazrup"; pitchvariance Doom; }
+
+sound "weapons/cryofire"    { lump "dscryfir"; pitchvariance Doom; }
+sound "weapons/cryohit"     { lump "dscryhit"; pitchvariance Doom; }
+sound "weapons/cryocool"    { lump "dscrycol"; pitchvariance Doom; }
+sound "weapons/cryoup"      { lump "dscryoup"; pitchvariance Doom; }
+
+sound "weapons/uzireload"   { lump "dsuzirel"; pitchvariance Doom; }
+sound "weapons/uziup"       { lump "dsuzicok"; pitchvariance Doom; }
+
+sound "weapons/zookafire"   { lump "dszooka" ; pitchvariance Doom; }
+sound "weapons/zookafly"    { lump "dszoofly"; pitchvariance Doom; }
+sound "weapons/zookahit"    { lump "dsexplod"; pitchvariance Doom; }
+sound "weapons/zookaup"     { lump "dscharge"; pitchvariance Doom; }
+
+sound "weapons/antigun"     { lump "dsantign"; pitchvariance Doom; }
+sound "weapons/antigunhit"  { lump "dsanthit"; pitchvariance Doom; }
+sound "weapons/antigunup"   { lump "dsantiup"; pitchvariance Doom; }
+
+sound "weapons/nuker"       { lump "dsnuker" ; pitchvariance Doom; }
+sound "weapons/nukehit"     { lump "dsnuboom"; pitchvariance Doom; }
+sound "weapons/nukerup"     { lump "dsnukrup"; pitchvariance Doom; }
 
 sound "thug/sight"   { random { "thug/sight1", "thug/sight2", "thug/sight3" } }
 sound "thug/death"   { random { "thug/death1", "thug/death2", "thug/death3" } }

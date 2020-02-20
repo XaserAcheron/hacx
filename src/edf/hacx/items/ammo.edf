@@ -23,6 +23,25 @@ thingtype HacxRounds : Mobj, 2007
   "@
 }
 
+thingtype HacxRoundsCase : Mobj, 2048
+{
+  flags SPECIAL
+
+  pickupeffect
+  {
+    effects HacxRoundsCase
+    message "$GOTROUNDSCASE"
+    sound   itemup
+  }
+
+  states
+  @"
+  Spawn:
+    ROUN A -1
+    stop
+  "@
+}
+
 artifactdelta
 {
   name AmmoClip

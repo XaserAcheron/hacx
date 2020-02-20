@@ -11,4 +11,5 @@ gameproperties
   menu.background "FBLACK"
   credit.background "FBLACK"
   console.backdrop "CONBACK"
+  sound.titlemusic "HAXTTL"
 }

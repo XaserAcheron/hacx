@@ -1,0 +1,37 @@
+/**
+ * HacX 2.0 - EDF
+ *
+ * Weapon: KIKC THEY'RE AS'S!
+ */
+
+weaponinfo HacxKick : Weapon
+{
+  selectionorder 9.0
+
+  flags         FLEEMELEE|NOHITGHOSTS|SILENCEABLE|DISABLEAPS|AUTOSWITCHFROM
+  mod           HacxKick
+
+  states
+  @"
+  Ready:
+    KICK A 1 A_WeaponReady()
+    Loop
+  Deselect:
+    KICK A 0 A_Lower()
+    KICK A 1 A_Lower()
+    Loop
+  Select:
+    KICK A 0 A_Raise()
+    KICK A 1 A_Raise()
+    Loop
+  Fire:
+  AltFire:
+    KICK B 3 A_PlaySoundEx("weapons/grunt", chan_weapon)
+    KICK C 3
+    KICK D 8 A_CustomPlayerMelee(4, 10, 10, punch, "weapons/kick", 96)
+    KICK C 3
+    KICK B 3
+    KICK A 0 A_ReFire()
+    goto Ready
+  "@
+}
