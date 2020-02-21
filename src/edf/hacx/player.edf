@@ -10,15 +10,14 @@ playerclass DoomMarine
   thingtype      HacxPlayer
   viewheight     56.0
 
-//weaponslot 1 { weapons : HacxReznator, HacxKick }
-  weaponslot 1 { weapons : HacxKick }
+  weaponslot 1 { weapons : HacxReznator, HacxKick }
   weaponslot 2 { weapons : HacxPistol }
-//weaponslot 3 { weapons : HacxCryogun, HacxTazer }
+  weaponslot 3 { weapons : /*HacxCryogun,*/ HacxTazer }
 //weaponslot 4 { weapons : HacxUzi }
 //weaponslot 5 { weapons : HacxZooka }
 //weaponslot 6 { weapons : HacxAntigun }
 //weaponslot 7 { weapons : HacxNuker }
-//weaponslot 8 { weapons : HacxReznator }
+  weaponslot 8 { weapons : HacxReznator }
 //weaponslot 9 { weapons : HacxCryogun }
 
   // TODO: give light kevlar vest (50 armor)

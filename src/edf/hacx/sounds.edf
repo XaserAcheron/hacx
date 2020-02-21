@@ -16,7 +16,7 @@ sound "weapons/rezhit"      { lump "dsrezhit"; pitchvariance Doom; }
 sound "weapons/pistol"      { lump "dspistol"; pitchvariance Doom; }
 sound "weapons/pistolup"    { lump "dspiscok"; pitchvariance Doom; }
 
-sound "weapons/tazer"       { lump "dstazgun"; pitchvariance Doom; }
+sound "weapons/tazer"       { lump "dstazer" ; pitchvariance Doom; }
 sound "weapons/tazerfire"   { lump "dstazerf"; pitchvariance Doom; }
 sound "weapons/tazerhit"    { lump "dstazerh"; pitchvariance Doom; }
 sound "weapons/tazerzap"    { lump "dstazerz"; pitchvariance Doom; }

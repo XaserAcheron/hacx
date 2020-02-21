@@ -1,0 +1,115 @@
+/**
+ * HacX 2.0 - EDF
+ *
+ * Weapon: HOIG Reznator
+ */
+
+weaponinfo HacxReznator : DoomWeapon
+{
+  selectionorder 6.0
+
+  flags        NOTHRUST|FLEEMELEE|NOHITGHOSTS|SILENCEABLE|DISABLEAPS
+  mod          HacxReznator
+  upsound      "weapons/rezup"
+
+  states
+  @"
+  Ready:
+    REZG C 0 A_PlaySoundEx("weapons/rezidle", weapon)
+    REZG CCCCDDDD 1 A_WeaponReady()
+    Loop
+  Idle:
+  Deselect:
+    REZG C 0 A_PlaySoundEx("weapons/rezdown", weapon)
+  DeselectLoop:
+    REZG C 0 A_Lower()
+    REZG C 1 A_Lower()
+    Loop
+  Select:
+    REZG C 0 A_Raise()
+    REZG C 1 A_Raise()
+    REZG C 0 A_Raise()
+    REZG C 1 A_Raise()
+    REZG C 0 A_Raise()
+    REZG C 1 A_Raise()
+    REZG C 0 A_Raise()
+    REZG C 1 A_Raise()
+    REZG C 0 A_Raise()
+    REZG C 1 A_Raise()
+    REZG D 0 A_Raise()
+    REZG D 1 A_Raise()
+    REZG D 0 A_Raise()
+    REZG D 1 A_Raise()
+    REZG DDCCCCDDDD 1 A_WeaponReady()
+    Goto Ready
+  Fire:
+    REZG A 0 bright A_PlaySoundEx("weapons/rezfull", weapon)
+    REZG A 3 bright A_CustomPlayerMelee(2, 10, 1, chainsaw, "weapons/rezhit", 64, HacxReznatorPuff)
+    REZG B 0 bright A_PlaySoundEx("weapons/rezfull", weapon)
+    REZG B 3 bright A_CustomPlayerMelee(2, 10, 1, chainsaw, "weapons/rezhit", 64, HacxReznatorPuff)
+    REZG B 0 A_ReFire()
+    goto Ready
+  AltFire:
+    REZK A 3 A_PlaySoundEx("weapons/grunt", weapon)
+    REZK B 3
+    REZK C 8 A_CustomPlayerMelee(4, 10, 10, punch, "weapons/kick", 96)
+    REZK B 3
+    REZK A 3
+    REZK A 0 A_ReFire()
+    goto Ready
+  "@
+}
+
+weapongiver HacxReznatorGiver
+{
+  weapon HacxReznator
+}
+
+thingtype HacxReznator : Mobj, 2005
+{
+  flags SPECIAL
+  acs_spawndata
+  {
+    num   32
+    modes doom
+  }
+
+  pickupeffect
+  {
+    effects HacxReznatorGiver
+    message "$GOTREZNATOR"
+    sound   wpnup
+  }
+
+  states
+  @"
+  Spawn:
+    REZN A -1
+    stop
+  "@
+}
+
+pufftype HacxReznatorPuff
+{
+  thingtype   HacxReznatorPuff
+  upspeed     0.0
+  particles   32
+  +ALWAYSPUFF
+}
+
+thingtype HacxReznatorPuff : Mobj
+{
+  cflags NOBLOCKMAP|NOGRAVITY|TLSTYLEADD|NOSPLASH
+  acs_spawndata
+  {
+    num   131
+    modes doom
+  }
+
+  states
+  @"
+  Spawn:
+    RZAP ACEGH 2 bright
+    Stop
+  "@
+}
