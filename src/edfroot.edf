@@ -16,6 +16,11 @@ include("edf/hacx/weapons/kick.edf")
 include("edf/hacx/weapons/pistol.edf")
 include("edf/hacx/weapons/reznator.edf")
 include("edf/hacx/weapons/tazer.edf")
+include("edf/hacx/weapons/cryogun.edf")
+include("edf/hacx/weapons/uzi.edf")
+include("edf/hacx/weapons/zooka.edf")
+include("edf/hacx/weapons/antigun.edf")
+include("edf/hacx/weapons/nuker.edf")
 
 include("edf/hacx/enemies/thug.edf")
 

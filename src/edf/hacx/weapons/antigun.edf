@@ -1,0 +1,136 @@
+/**
+ * HacX 2.0 - EDF
+ *
+ * Weapon: Antigun
+ */
+
+weaponinfo HacxAntigun : Weapon
+{
+  ammotype       AmmoCell
+  ammouse        1
+  upsound        "weapons/antigunup"
+  selectionorder 1.0
+
+  flags        SILENCEABLE|DISABLEAPS|HAPTICRECOIL|NOTSHAREWARE
+  hapticrecoil 2
+  haptictime   1
+
+  states
+  @"
+  Spawn:
+    ANTI A -1
+    Stop
+  Ready:
+    ANTG A 1 A_WeaponReady()
+    Loop
+  Idle:
+    ANTG A 0
+    Goto IdleWait
+  Deselect:
+    ANTG A 0 A_Lower()
+    ANTG A 1 A_Lower()
+    Loop
+  Select:
+    ANTG A 0 A_Raise()
+    ANTG A 1 A_Raise()
+    Loop
+  Fire:
+    ANTG A 0 A_GunFlash()
+    ANTF A 2 A_FirePlayerMissile(HacxMoleculeBeam, normal)
+    ANTF B 2 A_FirePlayerMissile(HacxMoleculeBeam, normal)
+    ANTG B 20 A_ReFire()
+    goto Ready
+  Flash:
+    TNT1 A 2 bright A_Light1()
+    TNT1 B 3 bright A_Light2()
+    TNT1 B 0 A_Light0()
+    stop
+  AltFire:
+    ANTK A 3 A_PlaySoundEx("weapons/grunt", chan_weapon)
+    ANTK B 3
+    ANTK C 8 A_CustomPlayerMelee(4, 10, 10, punch, "weapons/kick", 96)
+    ANTK B 3
+    ANTK A 3
+    ANTK A 0 A_ReFire()
+    goto Ready
+  "@
+}
+
+weapongiver HacxAntigunGiver
+{
+  weapon HacxAntigun
+  ammogiven AmmoCell, 40, 20, 100, 40
+}
+
+thingtype HacxAntigun : Mobj, 2004
+{
+  flags SPECIAL
+  acs_spawndata
+  {
+    num   30
+    modes doom
+  }
+
+  pickupeffect
+  {
+    effects HacxAntigunGiver
+    message "$GOTANTIGUN"
+    sound   wpnup
+  }
+
+  states
+  @"
+  Spawn:
+    ANTI A -1
+    stop
+  "@
+}
+
+thingtype HacxMoleculeBeam
+{
+  seesound   "weapons/antigun";
+  deathsound "weapons/antigunhit";
+  speed      100.0
+  radius     13.0
+  height     8.0
+  damage     4
+  cflags     NOBLOCKMAP|NOGRAVITY|DROPOFF|MISSILE|NOCROSS|SPACMISSILE|FASTMISSILE
+  mod        HacxAntigun
+
+  translucency   80%
+  trail.type     HacxMoleculeTrail
+  trail.zoffset  0;
+  trail.sparsity 2;
+
+  obituary_normal "$OB_MPANTIGUN"
+
+  acs_spawndata
+  { 
+    num   51 
+    modes doom
+  }
+
+  states
+  @"
+  Spawn:
+    MOLS AB 2 bright
+    loop
+  Death:
+    MOLE ABCD 3 bright
+    stop
+  "@
+}
+
+thingtype HacxMoleculeTrail
+{
+  cflags         NOBLOCKMAP|NOGRAVITY|SYNCHRONIZED|NORANDOMIZE
+  translucency   60%
+  alphavelocity -0.2
+
+  states
+  @"
+  Spawn:
+    MOLS ABA 1 bright
+    stop
+  "@
+}
