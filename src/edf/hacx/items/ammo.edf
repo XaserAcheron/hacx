@@ -42,6 +42,181 @@ thingtype HacxRoundsCase : Mobj, 2048
   "@
 }
 
+thingtype HacxCartridges : Mobj, 2008
+{
+  flags SPECIAL
+
+  acs_spawndata
+  {
+    num   12
+    modes doom
+  }
+
+  pickupeffect
+  {
+    effects HacxCartridges
+    message "$GOTCARTRIDGES"
+    sound   itemup
+  }
+
+  states
+  @"
+  Spawn:
+    CART A -1
+    stop
+  "@
+}
+
+thingtype HacxCartridgesCase : Mobj, 2049
+{
+  flags SPECIAL
+
+  acs_spawndata
+  {
+    num   143
+    modes doom
+  }
+
+  pickupeffect
+  {
+    effects HacxCartridgesCase
+    message "$GOTCARTRIDGESCASE"
+    sound   itemup
+  }
+
+  states
+  @"
+  Spawn:
+    CBOX A -1
+    stop
+  "@
+}
+
+thingtype HacxTorpedo : Mobj, 2010
+{
+  flags SPECIAL
+
+  acs_spawndata
+  {
+    num   140
+    modes doom
+  }
+
+  pickupeffect
+  {
+    effects HacxTorpedo
+    message "$GOTTORPEDO"
+    sound   itemup
+  }
+
+  states
+  @"
+  Spawn:
+    TMIS A -1
+    stop
+  "@
+}
+
+thingtype HacxTorpedoCase : Mobj, 2046
+{
+  flags SPECIAL
+
+  acs_spawndata
+  {
+    num   141
+    modes doom
+  }
+
+  pickupeffect
+  {
+    effects HacxTorpedoCase
+    message "$GOTTORPEDOS"
+    sound   itemup
+  }
+
+  states
+  @"
+  Spawn:
+    TPAK A -1
+    stop
+  "@
+}
+
+thingtype HacxMolecules : Mobj, 2047
+{
+  flags SPECIAL
+
+  acs_spawndata
+  {
+    num   75
+    modes doom
+  }
+
+  pickupeffect
+  {
+    effects HacxMolecules
+    message "$GOTMOLECULES"
+    sound   itemup
+  }
+
+  states
+  @"
+  Spawn:
+    MOLC A -1
+    stop
+  "@
+}
+
+thingtype HacxMoleculesTank : Mobj, 17
+{
+  flags SPECIAL
+
+  acs_spawndata
+  {
+    num   142
+    modes doom
+  }
+
+  pickupeffect
+  {
+    effects HacxMoleculesTank
+    message "$GOTMOLECULESTANK"
+    sound   itemup
+  }
+
+  states
+  @"
+  Spawn:
+    MOLT A -1
+    stop
+  "@
+}
+
+thingtype HacxValise : Mobj, 8
+{
+  flags SPECIAL
+
+  acs_spawndata
+  {
+    num   144
+    modes doom
+  }
+
+  pickupeffect
+  {
+    effects BackpackItem
+    message "$GOTVALISE"
+    sound   itemup
+  }
+
+  states
+  @"
+  Spawn:
+    VALI A -1
+    stop
+  "@
+}
+
 artifactdelta
 {
   name AmmoClip

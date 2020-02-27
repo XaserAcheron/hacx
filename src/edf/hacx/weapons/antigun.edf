@@ -17,15 +17,9 @@ weaponinfo HacxAntigun : Weapon
 
   states
   @"
-  Spawn:
-    ANTI A -1
-    Stop
   Ready:
     ANTG A 1 A_WeaponReady()
     Loop
-  Idle:
-    ANTG A 0
-    Goto IdleWait
   Deselect:
     ANTG A 0 A_Lower()
     ANTG A 1 A_Lower()
