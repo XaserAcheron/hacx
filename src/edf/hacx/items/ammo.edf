@@ -51,6 +51,15 @@ artifactdelta
 
 artifactdelta
 {
+  name AmmoMissile
+
+  maxamount 20
+
+  ammo.backpackmaxamount 40
+}
+
+artifactdelta
+{
   name AmmoCell
 
   maxamount 400

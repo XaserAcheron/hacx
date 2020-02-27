@@ -3,3 +3,151 @@
  *
  * Weapon: Photon 'Zooka
  */
+
+weaponinfo HacxPhotonZooka : DoomWeapon
+{
+  ammotype       AmmoMissile
+  ammouse        1
+  upsound        "weapons/zookaup"
+  selectionorder 7.0
+
+  flags        NOAUTOFIRE|DISABLEAPS|SILENCEABLE|HAPTICRECOIL
+  hapticrecoil 6
+  haptictime   8
+
+  states
+  @"
+  Ready:
+    PHZG A 1 A_WeaponReady()
+    loop
+  Deselect:
+    PHZG A 0 A_Lower()
+    PHZG A 1 A_Lower()
+    loop
+  Select:
+    PHZG A 0 A_Raise()
+    PHZG A 1 A_Raise()
+    loop
+  Fire:
+    PHZF A 4 bright A_GunFlash()
+    PHZF B 0 bright A_PlaySoundEx("weapons/zookafire", weapon)
+    PHZF B 4 bright A_FirePlayerMissile(HacxPhotonTorpedo, normal)
+    PHZF CD 4 bright
+    PHZG B 7 bright
+    PHZG A 7 bright
+    PHZG A 3 bright A_ReFire()
+    goto Ready
+  Flash:
+    TNT1 A 3 A_Light1()
+    TNT1 A 3 A_Light2()
+    TNT1 A 3 A_Light1()
+    TNT1 A 0 A_Light0()
+    stop
+  AltFire:
+    PHZK A 3 A_PlaySoundEx("weapons/grunt", weapon)
+    PHZK B 3
+    PHZK C 8 A_CustomPlayerMelee(4, 10, 10, punch, "weapons/kick", 96)
+    PHZK B 3
+    PHZK A 3
+    PHZK A 0 A_ReFire()
+    goto Ready
+  "@
+}
+
+weapongiver HacxPhotonZookaGiver
+{
+  weapon HacxPhotonZooka
+  ammogiven AmmoMissile, 2, 1, 5, 2
+}
+
+thingtype HacxPhotonZooka : Mobj, 2003
+{
+  flags SPECIAL
+
+  acs_spawndata
+  {
+    num   29
+    modes doom
+  }
+
+  pickupeffect
+  {
+    effects HacxPhotonZookaGiver
+    message "$GOTPHOTONZOOKA"
+    sound   wpnup
+  }
+
+  states
+  @"
+  Spawn:
+    ZOOK A -1
+    stop
+  "@
+}
+
+thingtype HacxPhotonTorpedo 
+{
+  deathsound  "weapons/zookahit"
+  speed       35.0
+  radius      11.0
+  height      8.0
+  damage      20
+  cflags      NOBLOCKMAP|NOGRAVITY|DROPOFF|MISSILE|NOCROSS|SPACMISSILE
+  mod         HacxPhotonZooka
+  xscale      0.77
+  yscale      0.77
+
+  acs_spawndata
+  {
+    num   127
+    modes doom
+  }
+
+  // TODO: random-spawn explosion positions
+
+  states
+  @"
+  Spawn:
+    TORP A 2 bright A_SpawnAbove(HacxPhotonTrail, -1)
+    loop
+  Death:
+    TNT1 A 0 DetonateEx(85, 160, 1, 0, 0, 0, 0, 1, 0)
+    TNT1 A 6 A_SpawnAbove(HacxPhotonExplosion, -1)
+    TNT1 A 0 DetonateEx(85, 160, 1, 0, 0, 0, 0, 1, 0)
+    TNT1 A 6 A_SpawnAbove(HacxPhotonExplosion, -1)
+    TNT1 A 0 DetonateEx(85, 160, 1, 0, 0, 0, 0, 1, 0)
+    TNT1 A 6 A_SpawnAbove(HacxPhotonExplosion, -1)
+    TNT1 A 35
+    stop
+  "@
+}
+
+thingtype HacxPhotonTrail
+{
+  cflags         NOBLOCKMAP|NOGRAVITY|TLSTYLEADD
+  translucency   85%
+  alphavelocity -0.1
+  xscale         0.2
+  yscale         0.2
+
+  states
+  @"
+  Spawn:
+    TPHO ABCDEBA 2 bright
+    stop
+  "@
+}
+
+thingtype HacxPhotonExplosion
+{
+  cflags         NOBLOCKMAP|NOGRAVITY|TLSTYLEADD
+  xscale         0.75
+  yscale         0.75
+
+  states
+  @"
+  Spawn:
+    TORE ABCDE 3 bright
+    stop
+  "@
+}
