@@ -37,7 +37,7 @@ thingtype HacxRoundsCase : Mobj, 2048
   states
   @"
   Spawn:
-    ROUN A -1
+    RBOX A -1
     stop
   "@
 }
