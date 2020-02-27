@@ -3,3 +3,96 @@
  *
  * Weapon: Uzi
  */
+
+weaponinfo HacxUzi : DoomWeapon
+{
+  ammotype       AmmoClip
+  ammouse        1
+  upsound        "weapons/uziup"
+  selectionorder 3.0
+
+  flags        SILENCEABLE|DISABLEAPS|HAPTICRECOIL
+  mod          HacxUzi
+  hapticrecoil 1
+  haptictime   1
+
+  // TODO: bob weapon during "failed" Reload state
+
+  states
+  @"
+  Ready:
+    UZIG A 1 A_WeaponReady()
+    loop
+  Deselect:
+    UZIG A 0 A_Lower()
+    UZIG A 1 A_Lower()
+    loop
+  Select:
+    UZIG A 0 A_Raise()
+    UZIG A 1 A_Raise()
+    loop
+  Fire:
+    UZIF A 0 bright A_GunFlash()
+    UZIF A 2 bright A_FireCustomBullets("weapons/pistol", never, 1, 5, 3, -1)
+    UZIF B 2 bright A_FireCustomBullets("weapons/pistol", never, 1, 5, 3, -1)
+    UZIF B 0 bright A_WeaponSetCtr(0, 1, 1)
+    UZIF B 0 bright A_WeaponCtrJump(Refire, 0, 25, 0)
+  DoReload:
+    UZIG B 3 A_JumpIfNoAmmo("Ready")
+    UZIG C 3
+    UZIG D 3 A_PlaySoundEx("weapons/uzireload", weapon)
+    UZIG E 8 A_WeaponSetCtr(0, 0, 0)
+    UZIG CBA 3
+  Refire:
+    UZIG B 0 A_ReFire()
+    goto Ready
+  Reload:
+    UZIG A 0 A_WeaponCtrJump(DoReload, 2, 0, 0)
+    UZIG A 1
+    goto Ready
+  Flash:
+    TNT1 A 2 A_Light1()
+    TNT1 A 2 A_Light2()
+    TNT1 A 0 A_Light0()
+    stop
+  AltFire:
+    UZIK A 3 A_PlaySoundEx("weapons/grunt", weapon)
+    UZIK B 3
+    UZIK C 8 A_CustomPlayerMelee(4, 10, 10, punch, "weapons/kick", 96)
+    UZIK B 3
+    UZIK A 3
+    UZIK A 0 A_ReFire()
+    goto Ready
+  "@
+}
+
+weapongiver HacxUziGiver
+{
+  weapon HacxUzi
+  ammogiven AmmoClip, 20, 10, 50, 20
+}
+
+thingtype HacxUzi : Mobj, 2002
+{
+  flags SPECIAL
+
+  acs_spawndata
+  {
+    num   28
+    modes doom
+  }
+
+  pickupeffect
+  {
+    effects HacxUziGiver
+    message "$GOTUZI"
+    sound   wpnup
+  }
+
+  states
+  @"
+  Spawn:
+    UZII A -1
+    stop
+  "@
+}

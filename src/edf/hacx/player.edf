@@ -13,7 +13,7 @@ playerclass DoomMarine
   weaponslot 1 { weapons : HacxReznator, HacxKick }
   weaponslot 2 { weapons : HacxPistol }
   weaponslot 3 { weapons : /*HacxCryogun,*/ HacxTazer }
-//weaponslot 4 { weapons : HacxUzi }
+  weaponslot 4 { weapons : HacxUzi }
   weaponslot 5 { weapons : HacxPhotonZooka }
   weaponslot 6 { weapons : HacxAntigun }
 //weaponslot 7 { weapons : HacxNuker }
