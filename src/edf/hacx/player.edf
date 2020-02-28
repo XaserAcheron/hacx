@@ -12,13 +12,11 @@ playerclass DoomMarine
 
   weaponslot 1 { weapons : HacxReznator, HacxKick }
   weaponslot 2 { weapons : HacxPistol }
-  weaponslot 3 { weapons : /*HacxCryogun,*/ HacxTazer }
+  weaponslot 3 { weapons : HacxCryogun, HacxTazer }
   weaponslot 4 { weapons : HacxUzi }
   weaponslot 5 { weapons : HacxPhotonZooka }
   weaponslot 6 { weapons : HacxAntigun }
-//weaponslot 7 { weapons : HacxNuker }
-  weaponslot 8 { weapons : HacxReznator }
-//weaponslot 9 { weapons : HacxCryogun }
+  weaponslot 7 { weapons : HacxNuker }
 
   // TODO: give light kevlar vest (50 armor)
   rebornitem AmmoClip, 50

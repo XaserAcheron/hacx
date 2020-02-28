@@ -3,3 +3,88 @@
  *
  * Weapon: Cryogun
  */
+
+weaponinfo HacxCryogun : Weapon
+{
+  ammotype       AmmoShell
+  ammouse        2
+  upsound        "weapons/cryoup"
+  selectionorder 2.0
+
+  flags        SILENCEABLE|HAPTICRECOIL|DISABLEAPS
+  mod          HacxCryogun
+  hapticrecoil 5
+  haptictime   5
+
+  // TODO: proper behavior (spread of bouncy projectiles)
+
+  states
+  @"
+  Ready:
+    CRYG A 1 A_WeaponReady()
+    loop
+  Deselect:
+    CRYG A 0 A_Lower()
+    CRYG A 1 A_Lower()
+    loop
+  Select:
+    CRYG A 0 A_Raise()
+    CRYG A 1 A_Raise()
+    loop
+  Fire:
+    CRYG A 2
+    CRYG A 4 A_FireCustomBullets("weapons/cryofire", ssg, 20, 5, 3)
+    CRYG B 3
+    CRYG C 3 A_CheckReload()
+    CRYG D 4 A_PlaySoundEx("weapons/uzireload", weapon)
+    CRYG E 5
+    CRYG F 4 A_PlaySoundEx("weapons/cryohit", weapon)
+    CRYG G 4
+    CRYG H 0 A_PlaySoundEx("weapons/cryocool", weapon)
+    CRYG H 3 A_ReFire()
+    goto Ready
+  Flash:
+    CRYG I 2 BRIGHT A_Light1()
+    CRYG J 3 BRIGHT A_Light0()
+    stop
+  AltFire:
+    CRYK A 3 A_PlaySoundEx("weapons/grunt", weapon)
+    CRYK B 3
+    CRYK C 8 A_CustomPlayerMelee(4, 10, 10, punch, "weapons/kick", 96)
+    CRYK B 3
+    CRYK A 3
+    CRYK A 0 A_ReFire()
+    goto Ready
+  "@
+}
+
+weapongiver HacxCryogunGiver
+{
+  weapon HacxCryogun
+  ammogiven AmmoShell, 8, 4, 20, 8
+}
+
+thingtype HacxCryogun : Mobj, 82
+{
+  flags SPECIAL
+
+  acs_spawndata
+  {
+    num   33
+    modes doom
+  }
+
+  pickupeffect
+  {
+    effects HacxCryogunGiver
+    message "$GOTCRYOGUN"
+    sound   wpnup
+  }
+
+  states
+  @"
+  Spawn:
+    CRYO A -1
+    stop
+  "@
+}
