@@ -1,0 +1,10 @@
+/**
+ * HacX 2.0 - EDF
+ *
+ * Weapon Base
+ */
+
+weaponinfo HacxWeapon : Weapon
+{
+  // TODO: common things here, e.g. bobbing when that gets in.
+}

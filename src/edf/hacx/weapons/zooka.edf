@@ -4,7 +4,7 @@
  * Weapon: Photon 'Zooka
  */
 
-weaponinfo HacxPhotonZooka : DoomWeapon
+weaponinfo HacxPhotonZooka : HacxWeapon
 {
   ammotype       AmmoMissile
   ammouse        1

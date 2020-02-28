@@ -4,7 +4,7 @@
  * Weapon: Pistol
  */
 
-weaponinfo HacxPistol : Weapon
+weaponinfo HacxPistol : HacxWeapon
 {
   ammotype AmmoClip
   ammouse  2
@@ -38,7 +38,7 @@ weaponinfo HacxPistol : Weapon
     PISF A 3 bright A_Light2()
     Goto LightDone
   AltFire:
-    PISK A 3 A_PlaySoundEx("weapons/grunt", chan_weapon)
+    PISK A 3 A_PlaySoundEx("weapons/grunt", weapon)
     PISK B 3
     PISK C 8 A_CustomPlayerMelee(4, 10, 10, punch, "weapons/kick", 96)
     PISK B 3

@@ -4,12 +4,12 @@
  * Weapon: KIKC THEY'RE AS'S!
  */
 
-weaponinfo HacxKick : Weapon
+weaponinfo HacxKick : HacxWeapon
 {
   selectionorder 9.0
 
-  flags         FLEEMELEE|NOHITGHOSTS|SILENCEABLE|DISABLEAPS|AUTOSWITCHFROM
-  mod           HacxKick
+  flags FLEEMELEE|NOHITGHOSTS|SILENCEABLE|DISABLEAPS|AUTOSWITCHFROM
+  mod   HacxKick
 
   states
   @"
@@ -26,7 +26,7 @@ weaponinfo HacxKick : Weapon
     Loop
   Fire:
   AltFire:
-    KICK B 3 A_PlaySoundEx("weapons/grunt", chan_weapon)
+    KICK B 3 A_PlaySoundEx("weapons/grunt", weapon)
     KICK C 3
     KICK D 8 A_CustomPlayerMelee(4, 10, 10, punch, "weapons/kick", 96)
     KICK C 3

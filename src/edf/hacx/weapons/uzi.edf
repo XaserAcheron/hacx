@@ -69,7 +69,7 @@ weaponinfo HacxUzi : DoomWeapon
 weapongiver HacxUziGiver
 {
   weapon HacxUzi
-  ammogiven AmmoClip, 20, 10, 50, 20
+  ammogiven AmmoClip, 40, 20, 100, 40
 }
 
 thingtype HacxUzi : Mobj, 2002

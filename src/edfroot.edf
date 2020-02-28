@@ -12,6 +12,7 @@ include("edf/hacx/fonts.edf")
 include("edf/hacx/sounds.edf")
 include("edf/hacx/player.edf")
 
+include("edf/hacx/weapons/base.edf")
 include("edf/hacx/weapons/kick.edf")
 include("edf/hacx/weapons/pistol.edf")
 include("edf/hacx/weapons/reznator.edf")

@@ -4,7 +4,7 @@
  * Weapon: Tazer
  */
 
-weaponinfo HacxTazer : Weapon
+weaponinfo HacxTazer : HacxWeapon
 {
   ammotype       AmmoShell
   ammouse        1
@@ -12,9 +12,11 @@ weaponinfo HacxTazer : Weapon
   selectionorder 4.0
 
   flags        SILENCEABLE|DISABLEAPS|HAPTICRECOIL
-  mod          Shotgun
+  mod          HacxTazer
   hapticrecoil 3
   haptictime   3
+
+  // TODO: proper behavior (special attack!)
 
   states
   @"
@@ -30,7 +32,7 @@ weaponinfo HacxTazer : Weapon
     TAZG A 1 A_Raise()
     loop
   Fire:
-    TAZG B 0 A_PlaySoundEx("weapons/tazercharge", chan_voice)
+    TAZG B 0 A_PlaySoundEx("weapons/tazercharge", voice)
     TAZG A 3 A_GunFlash()
     TAZF A 3 bright A_FireCustomBullets("weapons/tazer", never, 8, 5, 3, -1)
     TAZF B 2 bright
@@ -50,7 +52,7 @@ weaponinfo HacxTazer : Weapon
     TNT1 A 0 A_Light0()
     stop
   AltFire:
-    TAZK A 3 A_PlaySoundEx("weapons/grunt", chan_weapon)
+    TAZK A 3 A_PlaySoundEx("weapons/grunt", weapon)
     TAZK B 3
     TAZK C 8 A_CustomPlayerMelee(4, 10, 10, punch, "weapons/kick", 96)
     TAZK B 3
