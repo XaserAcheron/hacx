@@ -30,8 +30,8 @@ weaponinfo HacxAntigun : HacxWeapon
     Loop
   Fire:
     ANTG A 0 A_GunFlash()
-    ANTF A 2 A_FirePlayerMissile(HacxMoleculeBeam, normal)
-    ANTF B 2 A_FirePlayerMissile(HacxMoleculeBeam, normal)
+    ANTF A 2 X_FireAntigun()
+    ANTF B 2 X_FireAntigun()
     ANTG B 20 A_ReFire()
     goto Ready
   Flash:
@@ -77,6 +77,21 @@ thingtype HacxAntigun : Mobj, 2004
   Spawn:
     ANTI A -1
     stop
+  "@
+}
+
+action X_FireAntigun
+{
+  code
+  @"
+    void X_FireAntigun(EE::Player @player)
+    {
+      player.subtractAmmo();
+
+      EE::Mobj @mo = player.spawnMissile("HacxMoleculeBeam");
+
+      mo.z = player.mo.z + (player.mo.height/2) + 16.0;
+    }
   "@
 }
 

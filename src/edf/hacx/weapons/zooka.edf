@@ -31,7 +31,7 @@ weaponinfo HacxPhotonZooka : HacxWeapon
   Fire:
     PHZF A 4 bright A_GunFlash()
     PHZF B 0 bright A_PlaySoundEx("weapons/zookafire", weapon)
-    PHZF B 4 bright A_FirePlayerMissile(HacxPhotonTorpedo, normal)
+    PHZF B 4 bright X_FirePhotonZooka()
     PHZF CD 4 bright
     PHZG B 7 bright
     PHZG A 7 bright
@@ -85,6 +85,21 @@ thingtype HacxPhotonZooka : Mobj, 2003
   "@
 }
 
+action X_FirePhotonZooka
+{
+  code
+  @"
+    void X_FirePhotonZooka(EE::Player @player)
+    {
+      player.subtractAmmo();
+
+      EE::Mobj @mo = player.spawnMissile("HacxPhotonTorpedo");
+
+      mo.z = player.mo.z + (player.mo.height/2) + 28.0;
+    }
+  "@
+}
+
 thingtype HacxPhotonTorpedo 
 {
   deathsound  "weapons/zookahit"
@@ -92,10 +107,10 @@ thingtype HacxPhotonTorpedo
   radius      11.0
   height      8.0
   damage      20
-  cflags      NOBLOCKMAP|NOGRAVITY|DROPOFF|MISSILE|NOCROSS|SPACMISSILE
+  cflags      NOBLOCKMAP|NOGRAVITY|DROPOFF|MISSILE|NOCROSS|SPACMISSILE|FASTMISSILE
   mod         HacxPhotonZooka
-  xscale      0.77
-  yscale      0.77
+  xscale      0.75
+  yscale      0.75
 
   acs_spawndata
   {
@@ -103,20 +118,18 @@ thingtype HacxPhotonTorpedo
     modes doom
   }
 
-  // TODO: random-spawn explosion positions
-
   states
   @"
   Spawn:
-    TORP A 2 bright A_SpawnAbove(HacxPhotonTrail, -1)
+    TORP A 2 bright A_SpawnEx(HacxPhotonTrail)
     loop
   Death:
     TNT1 A 0 DetonateEx(85, 160, 1, 0, 0, 0, 0, 1, 0)
-    TNT1 A 6 A_SpawnAbove(HacxPhotonExplosion, -1)
+    TNT1 A 6 A_SpawnEx(HacxPhotonExplosion, normal, 0.0,   0.0, -12.0)
     TNT1 A 0 DetonateEx(85, 160, 1, 0, 0, 0, 0, 1, 0)
-    TNT1 A 6 A_SpawnAbove(HacxPhotonExplosion, -1)
+    TNT1 A 6 A_SpawnEx(HacxPhotonExplosion, normal, 0.0,  12.0,  12.0)
     TNT1 A 0 DetonateEx(85, 160, 1, 0, 0, 0, 0, 1, 0)
-    TNT1 A 6 A_SpawnAbove(HacxPhotonExplosion, -1)
+    TNT1 A 6 A_SpawnEx(HacxPhotonExplosion, normal, 0.0, -12.0,  12.0)
     TNT1 A 35
     stop
   "@
@@ -141,8 +154,8 @@ thingtype HacxPhotonTrail
 thingtype HacxPhotonExplosion
 {
   cflags         NOBLOCKMAP|NOGRAVITY|TLSTYLEADD
-  xscale         0.75
-  yscale         0.75
+  xscale         1.25
+  yscale         1.25
 
   states
   @"
