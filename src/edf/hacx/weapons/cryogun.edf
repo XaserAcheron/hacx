@@ -16,8 +16,6 @@ weaponinfo HacxCryogun : HacxWeapon
   hapticrecoil 5
   haptictime   5
 
-  // TODO: proper behavior (spread of bouncy projectiles)
-
   states
   @"
   Ready:
@@ -33,7 +31,9 @@ weaponinfo HacxCryogun : HacxWeapon
     loop
   Fire:
     CRYG A 2
-    CRYG A 4 A_FireCustomBullets("weapons/cryofire", ssg, 20, 5, 3)
+    CRYG A 0 A_GunFlash()
+    CRYG A 0 A_PlaySoundEx("weapons/cryofire", weapon)
+    CRYG A 4 X_FireCryogun()
     CRYG B 3
     CRYG C 3 A_CheckReload()
     CRYG D 4 A_PlaySoundEx("weapons/uzireload", weapon)
@@ -85,6 +85,100 @@ thingtype HacxCryogun : Mobj, 82
   @"
   Spawn:
     CRYO A -1
+    stop
+  "@
+}
+
+action X_FireCryogun
+{
+  code
+  @"
+    void X_FireCryogun(EE::Player @player)
+    {
+      // TODO: gunflash
+      // TODO: play sound
+      player.subtractAmmo();
+
+      for (int i = 0; i < 20; i++) {
+        EE::Mobj @mo = player.spawnMissile("HacxCryoShot");
+
+        // adjust missileheight to account for increased player height
+        mo.z = player.mo.z + (player.mo.height/2) + 28.0;
+
+        // adjust random params by stuff.
+        // bit manual and janky, but it works.
+        // TODO: grab base speed from mobj.info when that's a thing
+        fixed_t speed = (30.0 + Math::Rand::RangeFixed(-5.0, 5.0));
+        fixed_t rangle;
+        fixed_t rpitch;
+        if (i < 5) {
+          rangle = 8.0;
+          rpitch = 0.5;
+        } else if (i < 10) {
+          rangle = 6.5;
+          rpitch = 1.0;
+        } else if (i < 20) {
+          rangle = 5.5;
+          rpitch = 2.0;
+        } else {
+          rangle = 3.5;
+          rpitch = 3.0;
+        }
+
+        // 420 randomize it
+        mo.angle += Math::Rand::RangeFixed(0-rangle, rangle);
+        mo.mom.x = (speed * Math::Cos(mo.angle));
+        mo.mom.y = (speed * Math::Sin(mo.angle));
+        mo.mom.z += Math::Rand::RangeFixed(0-rpitch, rpitch);
+      }
+    }
+  "@
+}
+
+thingtype HacxCryoShot
+{
+  deathsound "weapons/cryohit";
+  speed      30.0
+  radius     8.0
+  height     8.0
+  damage     5
+  damagemod  3
+  cflags     NOBLOCKMAP|NOGRAVITY|DROPOFF|MISSILE|NOCROSS|SPACMISSILE|TLSTYLEADD
+  mod        HacxCryogun
+
+  // TODO: bouncy projectiles
+
+  obituary_normal "$OB_MPCRYOGUN"
+
+  acs_spawndata
+  { 
+    num   51 
+    modes doom
+  }
+
+  states
+  @"
+  Spawn:
+    CPRJ A 1 bright A_SpawnEx(HacxCryoTrail)
+    loop
+  Death:
+    CPUF ABCDEFG 3 bright
+    stop
+  "@
+}
+
+thingtype HacxCryoTrail
+{
+  cflags         NOBLOCKMAP|NOGRAVITY|SYNCHRONIZED|NORANDOMIZE|TLSTYLEADD
+  translucency   25%
+  alphavelocity -0.05
+  xscale         0.5
+  yscale         0.5
+
+  states
+  @"
+  Spawn:
+    CPUF CDCD 3 bright
     stop
   "@
 }
