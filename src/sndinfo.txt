@@ -12,10 +12,9 @@ weapons/rezhit				dsrezhit
 weapons/pistol				dspistol
 weapons/pistolup			dspiscok
 
-weapons/tazer				dstazgun
-weapons/tazerfire			dstazerf
-weapons/tazerhit			dstazerh
-weapons/tazerzap			dstazerz
+weapons/tazerfire			dstazer
+weapons/tazerpuff			dstazerz
+weapons/tazerzap			dstazerf
 weapons/tazercharge			dstazerc
 weapons/tazerup				dstazrup
 
