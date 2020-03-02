@@ -74,6 +74,12 @@ class HacxTazer : HacxWeapon replaces Shotgun
   }
 }
 
+class HacxTazerVictimData
+{
+  Actor thing;
+  float distance;
+}
+
 class HacxTazerPuff : HacxPuff
 {
   Default
@@ -91,7 +97,7 @@ class HacxTazerPuff : HacxPuff
     Spawn:
       TPUF A 3 bright nodelay A_PlaySound("weapons/tazerpuff");
       TPUF B 3 bright;
-      TPUF C 3 bright X_TazerZap(20, 96, 3, "HacxTazerZap", "HacxTazerTrail", 8);
+      TPUF C 3 bright X_TazerZap(20, 3, 128.0, 3, "HacxTazerZap", "HacxTazerTrail", 8.0, 4.0, 20.0, 20.0);
       TPUF DEF 3 bright;
       stop;
   }
@@ -99,16 +105,14 @@ class HacxTazerPuff : HacxPuff
   //
   // X_TazerZap
   //
-  void X_TazerZap(int damage, float radius, int maxvictims, class<Actor> pufftype, class<Actor> trailtype, float trailstep)
+  void X_TazerZap(int damage, int damagemod, float radius, int maxvictims, class<Actor> pufftype, class<Actor> trailtype, float trailstep, float driftStep, float maxdriftX, float maxdriftY)
   {
     float dist;
-    int hits = 0;
-
-    // [XA] TODO: hit closest victims
+    Array<HacxTazerVictimData> victims;
 
     // check for nearby candidate victims
     for(let it = BlockThingsIterator.Create(self, radius); it.Next();) {
-      dist = Max(0, radius - it.thing.radius);
+      dist = Max(0, Distance3D(it.thing) - it.thing.radius);
 
       // check to see if this is a valid victim (a shootable target
       // within range). exclude the originator, naturally.
@@ -117,20 +121,44 @@ class HacxTazerPuff : HacxPuff
       && it.thing.bShootable
       && self.CheckSight(it.thing)) {
 
-        // hit! deal some damage.
-        it.thing.DamageMobj(self, self.target, damage * random(1, 3), self.DamageType);
-        X_TazerTrail(it.thing, pufftype, trailtype, trailstep);
-        hits++;
+        // victim is valid! add it to the list if we
+        // haven't yet hit the max count yet.
+        if(victims.Size() < maxvictims) {
+          let victimData = new('HacxTazerVictimData');
+          victimData.thing = it.thing;
+          victimData.distance = dist;
+          victims.Push(victimData);
+          continue;
+        }
 
-        // stop if we've hit the max victim count.
-        if(hits >= maxvictims) {
-          break;
+        // otherwise, replace the farthest victim
+        // if the new candidate is closer.
+        uint farthestIndex = -1;
+        float farthestDist = 0.0;
+        for(uint i = 0; i < victims.Size(); i++) {
+          if(victims[i].distance > farthestDist) {
+            farthestDist = victims[i].distance;
+            farthestIndex = i;
+          }
+        }
+        if(dist < farthestDist) {
+          victims[farthestIndex].thing = it.thing;
+          victims[farthestIndex].distance = dist;
         }
       }
     }
 
+    // deal some damage to the final designated victims
+    for(uint i = 0; i < victims.Size(); i++ ) {
+      victims[i].thing.DamageMobj(self, self.target, damage * random(1, damagemod), self.DamageType);
+      Vector3 trailStart = self.pos;
+      Vector3 trailEnd = (victims[i].thing.pos.x, victims[i].thing.pos.y, victims[i].thing.pos.z + (victims[i].thing.height / 2));
+      X_TazerTrail(trailtype, trailStart, trailEnd, trailstep, driftStep, maxDriftX, maxDriftY);
+      Actor.Spawn(pufftype, trailEnd);
+    }
+
     // happy zappy success sound
-    if(hits > 0) {
+    if(victims.Size() > 0) {
       A_PlaySound("weapons/tazerzap", CHAN_AUTO);
     }
   }
@@ -138,26 +166,17 @@ class HacxTazerPuff : HacxPuff
   //
   // X_TazerTrail
   //
-  void X_TazerTrail(Actor other, class<Actor> pufftype, class<Actor> trailtype, float trailstep)
+  void X_TazerTrail(class<Actor> type, Vector3 start, Vector3 end, float trailStep, float driftStep, float maxDriftX, float maxDriftY)
   {
-    if(!other) {
-      return;
-    }
+    Vector3 curr = start;
+    Vector3 dist = LevelLocals.vec3Diff(start, end);
+    double ang = VectorAngle(dist.x, dist.y);
 
-    Vector3 trailStart = self.pos;
-    Vector3 trailEnd = (other.pos.x, other.pos.y, other.pos.z + (other.height / 2));
-
-    double ang = self.AngleTo(other, true);
-    Vector3 curr = trailStart;
-    Vector3 dist = LevelLocals.vec3Diff(self.pos, trailEnd);
-
-    int numSteps = ceil(dist.Length() / trailstep);
-    Vector3 step = dist.Unit() * trailstep;
-
-    double maxDriftX = 20.0;
-    double maxDriftY = 20.0;
-    double driftStep = 4.0;
+    int numSteps = ceil(dist.Length() / trailStep);
+    Vector3 stepVec = dist.Unit() * trailStep;
     Vector2 drift = (0, 0);
+
+    // [XA] TODO: taper distance
 
     for(int i = 0; i < numSteps; i++) {
       drift.x = clamp(-maxDriftX, drift.x + frandom(-driftStep, driftStep), maxDriftX);
@@ -167,11 +186,9 @@ class HacxTazerPuff : HacxPuff
         curr.y + (drift.x * -cos(ang)),
         curr.z +  drift.y
       );
-      Actor.Spawn(trailtype, spawnPos);
-      curr += step;
+      Actor.Spawn(type, spawnPos);
+      curr += stepVec;
     }
-
-    Actor.Spawn(pufftype, curr);
   }
 }
 
