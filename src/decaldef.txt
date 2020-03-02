@@ -84,8 +84,6 @@ decalgroup CryoScorch
 }
 
 generator HacxPuff		BulletChip
-generator TazerShot		TazerScorch
-generator TazerFrag		TazerScorch
 generator CryoShot		CryoScorch
 generator HacxPhoton	Scorch
 generator HacxMolecule	PlasmaScorchLower
