@@ -31,7 +31,7 @@ weaponinfo HacxPhotonZooka : HacxWeapon
   Fire:
     PHZF A 4 bright A_GunFlash()
     PHZF B 0 bright A_PlaySoundEx("weapons/zookafire", weapon)
-    PHZF B 4 bright X_FirePhotonZooka()
+    PHZF B 4 bright A_FirePlayerMissile(HacxPhotonTorpedo)
     PHZF CD 4 bright
     PHZG B 7 bright
     PHZG A 7 bright
@@ -82,21 +82,6 @@ thingtype HacxPhotonZooka : Mobj, 2003
   Spawn:
     ZOOK A -1
     stop
-  "@
-}
-
-action X_FirePhotonZooka
-{
-  code
-  @"
-    void X_FirePhotonZooka(EE::Player @player)
-    {
-      player.subtractAmmo();
-
-      EE::Mobj @mo = player.spawnMissile("HacxPhotonTorpedo");
-
-      mo.z = player.mo.z + (player.mo.height/2) + 28.0;
-    }
   "@
 }
 

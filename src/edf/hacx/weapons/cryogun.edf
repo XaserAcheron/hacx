@@ -102,9 +102,6 @@ action X_FireCryogun
       for (int i = 0; i < 20; i++) {
         EE::Mobj @mo = player.spawnMissile("HacxCryoShot");
 
-        // adjust missileheight to account for increased player height
-        mo.z = player.mo.z + (player.mo.height/2) + 28.0;
-
         // adjust random params by stuff.
         // bit manual and janky, but it works.
         // TODO: grab base speed from mobj.info when that's a thing
@@ -113,23 +110,25 @@ action X_FireCryogun
         fixed_t rpitch;
         if (i < 5) {
           rangle = 8.0;
-          rpitch = 0.5;
+          rpitch = 2.0;
         } else if (i < 10) {
           rangle = 6.5;
-          rpitch = 1.0;
+          rpitch = 3.0;
         } else if (i < 20) {
           rangle = 5.5;
-          rpitch = 2.0;
+          rpitch = 4.0;
         } else {
           rangle = 3.5;
-          rpitch = 3.0;
+          rpitch = 5.0;
         }
 
         // 420 randomize it
-        mo.angle += Math::Rand::RangeFixed(0-rangle, rangle);
+        fixed_t pitch = Math::Rand::RangeFixed(0-rpitch, rpitch);
+        mo.angle     += Math::Rand::RangeFixed(0-rangle, rangle);
+
         mo.mom.x = (speed * Math::Cos(mo.angle));
         mo.mom.y = (speed * Math::Sin(mo.angle));
-        mo.mom.z += Math::Rand::RangeFixed(0-rpitch, rpitch);
+        mo.mom.z +=(speed * Math::Sin(   pitch)); // not exact, but works in a pinch.
       }
     }
   "@

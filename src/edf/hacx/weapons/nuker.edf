@@ -15,10 +15,6 @@ weaponinfo HacxNuker : HacxWeapon
   hapticrecoil 10
   haptictime   10
 
-  // TODO: a lotta shit:
-  // - pitch projectile up by 10 degrees
-  // - bouncing aaaagh
-
   states
   @"
   Ready:
@@ -35,7 +31,7 @@ weaponinfo HacxNuker : HacxWeapon
   Fire:
     NUKG A 15 A_PlaySoundEx("weapons/nuker", weapon)
     NUKG B 3 A_GunFlash()
-    NUKG B 7 A_FirePlayerMissile(HacxNukeShot, normal)
+    NUKG B 7 X_FireNuker(10.0)
     NUKG A 15
     NUKG A 0 A_Refire()
     goto Ready
@@ -52,6 +48,23 @@ weaponinfo HacxNuker : HacxWeapon
     NUKK A 3
     NUKK A 0 A_ReFire()
     goto Ready
+  "@
+}
+
+action X_FireNuker
+{
+  code
+  @"
+    void X_FireNuker(EE::Player @player, fixed_t pitchoffset)
+    {
+      player.subtractAmmo();
+
+      EE::Mobj @mo = player.spawnMissile("HacxNukeShot");
+
+      // Reset the xyz velocity based on angle and pitch.
+      // This nullifies autoaim, intentionally so.
+      // TODO: this :P
+    }
   "@
 }
 
@@ -101,6 +114,8 @@ thingtype HacxNukeShot
 
   obituary_normal "$OB_MPNUKER"
 
+  // TODO: bouncing aaaagh
+
   acs_spawndata
   { 
     num   128
@@ -110,9 +125,11 @@ thingtype HacxNukeShot
   states
   @"
   Spawn:
-    NCAN ABCD 2 bright
-    loop
+    NCAN ABCDABCDABCDABCD 2 bright
+    NCAN A 0 A_SelfDestruct()
+    stop
   Death:
+    TNT1 A 0 A_SetFlags(NOGRAVITY)
     TNT1 A 0 A_SpawnEx(HacxNukeBoom)
     TNT1 A 5 A_MushroomEx(HacxNukeSpray, 50, 0.5, 1.0, 128, 128)
     TNT1 A 5
@@ -145,6 +162,8 @@ thingtype HacxNukeSpray
   translucency   75%
 
   obituary_normal "$OB_MPNUKER"
+
+  // TODO: A_ScaleVelocity(1.0+0.05*random(-5,5));
 
   states
   @"

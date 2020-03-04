@@ -38,6 +38,9 @@ thingtype HacxPlayer
   flags3       SLIDE|TELESTOMP|WINDTHRUST|PASSMOBJ
   mod          PlayerMisc
 
+  missileheight 56.0
+  bulletzoffset 28.0
+
   states
   @"
   Spawn:
