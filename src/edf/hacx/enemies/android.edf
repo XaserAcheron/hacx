@@ -1,0 +1,80 @@
+/**
+ * HacX 2.0 - EDF
+ *
+ * Enemy: Android
+ */
+
+thingtype HacxAndroid : Mobj, 9
+{
+  basictype Monster
+
+  spawnhealth  75
+  speed        16
+  radius       21.0
+  height       70.0
+  painchance   20
+  mass         55
+
+  droptype     HacxTazer
+  damagefactor HacxReznator, 1.5
+  // TODO: increased reznator painchance
+
+  seesound     "android/sight"
+  activesound  "android/active"
+  painsound    "android/pain"
+  deathsound   "android/death"
+
+  obituary_normal "$OB_ANDROID"
+
+  acs_spawndata
+  {
+    num   1
+    modes hacx
+  }
+
+  states
+  @"
+  Spawn:
+    ANDY E 10 A_Look()
+    loop
+  See:
+    ANDY AABBCCDD 3 A_Chase()
+    loop
+  Missile:
+    ANDY E 10 A_FaceTarget()
+    ANDY F 10 bright A_BulletAttack("android/attack", monster, 3, 5, 3, HacxAndroidPuff)
+    ANDY E 10
+    goto See
+  Pain:
+    ANDY G 3
+    ANDY G 3 A_Pain()
+    goto See
+  Death:
+    ANDY H 9 bright
+    ANDY I 6 bright A_Scream()
+    ANDY J 4 bright A_Fall()
+    ANDY K 4
+    ANDY L -1
+    stop
+  XDeath:
+    ANDY H 0 bright A_Scream()
+    ANDY H 10 bright A_PlaySoundEx("android/gib", auto)
+    ANDY M 2 bright
+    ANDY N 4 bright A_PlaySoundEx("misc/explode", voice)
+    ANDY O 0 bright A_Explode()
+    ANDY O 4 bright A_Fall()
+    ANDY PQR 4 bright
+    ANDY ST 4
+    ANDY U -1
+    stop
+  Raise:
+    ANDY LKJIH 5
+    goto See
+  "@
+}
+
+pufftype HacxAndroidPuff
+{
+  thingtype   HacxTazerZap
+  +ALWAYSPUFF
+}

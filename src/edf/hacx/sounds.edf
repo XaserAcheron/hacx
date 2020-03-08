@@ -56,3 +56,25 @@ sound "thug/death2"  { lump "dsthgdt2"; pitchvariance Doom; }
 sound "thug/death3"  { lump "dsthgdt3"; pitchvariance Doom; }
 sound "thug/aim"     { lump "dspiscok"; pitchvariance Doom; }
 sound "thug/attack"  { lump "dspistol"; pitchvariance Doom; }
+
+sound "android/death"   { random { "android/death1", "android/death2" } }
+sound "android/sight"   { lump "dsandsit"; pitchvariance Doom; }
+sound "android/active"  { lump "dsandact"; pitchvariance Doom; }
+sound "android/attack"  { lump "dstazer" ; pitchvariance Doom; }
+sound "android/pain"    { lump "dsandpai"; pitchvariance Doom; }
+sound "android/death1"  { lump "dsanddt1"; pitchvariance Doom; }
+sound "android/death2"  { lump "dsanddt2"; pitchvariance Doom; }
+sound "android/gib"     { lump "dsandgib"; pitchvariance Doom; }
+
+sound "phage/sight"     { lump "dsphgsit"; pitchvariance Doom; }
+sound "phage/active"    { lump "dsphgact"; pitchvariance Doom; }
+sound "phage/attack"    { lump "dsphgatk"; pitchvariance Doom; }
+sound "phage/melee"     { lump "dsphgmel"; pitchvariance Doom; }
+sound "phage/pain"      { lump "dsphgpai"; pitchvariance Doom; }
+sound "phage/death"     { lump "dsphgdth"; pitchvariance Doom; }
+
+sound "misc/gibbed"     { lump "dsgibbed"; pitchvariance Doom; }
+sound "slop"            { alias "misc/gibbed"; }
+
+sound "misc/projectilefire" { lump "dsprjfir"; pitchvariance Doom; }
+sound "misc/projectilehit"  { lump "dsprjhit"; pitchvariance Doom; }

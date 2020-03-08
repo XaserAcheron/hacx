@@ -24,5 +24,7 @@ include("edf/hacx/weapons/antigun.edf")
 include("edf/hacx/weapons/nuker.edf")
 
 include("edf/hacx/enemies/thug.edf")
+include("edf/hacx/enemies/android.edf")
+include("edf/hacx/enemies/phage.edf")
 
 include("edf/hacx/items/ammo.edf")

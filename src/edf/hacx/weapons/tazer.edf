@@ -66,7 +66,7 @@ weapongiver HacxTazerGiver
   ammogiven AmmoShell, 8, 4, 20, 8
 }
 
-thingtype HacxTazerPickup : Mobj, 2001
+thingtype HacxTazer : Mobj, 2001
 {
   flags SPECIAL
   acs_spawndata
