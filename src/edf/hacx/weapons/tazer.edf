@@ -16,8 +16,6 @@ weaponinfo HacxTazer : HacxWeapon
   hapticrecoil 3
   haptictime   3
 
-  // TODO: proper behavior (special attack!)
-
   states
   @"
   Ready:
@@ -34,7 +32,7 @@ weaponinfo HacxTazer : HacxWeapon
   Fire:
     TAZG B 0 A_PlaySoundEx("weapons/tazercharge", voice)
     TAZG A 3 A_GunFlash()
-    TAZF A 3 bright A_FireCustomBullets("weapons/tazer", never, 8, 5, 3, -1)
+    TAZF A 3 bright A_FireCustomBullets("weapons/tazer", always, 1, 20, 3, -1, 0, 0, HacxTazerPuff)
     TAZF B 2 bright
     TAZG C 2
     TAZG D 3
@@ -89,5 +87,72 @@ thingtype HacxTazerPickup : Mobj, 2001
   Spawn:
     TAZR A -1
     stop
+  "@
+}
+
+pufftype HacxTazerPuff
+{
+  thingtype   HacxTazerPuff
+  +ALWAYSPUFF
+  +TARGETSHOOTER
+}
+
+thingtype HacxTazerPuff : Mobj
+{
+  cflags NOBLOCKMAP|NOGRAVITY|TLSTYLEADD|NOSPLASH|SYNCHRONIZED|NORANDOMIZE
+  height 8
+  bulletzoffset -8
+
+  states
+  @"
+  Spawn:
+    TPUF A 1 bright
+    TPUF A 3 bright A_PlaySoundEx("weapons/tazerpuff", voice)
+    TPUF B 3 bright
+    TPUF C 3 bright A_ShockAttack(20, 3, 128.0, normal, 3, HacxTazerZap, HacxTazerTrail, "weapons/tazerzap")
+    TPUF DEF 3 bright
+    Stop
+  "@
+}
+
+beamtype HacxTazerTrail
+{
+  thingtype      HacxTazerTrail
+  density        8.0
+  taperdistance 16.0
+  y.drift        4.0
+  z.drift        4.0
+  y.maxdrift    20.0
+  z.maxdrift    20.0
+}
+
+thingtype HacxTazerTrail
+{
+  cflags         NOBLOCKMAP|NOGRAVITY|SYNCHRONIZED|NORANDOMIZE|TLSTYLEADD
+  alphavelocity -0.1
+
+  states
+  @"
+  Spawn:
+    TTRL ABCDEF 1 bright
+    stop
+  "@
+}
+
+pufftype HacxTazerZap
+{
+  thingtype   HacxTazerZap
+  +ALWAYSPUFF
+}
+
+thingtype HacxTazerZap : Mobj
+{
+  cflags NOBLOCKMAP|NOGRAVITY|TLSTYLEADD|NOSPLASH|SYNCHRONIZED|NORANDOMIZE
+
+  states
+  @"
+  Spawn:
+    TZAP ABCDE 3 bright
+    Stop
   "@
 }
