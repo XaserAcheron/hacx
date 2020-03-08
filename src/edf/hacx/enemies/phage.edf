@@ -42,12 +42,12 @@ thingtype HacxPhage : Mobj, 67
     loop
   Melee:
     PHAG D 10 A_FaceTarget()
-    PHAG E 5 bright A_PlaySound("phage/melee")
+    PHAG E 5 bright A_PlaySoundEx("phage/melee", auto)
     PHAG F 10 bright A_SkullAttack()
     PHAG D 10 A_Stop()
     goto Chase
   Missile:
-    PHAG G 0 A_PlaySound("phage/attack")
+    PHAG G 0 A_PlaySoundEx("phage/attack", auto)
     PHAG H 10 A_FaceTarget()
     PHAG I 10 bright A_MissileAttack(HacxPhageBall, normal, 0, 0, -1)
     PHAG G 5 bright A_FaceTarget()
