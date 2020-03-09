@@ -73,8 +73,31 @@ sound "phage/melee"     { lump "dsphgmel"; pitchvariance Doom; }
 sound "phage/pain"      { lump "dsphgpai"; pitchvariance Doom; }
 sound "phage/death"     { lump "dsphgdth"; pitchvariance Doom; }
 
+sound "buzzer/sight"    { lump "dsbuzsit"; pitchvariance Doom; }
+sound "buzzer/active"   { lump "dsbuzact"; pitchvariance Doom; }
+sound "buzzer/attack"   { lump "dsbuzatk"; pitchvariance Doom; }
+sound "buzzer/pain"     { lump "dsbuzpai"; pitchvariance Doom; }
+sound "buzzer/death"    { lump "dsexplod"; pitchvariance Doom; }
+sound "buzzer/disable"  { lump "dsanthit"; pitchvariance Doom; }
+
+sound "monstruct/sight" { lump "dsmonsit"; pitchvariance Doom; }
+sound "monstruct/active"{ lump "dsmonact"; pitchvariance Doom; }
+sound "monstruct/attack"{ lump "dsmonpai"; pitchvariance Doom; }
+sound "monstruct/melee" { lump "dspistol"; pitchvariance Doom; }
+sound "monstruct/pain"  { lump "dsmonpai"; pitchvariance Doom; }
+sound "monstruct/death" { lump "dsmondth"; pitchvariance Doom; }
+
 sound "misc/gibbed"     { lump "dsgibbed"; pitchvariance Doom; }
 sound "slop"            { alias "misc/gibbed"; }
 
 sound "misc/projectilefire" { lump "dsprjfir"; pitchvariance Doom; }
 sound "misc/projectilehit"  { lump "dsprjhit"; pitchvariance Doom; }
+
+sound "misc/explode"    { lump "dsexplod"; pitchvariance Doom; }
+sound "misc/explode2"   { lump "dsexplo2"; pitchvariance Doom; }
+sound "misc/nuke"       { lump "dsnuboom"; pitchvariance Doom; }
+
+sound "misc/pulse"      { lump "dspulse" ; pitchvariance Doom; }
+sound "misc/fireball"   { lump "dsanthit"; pitchvariance Doom; }
+sound "misc/smash"      { lump "dssmash" ; pitchvariance Doom; }
+sound "misc/shatter"    { lump "dshatter"; pitchvariance Doom; }

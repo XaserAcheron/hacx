@@ -21,9 +21,9 @@ class HacxMonstruct : Actor replaces ChaingunGuy
     activesound "monstruct/active";
     attacksound "weapons/pistol";
     damagefactor "Monstruct", 0.0;
-    meleerange 128;
     MONSTER;
     +FLOORCLIP;
+    +NOINFIGHTSPECIES;
   }
 
   States
@@ -35,12 +35,12 @@ class HacxMonstruct : Actor replaces ChaingunGuy
       MONS AABBCCDD 4 A_Chase();
       loop;
     Missile:
-      MONS G 0 A_JumpIfCloser(384,"Melee");
-      MONS G 10 bright A_FaceTarget();// E: right, F: left
+      MONS G 0 A_JumpIfCloser(256, "Melee");
+      MONS G 10 bright A_FaceTarget(); // E: right, F: left
       MONS E 6 bright A_SpawnProjectile("HacxMonstructShot", 32, 24, 0);
-      MONS F 6 bright A_SpawnProjectile("HacxMonstructShot", 32, -24, frandom(0,22.5));
+      MONS F 6 bright A_SpawnProjectile("HacxMonstructShot", 32, -24, 11.25);
       MONS G 6 bright A_FaceTarget();
-      MONS E 6 bright A_SpawnProjectile("HacxMonstructShot", 32, 24, frandom(-22.5, 0));
+      MONS E 6 bright A_SpawnProjectile("HacxMonstructShot", 32, 24, -11.25);
       MONS F 6 bright A_SpawnProjectile("HacxMonstructShot", 32, -24, 0);
       MONS G 6;
       Goto See;
@@ -93,9 +93,9 @@ class HacxMonstructShot : Actor replaces FatShot
       MONF AB 4 bright;
       loop;
     Death:
-      TORE ABC 3 bright;
-      TORE D 5 bright A_Explode(32,128,0);
-      TORE E 5 bright;
+      TORE AB 3 bright;
+      TORE C 3 bright A_Explode(80, 128);
+      TORE DE 5 bright;
       stop;
   }
 }

@@ -1,0 +1,85 @@
+/**
+ * HacX 2.0 - EDF
+ *
+ * Enemy: Buzzer / Stealth
+ */
+
+thingtype HacxBuzzer : Mobj, 3002
+{
+  basictype Monster
+  addflags  NOGRAVITY|FLOAT|NOBLOOD
+
+  spawnhealth  150
+  speed        12
+  radius       25.0
+  height       68.0
+  mass         600
+  painchance   100
+//painchance   HacxReznator, 255
+  damagefactor HacxReznator, 1.5
+
+  seesound    "buzzer/sight"
+  attacksound "buzzer/attack"
+  painsound   "buzzer/pain"
+  deathsound  "buzzer/death"
+  activesound "buzzer/active"
+
+  obituary_melee "$OB_BUZZER"
+
+  acs_spawndata 
+  { 
+    num   8
+    modes hacx
+  }
+
+  states
+  @"
+  Spawn:
+    BUZZ A 1 A_Look()
+    loop
+  See:
+    BUZZ AABBCCDD 2 A_Chase()
+    loop
+  Melee:
+    BUZZ E 4 A_FaceTarget()
+    BUZZ F 4 Bright A_FaceTarget()
+    BUZZ G 5 Bright A_SargAttack()
+    BUZZ F 5 Bright
+    goto See
+  Pain:
+    BUZZ H 2 bright
+    BUZZ H 8 bright A_Pain()
+    goto See
+  Death:
+    BUZZ I 5 bright A_SetTranslucent(1.0, 0)
+    BUZZ J 5 bright A_Scream()
+    BUZZ K 5 bright A_DetonateEx(80, 128, 0, 0, 0, 0, 0, 1, 1)
+    BUZZ L 5 bright
+    BUZZ M 5 bright
+    BUZZ N -1 A_Fall()
+    stop
+  Death.Reznator:
+    BUZZ I 0 bright A_SetTranslucent(1.0,0)
+    BUZZ I 5 bright A_PlaySoundEx("buzzer/disable", auto)
+    BUZZ N -1 A_Fall()
+    stop
+  Raise:
+    BUZZ NMLKJI 5
+    goto See
+  "@
+}
+
+thingtype HacxStealth : HacxBuzzer, 58
+{
+  addflags SHADOW
+
+  spawnhealth 30
+  speed       8
+  painchance  250
+
+  seesound    ""
+  painsound   ""
+  activesound ""
+
+  obituary_melee "$OB_STEALTH"
+}

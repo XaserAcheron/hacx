@@ -1,0 +1,115 @@
+/**
+ * HacX 2.0 - EDF
+ *
+ * Enemy: Monstruct
+ */
+
+thingtype HacxMonstruct : Mobj, 65
+{
+  basictype Monster
+  addflags NOSPECIESINFIGHT
+
+  spawnhealth 400
+  speed       7
+  radius      35.0
+  height      87.0
+  mass        4000
+  painchance  50
+
+  seesound    "monstruct/sight"
+  painsound   "monstruct/pain"
+  deathsound  "monstruct/death"
+  activesound "monstruct/active"
+  attacksound "monstruct/melee"
+
+  obituary_normal "$OB_MONSTRUCT"
+
+  acs_spawndata 
+  {
+    num   2
+    modes hacx
+  }
+
+  // TODO: xy offset for projectiles, maybe
+
+  states
+  @"
+  Spawn:
+    MONS A 10 A_Look()
+    loop
+  See:
+    MONS AABBCCDD 4 A_Chase()
+    loop
+  Missile:
+    MONS G 0 A_AproxDistance(0)
+    MONS G 0 A_CounterJump(Melee, lessorequal, 256, 0)
+    MONS G 10 bright A_FaceTarget()
+    MONS E 6 bright A_MissileAttack(HacxMonstructShot, normal, 0, 0, -1)
+    MONS F 6 bright A_MissileAttack(HacxMonstructShot, normal, 0, 11.25, -1)
+    MONS G 6 bright A_FaceTarget()
+    MONS E 6 bright A_MissileAttack(HacxMonstructShot, normal, 0,-11.25, -1)
+    MONS F 6 bright A_MissileAttack(HacxMonstructShot, normal, 0, 0, -1)
+    MONS G 6
+    Goto See
+  Melee:
+    MONS G 6 A_FaceTarget()
+  MeleeLoop:
+    MONS O 2 bright A_BulletAttack(pistol, ba_monster, 1, 5, 3)
+    MONS N 3
+    MONS O 0 A_AproxDistance(0)
+    MONS O 0 A_CounterJump(See, greater, 512, 0)
+    MONS O 0 A_CPosRefire()
+    Loop
+  Pain:
+    MONS D 5 A_Chase()
+    goto See
+  Death:
+    MONS H 5
+    MONS H 5 A_Scream()
+    MONS I 10
+    MONS J 10 A_Fall()
+    MONS K 8
+    MONS L 6
+    MONS M -1
+    stop
+  Raise:
+    MONS MLKJIH 5
+    goto See
+  "@
+}
+
+//thinggroup HacxMonstruct
+//{
+//  flags DAMAGEIGNORE
+//  types { HacxMonstruct }
+//}
+
+thingtype HacxMonstructShot : Mobj
+{
+  speed      20.0
+  radius     6.0
+  height     8.0
+  damage     5
+  cflags     NOBLOCKMAP|NOGRAVITY|DROPOFF|MISSILE|TRANSLUCENT|SPACMISSILE|TLSTYLEADD
+
+  seesound   "misc/projectilefire"
+  deathsound "misc/explode"
+
+  acs_spawndata
+  {
+    num   153
+    modes doom
+  }
+
+  states
+  @"
+  Spawn:
+    MONF AB 4 bright
+    loop
+  Death:
+    TORE AB 3 bright
+    TORE C 3 bright A_DetonateEx(80, 128)
+    TORE DE 5 bright
+    stop
+  "@
+}

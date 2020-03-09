@@ -50,7 +50,7 @@ class HacxBuzzer : Actor replaces Demon
     Death:
       BUZZ I 5 bright A_SetTranslucent(1.0,0);
       BUZZ J 5 bright A_Scream();
-      BUZZ K 5 bright A_SpawnProjectile("HacxBuzzerDamage", 32);
+      BUZZ K 5 bright A_Explode(80, 128, XF_NOTMISSILE|XF_THRUSTZ);
       BUZZ L 5 bright;
       BUZZ M 5 bright;
       BUZZ N -1 A_NoBlocking();
@@ -66,34 +66,12 @@ class HacxBuzzer : Actor replaces Demon
   }
 }
 
-class HacxBuzzerDamage : HacxProjectile
-{
-  Default
-  {
-    +THRUACTORS;
-    Damage 0;
-    Speed 0;
-    RenderStyle "None";
-  }
-
-  States
-  {
-    Spawn:
-      TNT1 A 0 BRIGHT;
-    Death:
-      TNT1 A 1 bright A_Explode(96,128,0);
-      Stop;
-  }
-}
-
 class HacxStealth : HacxBuzzer replaces Spectre
 {
   Default
   {
     hitobituary "$OB_STEALTH";
-    renderstyle "Stencil";
-    stencilcolor "00 00 00";
-    alpha 0.2;
+    renderstyle "Fuzzy";
     speed 8;
     health 30;
     painchance 250;
