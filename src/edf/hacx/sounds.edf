@@ -66,6 +66,15 @@ sound "android/death1"  { lump "dsanddt1"; pitchvariance Doom; }
 sound "android/death2"  { lump "dsanddt2"; pitchvariance Doom; }
 sound "android/gib"     { lump "dsandgib"; pitchvariance Doom; }
 
+sound "lurk/active1"    { lump "dslrkac1"; pitchvariance Doom; }
+sound "lurk/active2"    { lump "dslrkac2"; pitchvariance Doom; }
+sound "lurk/active"     { random { "lurk/active1", "lurk/active1" } }
+sound "lurk/melee"      { lump "dsphgmel"; pitchvariance Doom; }
+sound "lurk/pain"       { lump "dslrkpai"; pitchvariance Doom; }
+sound "lurk/death1"     { lump "dslrkdt1"; pitchvariance Doom; }
+sound "lurk/death2"     { lump "dslrkdt2"; pitchvariance Doom; }
+sound "lurk/death"      { random { "lurk/death1", "lurk/death2" } }
+
 sound "phage/sight"     { lump "dsphgsit"; pitchvariance Doom; }
 sound "phage/active"    { lump "dsphgact"; pitchvariance Doom; }
 sound "phage/attack"    { lump "dsphgatk"; pitchvariance Doom; }

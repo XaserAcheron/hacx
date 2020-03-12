@@ -26,6 +26,7 @@ include("edf/hacx/weapons/nuker.edf")
 include("edf/hacx/enemies/thug.edf")
 include("edf/hacx/enemies/android.edf")
 include("edf/hacx/enemies/phage.edf")
+include("edf/hacx/enemies/lurk.edf")
 include("edf/hacx/enemies/buzzer.edf")
 include("edf/hacx/enemies/monstruct.edf")
 

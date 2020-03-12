@@ -1,0 +1,90 @@
+/**
+ * HacX 2.0 - EDF
+ *
+ * Enemy: Lurk
+ */
+
+thingtype HacxLurk : Mobj, 3100
+{
+  basictype Monster
+
+  spawnhealth 60
+  speed       10
+  radius      20.0
+  height      56.0
+  mass        50
+  painchance  75
+  damage      5
+
+  activesound  "lurk/active"
+  painsound    "lurk/pain"
+  deathsound   "lurk/death"
+
+  obituary_normal "$OB_LURK"
+
+  states
+  @"
+  Spawn:
+    LURK A 10 A_Look()
+    loop
+  See:
+  Chase:
+    LURK AAABBCCCDD 2 A_Chase()
+    loop
+  Missile:
+    LURK EE 5 A_FaceTarget()
+    LURK F 5 bright A_MissileAttack(HacxLurkBall, normal, 0, 0, -1)
+    LURK GG 5 bright A_FaceTarget()
+    goto Chase
+  Melee:
+    LURK H 6 A_FaceTarget()
+    LURK I 6 A_PlaySoundEx("lurk/melee", auto)
+    LURK J 6 SargAttack()
+    goto Chase
+  Pain:
+    LURK K 3
+    LURK K 3 A_Pain()
+    goto Chase
+  Death:
+    LURK L 10 A_Scream()
+    LURK M 5
+    LURK N 5 A_Fall()
+    LURK O 5
+    LURK P -1
+    stop
+  "@
+}
+
+thingtype HacxLurkBall : Mobj
+{
+  speed      16.0
+  radius     13.0
+  height     4.0
+  damage     3
+  cflags     NOBLOCKMAP|NOGRAVITY|DROPOFF|MISSILE|TRANSLUCENT|SPACMISSILE|TLSTYLEADD
+
+  seesound   "misc/projectilefire";
+  deathsound "misc/projectilehit";
+
+  acs_spawndata
+  {
+    num   129
+    modes doom
+  }
+
+  states
+  @"
+  Spawn:
+    LRKB AB 4 bright
+    loop
+  Death:
+    LRKX ABCDE 5 bright
+    stop
+  "@
+}
+
+thinggroup HacxMutants
+{
+  flags ProjectileAlliance
+  types { HacxPhage, HacxLurk }
+}

@@ -37,7 +37,6 @@ thingtype HacxPhage : Mobj, 67
     PHAG G 10 A_Look()
     loop
   See:
-  Chase:
     PHAG AABB 4 A_Chase()
     loop
   Melee:
@@ -45,7 +44,7 @@ thingtype HacxPhage : Mobj, 67
     PHAG E 5 bright A_PlaySoundEx("phage/melee", auto)
     PHAG F 10 bright A_SkullAttack()
     PHAG D 10 A_Stop()
-    goto Chase
+    goto See
   Missile:
     PHAG G 0 A_PlaySoundEx("phage/attack", auto)
     PHAG H 10 A_FaceTarget()
@@ -57,11 +56,11 @@ thingtype HacxPhage : Mobj, 67
     PHAG H 5 A_FaceTarget()
     PHAG I 10 bright A_MissileAttack(HacxPhageBall, normal, 0, 0, -1)
     PHAG G 5 bright A_FaceTarget()
-    goto Chase
+    goto See
   Pain:
     PHAG J 3
     PHAG J 3 A_Pain()
-    goto Chase
+    goto See
   Death:
     PHAG K 5
     PHAG L 5 A_Scream()
