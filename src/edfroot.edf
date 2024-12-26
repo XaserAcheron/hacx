@@ -29,5 +29,6 @@ include("edf/hacx/enemies/phage.edf")
 include("edf/hacx/enemies/lurk.edf")
 include("edf/hacx/enemies/buzzer.edf")
 include("edf/hacx/enemies/monstruct.edf")
+include("edf/hacx/enemies/cyborg.edf")
 
 include("edf/hacx/items/ammo.edf")

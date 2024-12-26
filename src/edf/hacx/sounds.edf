@@ -44,69 +44,74 @@ sound "weapons/nuker"       { lump "dsnuker" ; pitchvariance Doom; }
 sound "weapons/nukehit"     { lump "dsnuboom"; pitchvariance Doom; }
 sound "weapons/nukerup"     { lump "dsnukrup"; pitchvariance Doom; }
 
-sound "thug/sight"   { random { "thug/sight1", "thug/sight2", "thug/sight3" } }
-sound "thug/death"   { random { "thug/death1", "thug/death2", "thug/death3" } }
-sound "thug/sight1"  { lump "dsthgsi1"; pitchvariance Doom; }
-sound "thug/sight2"  { lump "dsthgsi2"; pitchvariance Doom; }
-sound "thug/sight3"  { lump "dsthgsi3"; pitchvariance Doom; }
-sound "thug/active"  { lump "dsthgact"; pitchvariance Doom; }
-sound "thug/pain"    { lump "dsthgpai"; pitchvariance Doom; }
-sound "thug/death1"  { lump "dsthgdt1"; pitchvariance Doom; }
-sound "thug/death2"  { lump "dsthgdt2"; pitchvariance Doom; }
-sound "thug/death3"  { lump "dsthgdt3"; pitchvariance Doom; }
-sound "thug/aim"     { lump "dspiscok"; pitchvariance Doom; }
-sound "thug/attack"  { lump "dspistol"; pitchvariance Doom; }
+sound "thug/sight"          { random { "thug/sight1", "thug/sight2", "thug/sight3" } }
+sound "thug/death"          { random { "thug/death1", "thug/death2", "thug/death3" } }
+sound "thug/sight1"         { lump "dsthgsi1"; pitchvariance Doom; }
+sound "thug/sight2"         { lump "dsthgsi2"; pitchvariance Doom; }
+sound "thug/sight3"         { lump "dsthgsi3"; pitchvariance Doom; }
+sound "thug/active"         { lump "dsthgact"; pitchvariance Doom; }
+sound "thug/pain"           { lump "dsthgpai"; pitchvariance Doom; }
+sound "thug/death1"         { lump "dsthgdt1"; pitchvariance Doom; }
+sound "thug/death2"         { lump "dsthgdt2"; pitchvariance Doom; }
+sound "thug/death3"         { lump "dsthgdt3"; pitchvariance Doom; }
+sound "thug/aim"            { lump "dspiscok"; pitchvariance Doom; }
+sound "thug/attack"         { lump "dspistol"; pitchvariance Doom; }
 
-sound "android/death"   { random { "android/death1", "android/death2" } }
-sound "android/sight"   { lump "dsandsit"; pitchvariance Doom; }
-sound "android/active"  { lump "dsandact"; pitchvariance Doom; }
-sound "android/attack"  { lump "dstazer" ; pitchvariance Doom; }
-sound "android/pain"    { lump "dsandpai"; pitchvariance Doom; }
-sound "android/death1"  { lump "dsanddt1"; pitchvariance Doom; }
-sound "android/death2"  { lump "dsanddt2"; pitchvariance Doom; }
-sound "android/gib"     { lump "dsandgib"; pitchvariance Doom; }
+sound "android/death"       { random { "android/death1", "android/death2" } }
+sound "android/sight"       { lump "dsandsit"; pitchvariance Doom; }
+sound "android/active"      { lump "dsandact"; pitchvariance Doom; }
+sound "android/attack"      { lump "dstazer" ; pitchvariance Doom; }
+sound "android/pain"        { lump "dsandpai"; pitchvariance Doom; }
+sound "android/death1"      { lump "dsanddt1"; pitchvariance Doom; }
+sound "android/death2"      { lump "dsanddt2"; pitchvariance Doom; }
+sound "android/gib"         { lump "dsandgib"; pitchvariance Doom; }
 
-sound "lurk/active1"    { lump "dslrkac1"; pitchvariance Doom; }
-sound "lurk/active2"    { lump "dslrkac2"; pitchvariance Doom; }
-sound "lurk/active"     { random { "lurk/active1", "lurk/active1" } }
-sound "lurk/melee"      { lump "dsphgmel"; pitchvariance Doom; }
-sound "lurk/pain"       { lump "dslrkpai"; pitchvariance Doom; }
-sound "lurk/death1"     { lump "dslrkdt1"; pitchvariance Doom; }
-sound "lurk/death2"     { lump "dslrkdt2"; pitchvariance Doom; }
-sound "lurk/death"      { random { "lurk/death1", "lurk/death2" } }
+sound "lurk/active1"        { lump "dslrkac1"; pitchvariance Doom; }
+sound "lurk/active2"        { lump "dslrkac2"; pitchvariance Doom; }
+sound "lurk/active"         { random { "lurk/active1", "lurk/active1" } }
+sound "lurk/melee"          { lump "dsphgmel"; pitchvariance Doom; }
+sound "lurk/pain"           { lump "dslrkpai"; pitchvariance Doom; }
+sound "lurk/death1"         { lump "dslrkdt1"; pitchvariance Doom; }
+sound "lurk/death2"         { lump "dslrkdt2"; pitchvariance Doom; }
+sound "lurk/death"          { random { "lurk/death1", "lurk/death2" } }
 
-sound "phage/sight"     { lump "dsphgsit"; pitchvariance Doom; }
-sound "phage/active"    { lump "dsphgact"; pitchvariance Doom; }
-sound "phage/attack"    { lump "dsphgatk"; pitchvariance Doom; }
-sound "phage/melee"     { lump "dsphgmel"; pitchvariance Doom; }
-sound "phage/pain"      { lump "dsphgpai"; pitchvariance Doom; }
-sound "phage/death"     { lump "dsphgdth"; pitchvariance Doom; }
+sound "phage/sight"         { lump "dsphgsit"; pitchvariance Doom; }
+sound "phage/active"        { lump "dsphgact"; pitchvariance Doom; }
+sound "phage/attack"        { lump "dsphgatk"; pitchvariance Doom; }
+sound "phage/melee"         { lump "dsphgmel"; pitchvariance Doom; }
+sound "phage/pain"          { lump "dsphgpai"; pitchvariance Doom; }
+sound "phage/death"         { lump "dsphgdth"; pitchvariance Doom; }
 
-sound "buzzer/sight"    { lump "dsbuzsit"; pitchvariance Doom; }
-sound "buzzer/active"   { lump "dsbuzact"; pitchvariance Doom; }
-sound "buzzer/attack"   { lump "dsbuzatk"; pitchvariance Doom; }
-sound "buzzer/pain"     { lump "dsbuzpai"; pitchvariance Doom; }
-sound "buzzer/death"    { lump "dsexplod"; pitchvariance Doom; }
-sound "buzzer/disable"  { lump "dsanthit"; pitchvariance Doom; }
+sound "buzzer/sight"        { lump "dsbuzsit"; pitchvariance Doom; }
+sound "buzzer/active"       { lump "dsbuzact"; pitchvariance Doom; }
+sound "buzzer/attack"       { lump "dsbuzatk"; pitchvariance Doom; }
+sound "buzzer/pain"         { lump "dsbuzpai"; pitchvariance Doom; }
+sound "buzzer/death"        { lump "dsexplod"; pitchvariance Doom; }
+sound "buzzer/disable"      { lump "dsanthit"; pitchvariance Doom; }
 
-sound "monstruct/sight" { lump "dsmonsit"; pitchvariance Doom; }
-sound "monstruct/active"{ lump "dsmonact"; pitchvariance Doom; }
-sound "monstruct/attack"{ lump "dsmonpai"; pitchvariance Doom; }
-sound "monstruct/melee" { lump "dspistol"; pitchvariance Doom; }
-sound "monstruct/pain"  { lump "dsmonpai"; pitchvariance Doom; }
-sound "monstruct/death" { lump "dsmondth"; pitchvariance Doom; }
+sound "monstruct/sight"     { lump "dsmonsit"; pitchvariance Doom; }
+sound "monstruct/active"    { lump "dsmonact"; pitchvariance Doom; }
+sound "monstruct/attack"    { lump "dsmonpai"; pitchvariance Doom; }
+sound "monstruct/melee"     { lump "dspistol"; pitchvariance Doom; }
+sound "monstruct/pain"      { lump "dsmonpai"; pitchvariance Doom; }
+sound "monstruct/death"     { lump "dsmondth"; pitchvariance Doom; }
 
-sound "misc/gibbed"     { lump "dsgibbed"; pitchvariance Doom; }
-sound "slop"            { alias "misc/gibbed"; }
+sound "mecha/sight"         { lump "dsmeksit"; pitchvariance Doom; }
+sound "mecha/walk"          { lump "dsmekwlk"; pitchvariance Doom; }
+sound "mecha/pain"          { lump "dsmekpai"; pitchvariance Doom; }
+sound "mecha/death"         { lump "dsmekdth"; pitchvariance Doom; }
+
+sound "misc/gibbed"         { lump "dsgibbed"; pitchvariance Doom; }
+sound "slop"                { alias "misc/gibbed"; }
 
 sound "misc/projectilefire" { lump "dsprjfir"; pitchvariance Doom; }
 sound "misc/projectilehit"  { lump "dsprjhit"; pitchvariance Doom; }
 
-sound "misc/explode"    { lump "dsexplod"; pitchvariance Doom; }
-sound "misc/explode2"   { lump "dsexplo2"; pitchvariance Doom; }
-sound "misc/nuke"       { lump "dsnuboom"; pitchvariance Doom; }
+sound "misc/explode"        { lump "dsexplod"; pitchvariance Doom; }
+sound "misc/explode2"       { lump "dsexplo2"; pitchvariance Doom; }
+sound "misc/nuke"           { lump "dsnuboom"; pitchvariance Doom; }
 
-sound "misc/pulse"      { lump "dspulse" ; pitchvariance Doom; }
-sound "misc/fireball"   { lump "dsanthit"; pitchvariance Doom; }
-sound "misc/smash"      { lump "dssmash" ; pitchvariance Doom; }
-sound "misc/shatter"    { lump "dshatter"; pitchvariance Doom; }
+sound "misc/pulse"          { lump "dspulse" ; pitchvariance Doom; }
+sound "misc/fireball"       { lump "dsanthit"; pitchvariance Doom; }
+sound "misc/smash"          { lump "dssmash" ; pitchvariance Doom; }
+sound "misc/shatter"        { lump "dshatter"; pitchvariance Doom; }

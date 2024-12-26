@@ -1,0 +1,112 @@
+/**
+ * HacX 2.0 - ZScript
+ *
+ * Enemy: Cyborg (Mecha Maniac)
+ */
+
+thingtype HacxCyborg : Mobj, 69
+{
+  basictype Monster
+
+  spawnhealth 600
+  speed       8
+  radius      24.0
+  height      96.0
+  mass        1000
+  painchance  40
+
+  seesound   "mecha/sight"
+  painsound  "mecha/pain"
+  deathsound "mecha/death"
+
+  obituary_normal "$OB_MANIAC"
+
+  acs_spawndata
+  {
+    num   113
+    modes hacx
+  }
+
+  // TODO: missile x-offsets
+
+  states
+  @"
+  Spawn:
+    MECH E 10 A_Look()
+    loop
+  See:
+    MECH AAAABBB 2 A_Chase()
+    MECH B 0 A_PlaySoundEx("mecha/walk", body)
+    MECH CCCCDDD 2 A_Chase()
+    MECH D 0 A_PlaySoundEx("mecha/walk", body)
+    loop
+  Melee:
+  Missile:
+    MECH EE 4 bright A_FaceTarget()
+  MissileLoop:
+    MECH E 4 bright A_FaceTarget()
+    MECH F 2 bright A_MissileAttack(HacxCyborgShot, normal, 16, 0, -1)
+    MECH GE 2 bright A_FaceTarget()
+    MECH H 2 bright A_MissileAttack(HacxCyborgShot, normal, 16, 0, -1)
+    MECH IE 2 bright A_FaceTarget()
+    MECH E 0 A_SpidRefire()
+    Loop
+  Pain:
+    MECH J 3
+    MECH J 3 A_Pain()
+    goto See
+  Death:
+    MECH K 6 bright A_Scream()
+    MECH L 6 bright A_PlaySoundEx("misc/explode2", body)
+    MECH M 6 bright
+    MECH N 6 bright A_Fall()
+    MECH OP 6 bright
+    MECH Q -1
+    stop
+  Raise:
+    MECH PONMLK 6
+    goto See
+  "@
+}
+
+thingtype HacxCyborgShot
+{
+  seesound   "weapons/antigun";
+  deathsound "weapons/antigunhit";
+  speed      25.0
+  radius     13.0
+  height     8.0
+  damage     5
+  cflags     NOBLOCKMAP|NOGRAVITY|DROPOFF|MISSILE|NOCROSS|SPACMISSILE
+  mod        HacxCyborg
+
+  acs_spawndata
+  { 
+    num   154
+    modes hacx
+  }
+
+  states
+  @"
+  Spawn:
+    MOLS AABB 1 bright A_SpawnEx(HacxCyborgTrail)
+    loop
+  Death:
+    MOLE ABCD 3 bright
+    stop
+  "@
+}
+
+thingtype HacxCyborgTrail
+{
+  cflags         NOBLOCKMAP|NOGRAVITY|SYNCHRONIZED|NORANDOMIZE
+  translucency   80%
+  alphavelocity -0.2
+
+  states
+  @"
+  Spawn:
+    MOLS ABAB 1 bright
+    stop
+  "@
+}
